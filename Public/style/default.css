@@ -1,0 +1,64 @@
+/*common*/
+* {font-family:"Microsoft YaHei";font-size:12px;margin:0px;padding:0px;color:#666666;}
+body {background-color:#ebebed;}
+html{_text-overflow:ellipsis;} 
+a {text-decoration:none;outline:0 none;blr:expression(this.onFocus=this.blur());}
+a img {border:0;vertical-align:bottom;}
+.none {display:none;}
+.hidden {visibility:hidden;}
+.fl {float:left;}
+.fr {float:right;}
+.clear {clear:both;}
+.relative {position:relative;}
+.bold {font-weight:bold;}
+.mt5 {margin-top:5px;}
+.mr5 {margin-right:5px;}
+.ml5 {margin-left:5px;}
+.mb5 {margin-bottom:5px;}
+.ml10 {margin-left:10px;}
+.mt10 {margin-top:10px;}
+.mr10 {margin-right:10px;}
+.mb10 {margin-bottom:10px;}
+.ml15 {margin-left:15px;}
+.mt15 {margin-top:15px;}
+.mr15 {margin-right:15px;}
+.mb15 {margin-bottom:15px;}
+.mt20 {margin-top:20px;}
+.ml20 {margin-left:20px;}
+.mr20 {margin-right:20px;}
+.mb20 {margin-bottom:20px;}
+.mt25 {margin-top:25px;}
+.mb25 {margin-bottom:25px;}
+.ml25 {margin-left:25px;}
+.ml30 {margin-left:30px;}
+.mt30 {margin-top:30px;}
+.mr30 {margin-right:30px;}
+.ml35 {margin-left:35px;}
+.mt35 {margin-top:35px;}
+.mr50 {margin-right:50px;}
+.ml40 {margin-left:40px;}
+.ml50 {margin-left:50px;}
+.ml60 {margin-left:60px;}
+.ml80 {margin-left:80px;}
+.fs9 {font-size:9px;}
+.fs10 {font-size:10px;}
+.fs12 {font-size:12px;}
+.fs14 {font-size:14px;}
+.fs16 {font-size:16px;}
+.fs18 {font-size:18px;}
+.fs20 {font-size:20px;}
+.fs24 {font-size:24px;}
+.fs30 {font-size:30px;}
+.center {text-align:center;}
+.text-left {text-align:left;}
+.text-right {text-align:right;}
+.cursor {cursor:pointer;}
+.png {}
+
+/* base */
+.container {margin-left:auto;margin-right:auto;width:980px;padding:10px; 7px 0 7px;}
+
+/* icbc */
+.icbc .input_table td {padding:10px;font-size:24px;}
+.icbc .input_table td input {padding:2px;font-size:22px;}
+.icbc .btn_submit {border:0px;width:117px;height:49px;background:url(http://static.andaijia.com/public/images/activity/icbc/btn_submit.gif) no-repeat transparent;}
