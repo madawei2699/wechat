@@ -1,0 +1,101 @@
+@CHARSET "UTF-8";
+html, body {
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+	-webkit-text-size-adjust:none;
+}
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+input, select {
+	font-size: 1.2em;
+}
+.srvs {
+	margin-left:1em;
+	margin-right:1em;
+}
+.wrap {
+	width: 640px;
+	height: auto;
+	min-height: 10px;
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+}
+.mt5 {
+	margin-top: 5px;
+}
+.wrap table {
+	background-color: #f2f2f2;
+}
+.pt10 {
+	padding-top: 10px;
+}
+.pt30 {
+	padding-top: 30px;
+}
+.acenter {
+	text-align: center;
+}
+.fs0 {
+	font-size: 1em;
+}
+.fs-1 {
+	font-size: .6em;
+}
+.fs1 {
+	font-size: 2em;
+}
+.fs2 {
+	font-size: 2.2em;
+}
+.fs3 {
+	font-size: 1.8em;
+}
+.fs4 {
+	font-size: 1.4em;
+}
+.fs5 {
+	font-size: 2.8em;
+}
+.color0 {
+	color: #ffffff;
+}
+.color1 {
+	color: #000000;
+}
+.color2 {
+	color: #00bbff;
+}
+.color3 {
+	color: #ff9a00;
+}
+.color4 {
+	color: #919499;
+}
+.wrap p {
+	font-size: 1em;
+	margin: 1em;
+	text-indent: 2em;
+	line-height: 1.6em;
+}
+.wrap span {
+	font-size: 1em;
+	line-height: 1.6em;
+}
+.hotline {
+	float: left;
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	background-image: url(/Public/images/icon_phone.png);
+	background-repeat: no-repeat;
+	background-position: 12% center;
+	background-color: #00bbff;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 2.8em;
+}

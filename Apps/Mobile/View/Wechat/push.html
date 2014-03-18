@@ -1,0 +1,34 @@
+<include file="Public:html"/>
+<meta charset="utf-8" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="yes" name="apple-touch-fullscreen" />
+<meta content="telephone=no" name="format-detection" />
+<meta id="viewport" name="viewport" content="width=device-width; initial-scale=0.5; maximum-scale=0.5; " />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>熔意®精选推送</title>
+<include file="Public:style"/>
+</head>
+<body>
+<div class="wrap">
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+	<td class="fs2 color4">
+	<img src="/Public/images/wechat/w15.png" border="0" />
+	<p>精选推送</p>
+	</td>
+</tr>
+<tr>
+<td><include file="Public:phone"/></td>
+</tr>
+</table>
+</div>
+<script type="text/javascript">
+try {
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		WeixinJSBridge.call('hideToolbar');
+		WeixinJSBridge.call('hideOptionMenu');
+	});
+} catch(e) {};
+</script>
+</body>
+</html>

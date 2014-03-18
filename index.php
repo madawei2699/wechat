@@ -16,14 +16,16 @@ $mapping = array(
 		'116' => 'Shop',
 		'114' => 'Mobile',
 		'118' => 'Control',
+		'120' => 'Wechat',
 	),
 	'REMOTE' => array(
 		'f-fusion.com'      => 'Web',
 		'www.f-fusion.com'  => 'Web',
-		'api.f-fusion.com'  => 'Api',
-		'shop.f-fusion.com' => 'Shop',
+		'a.f-fusion.com'    => 'Api',
+		's.f-fusion.com'    => 'Shop',
 		'm.f-fusion.com'    => 'Mobile',
 		'c.f-fusion.com'    => 'Control',
+		'w.f-fusion.com'    => 'Wechat',
 	),
 );
 // process
