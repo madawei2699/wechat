@@ -1,5 +1,6 @@
 <?php
 namespace Control\Controller;
+
 use Think\Controller;
 
 /**
@@ -26,36 +27,26 @@ class IndexController extends BaseController {
      * 登录动作
      */
     function signin() {
-    	if (IS_POST) {
-    		$userName = I('post.user');
-    		$userPass = I('post.password');
-    		$result = $this->varifyPassword($userName, $userPass);
-    		dump($result);
-    		echo 'is_post';
-    		
-    		// 确定当前用户实际所在城市
-    		$r = Org\Net\Curl::get('http://127.0.0.1:112/place/ip2city?ip='.$ip, 10);
-    		if (array_key_exists('result', $r)) {
-    			$info = $r['result'];
-    			$info = json_decode($info, true);
-    			if ($info) {
-    				$abscity = $info['content']['address_detail']['city'];
-    				if ($abscity != '') {
-    					session('admin_abscity', mb_substr($abscity, 0, 2, 'UTF-8'));
-    					session('admin_lng', $info['content']['point']['x']);
-    					session('admin_lat', $info['content']['point']['y']);
-    				};
-    			};
-    		};
-    		
-    		session('admin_id', $admin->admin_id);
-    		session('admin_name', $admin->admin_name);
-    		session('admin_password_time', $admin_password_time);
-    		session('admin_role_id', $roleID);
-    		session('admin_role', $role);
-    		session('admin_expire', time()+parent::EXPIRE);
+    	if (!IS_POST) return;
+    	
+    	$userName = I('post.user');
+    	$userPass = I('post.password');
+    	$verify   = I('post.verify');
+    	if ($verify == '') {
+    		$this->error('请填写验证码！', '/');
     		return;
     	};
-    	echo 'no';
+    	$verify = md5($verify);
+    	if (strcmp($verify, session('CONTROL_VRERIFY')) != 0) {
+    		$this->error('验证码错误！', '/');
+    		return;
+    	};
+    	$result = $this->varifyPassword($userName, $userPass);
+    	if (!$result) {
+    		$this->error('用户名或密码错误！', '/');
+    		return;
+    	};
+    	$this->success('登录成功', '/frame');
+    	// 需要判断角色，根据角色限制权限
     }
 }

@@ -1,0 +1,25 @@
+<div class="space-15"></div>
+<div class="wrap height-60">
+	<div class="fl width-315 height-60 color-bg-white top">{$WEB_EXT_CFG.STRING_FLAG1}</div>
+	<div class="fl width-520 height-60">
+		<ul class="exp1">
+		<volist name="WEB_EXT_CFG.MENU_SITE" id="ITEM">
+		<li><a href="{$ITEM.URL}" title="{$ITEM.NAME}">{$ITEM.NAME}</a></li>
+		</volist>
+		</ul>
+	</div>
+	<div class="fr height-60 q">Search<input type="text" name="q" id="q" />?</div>
+</div>
+<div class="clear">&nbsp;</div>
+<div class="wrap height-60 color-bg-white">
+	<div class="fl width-315 height-60 text-align-center padding-top-10">
+		<a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img src="/public/images/logo.png" border="0" alt="{$WEB_EXT_CFG.STRING_SITE_TITLE}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}" /></a>
+	</div>
+	<div class="fl width-670 height-60">
+		<ul class="exp2">
+		<volist name="WEB_EXT_CFG.MENU_CATEGORY" id="ITEM">
+		<li><a href="{$ITEM.URL}" title="{$ITEM.NAME}">{$ITEM.NAME}</a></li>
+		</volist>
+		</ul>
+	</div>
+</div>

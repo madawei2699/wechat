@@ -1,15 +1,22 @@
 <?php
 namespace Web\Controller;
+
 use Think\Controller;
+use Common\Controller\BaseController;
 
 /**
- * 项目案例
+ * 网站页面控制器类
  * @author guanxuejun
  *
  */
 class ProjectController extends Controller {
+	function __construct() {
+		parent::__construct();
+	}
+	
     function index(){
-		$this->display();
+    	$this->assign('WEB_EXT_CFG', C('WEB_EXT_CFG'));
+		$this->display('index/project');
     }
     
     /**
