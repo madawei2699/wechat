@@ -1,5 +1,5 @@
 <?php
-namespace Vshop\Controller;
+namespace Vcontrol\Controller;
 
 use Think\Controller;
 use Common\Controller\BaseController;
