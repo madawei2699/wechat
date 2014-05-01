@@ -11,6 +11,7 @@ define('APP_PATH','./Apps/');
 // 定义模块绑定
 $mapping = array(
 	'LOCAL' => array(
+		'106' => 'Vshop',
 		'108' => 'Web',
 		'112' => 'Api',
 		'116' => 'Shop',
@@ -19,12 +20,13 @@ $mapping = array(
 		'120' => 'Wechat',
 		'121' => 'Admin',
 		'122' => 'Site',
-		'100' => 'Site',
-		'105' => 'Site',
+		'100' => 'Crm',
+		'105' => 'Erp',
 	),
 	'REMOTE' => array(
 		'f-fusion.com'      => 'Web',
 		'www.f-fusion.com'  => 'Web',
+		'v.f-fusion.com'    => 'Vshop',
 		'a.f-fusion.com'    => 'Api',
 		's.f-fusion.com'    => 'Shop',
 		'm.f-fusion.com'    => 'Mobile',
