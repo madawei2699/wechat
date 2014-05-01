@@ -3,6 +3,7 @@ namespace Mobile\Controller;
 
 use Think\Controller;
 use Org\Net\Curl;
+use Org\Util\QRcode;
 use Common\Controller\BaseController;
 
 /**
@@ -103,5 +104,25 @@ class WechatController extends BaseController {
      */
     function contact() {
     	$this->display();
+    }
+    
+    /**
+     * OK QRCode
+     * http://127.0.0.1:114/wechat/qr
+     * http://m.f-fusion.com/wechat/qr
+     */
+    function qr(){
+    	$text = 'BEGIN:VCARD
+VERSION:4.0
+ORG:上海熔意网络科技有限公司
+TITLE:技术总监
+ADR:上海市闵行区梅陇西路413号311室
+URL:http://www.f-fusion.com
+TEL;TYPE=cell:13916615867
+TEL;TYPE=cell:13182081166
+EMAIL:guanxuejun@f-fusion.com
+N:管雪军
+END:VCARD';
+    	QRcode::png($text);
     }
 }

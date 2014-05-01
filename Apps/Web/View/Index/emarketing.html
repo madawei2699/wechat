@@ -15,14 +15,24 @@ $(document).ready(function () {
 			isAnimated   : true,
 		});
 	});
+	var imgpos = $('img[rel="sliders"]:first').position();
+	$('#float-wechat').css({
+		'left': imgpos.left+885,
+		'top': imgpos.top+55
+	}).fadeIn();
+	$(window).resize(function () {
+		$('#float-wechat').css({
+			'left': imgpos.left+885,
+			'top': imgpos.top+55
+		}).fadeIn();
+	});
 });
 </script>
 </head>
 <body>
 <include file="Public:exp"/>
 <div class="wrap height-12"></div>
-<div class="wrap height-270"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img src="/public/images/slider1.jpg" border="0" /></a></div>
-<div class="wrap height-12"></div>
+<div class="wrap height-170"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img rel="sliders" src="/public/images/slider1.jpg" border="0" width="1000" height="170" /></a></div>
 <div class="wrap color-bg-white">
 	<ul class="exp3">
 	<li><a href="/multimarketing" title="整合营销">金融行业</a></li>

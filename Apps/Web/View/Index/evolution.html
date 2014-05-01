@@ -7,13 +7,16 @@
 <include file="Public:scripts"/>
 <script type="text/javascript">
 $(document).ready(function () {
-	var $container = $('#masonry');
-	$container.imagesLoaded(function(){
-		$container.masonry({
-			itemSelector : '.box',
-			gutterWidth  : 10,
-			isAnimated   : true,
-		});
+	var imgpos = $('img[rel="sliders"]:first').position();
+	$('#float-wechat').css({
+		'left': imgpos.left+885,
+		'top': imgpos.top+55
+	}).fadeIn();
+	$(window).resize(function () {
+		$('#float-wechat').css({
+			'left': imgpos.left+885,
+			'top': imgpos.top+55
+		}).fadeIn();
 	});
 });
 </script>
@@ -21,84 +24,37 @@ $(document).ready(function () {
 <body>
 <include file="Public:exp"/>
 <div class="wrap height-12"></div>
-<div class="wrap height-270"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img src="/public/images/slider1.jpg" border="0" /></a></div>
-<div class="wrap height-12"></div>
+<div class="wrap height-170"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img rel="sliders" src="/public/images/slider1.jpg" border="0" width="1000" height="170" /></a></div>
 <div class="wrap color-bg-white">
-	<ul class="exp3">
-	<li><a href="/multimarketing" title="整合营销">金融行业</a></li>
-	<li><a href="/multimarketing" title="食品餐饮">食品餐饮</a></li>
-	<li><a href="/multimarketing" title="家居建材">家居建材</a></li>
-	<li><a href="/multimarketing" title="时尚服饰">时尚服饰</a></li>
-	<li><a href="/multimarketing" title="城市形象">城市形象</a></li>
-	<li><a href="/multimarketing" title="机械制造">机械制造</a></li>
-	<li><a href="/multimarketing" title="工业材料">工业材料</a></li>
-	<li><a href="/multimarketing" title="建筑行业">建筑行业</a></li>
-	</ul>
-	<div class="clear">&nbsp;</div>
-	<div id="masonry">
-		<div class="box">
-			<h1><a href="#">习近平再提中共进京赶考：向人民交优异答卷</a></h1>
-			<div><a href="#"><img src="/public/images/box1.png" border="0" /></a></div>
-			<p>1站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
+	<div class="wrap height-12"></div>
+	<table width="940" align="center" border="0">
+	<tr>
+		<td>
+		<div class="cts"><h2 class="flag-head">品牌进化论</h2></div>
+		<div class="cts">
+<p>一、理论概要：</p>
+<p>基于对家居建材、电器、食品、餐饮、机械、建筑等13个行业、68个品牌，持续6年的跟踪研究，我们找到了企业成长的一些普遍规律。这些规律因行业、地域、政策、初创时代、创始人、消费群及供应链的不同而有所差异，但基本反应了一个品牌从孵化开始，到成为大鳄的应有进程。</p>
+<p>我们发现了一个有趣的现象，成功品牌的发展历程，和生物的进化轨迹有着惊人的相似，因而我们将这个规律称为“品牌进化”。</p>
+<p>我们知道物种在进化中遵循两个无可逃避的法则：适者生存、弱肉强食，于品牌来说也是如此。没有一个品牌是孤立存在的，他们都处于一个或大或小的生态系统中，这个系统里有天敌、有食物、有合作狩猎的同伴，也有虎视眈眈的竞争对手。品牌就像自然界的某个物种，在生长进程中无时不刻地受到大环境的影响。同时，从内部看，每个品牌又有着自己独特的基因，如规模、渠道、供应链、消费群甚至创始人的性格，这些基因同样影响着品牌的进化进程和方式。</p>
+<p>生物进化是为了更好地生存和壮大自己，就如老虎为了掠食进化出尖利的爪牙、蝙蝠为了夜行进化出声波定位。同理，品牌为了生存和壮大，也必须进化出独特的生长方式，以便在和同行的竞争中获取优势。</p>
+<p>但是进化并不是凭空想象，很多“营销大师”把精力集中于“找市场空白”、“想奇妙点子”，却忽略了品牌进化是个系统工程。</p>
+<p>老鼠的基因决定了它的体型极小，无论进化出多锋利的爪牙和多强健的肌肉都无法成为老虎的竞争对手，所以它改变了策略，进化出极强的繁殖力和环境适应力，最终成为排在人类之后的第二大哺乳动物种群。</p>
+<p>从老鼠的策略选择中我们不难发现，它首先明白自身基因的优劣势，聪明地避开了“进化陷阱”——没有选择模仿老虎的进化方式，又根据生态环境、竞争对手、天敌等因素找到了自身繁衍的最佳途径，而这恰恰是品牌进化论的核心所在。</p>
+<p>所以品牌进化论就是帮助品牌通过审视自身基因条件、观察市场生态、洞悉竞争对手，来找准定位、清晰策略、明确方向、规划进程并最终实施落地的系统工具。我们希望在市场这个“大生态”中，帮助更多的品牌避开成长陷阱，找到适合自身发展的可持续道路。</p>
+<p>而这正是我们研究和实践的意义所在。</p>
+<p>熔意品牌传播机构对“品牌进化”的研究，并非企图打造一个哗众取宠的理论，而是试图将一个复杂的品牌运营理论，通过一个形象的比喻，使之更容易为企业实际运营者所理解并接受。</p>
+<p>二、品牌生态</p>
+<p><img src="/public/images/e1.png" border="0" /></p>
+<p>生态链中的任意生物，都会受整个生态系统的影响。大气候的改变、同类的增多、天敌的增强、食物的减少，都会迫使生物改变自身，以适应环境。品牌亦是如此。构成品牌生态的要素主要有行业环境（大气候）、竞争对手（同类）、消费者（食物）、潜在风险（天敌）。</p>
+<p>品牌生态的研究，可以从宏观上分析品牌定位及差异化的空间，同时当市场环境、竞争对手、消费者需求变化时，为品牌策略的及时调整提供依据。</p>
+<p>三、品牌基因</p>
+<p><img src="/public/images/e2.png" border="0" /></p>
+<p>没有一个品牌的发展方式是相同的，也没有一种营销方法可以放之四海而皆准，皆因每个品牌都有其独特的基因。品牌基因包括核心产品（服务）、营销模式、品牌资源、形象体验、渠道、消费群六大要素。</p>
+<p>品牌基因的分析，是品牌定位、差异化策略及核心营销模式建设的基本前提，也是品牌推广和传播策略基础。</p>
 		</div>
-		<div class="box">
-			<h1><a href="#">郁金香新品以彭丽媛命名</a></h1>
-			<div><a href="#"><img src="/public/images/box2.jpg" border="0" /></a></div>
-			<p>2当地时间3月22日，荷兰阿姆斯特丹王宫，习近平主席和夫人彭丽媛身着中式服装，出席威廉-亚历山大国王举行的盛大国宴。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">习近平着中式服装赴宴</a></h1>
-			<div><a href="#"><img src="/public/images/box3.jpg" border="0" /></a></div>
-			<p>3荷兰当地时间23日下午，在一个农业与食品的技术和科技成果的展示会中，将举行一个特别的仪式：将有一个荷兰郁金香的新品种以“彭丽媛”的名字命名。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">李克强：促进节能减排低碳发展</a></h1>
-			<div><a href="#"><img src="/public/images/box4.jpg" border="0" /></a></div>
-			<p>43月21日，中共中央政治局常委、国务院总理李克强主持召开节能减排及应对气候变化工作会议，推动落实《政府工作报告》，促进节能减排和低碳发展，研究应对气候变化相关工作。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马方：法国卫星也在搜索区域发现可疑物</a></h1>
-			<div><a href="#"><img src="/public/images/box5.jpg" border="0" /></a></div>
-			<p>5据外电报道，马来西亚交通部23日发表声明，声明称今日早些时候马方收到了法国卫星在印度洋搜索区域拍摄到的图像，图像中有漂浮物体。该物体在南部走廊区域，马来西亚方面立即将相关图片发送到了澳大利亚搜救协调中心。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马来警方称机长曾与神秘女通话系猜测</a></h1>
-			<div><a href="#"><img src="/public/images/box6.jpg" border="0" /></a></div>
-			<p>6据马来西亚《新海峡时报》报道，马来西亚警方23日否认了此前关于“MH370机长起飞前曾与神秘女子通话”的报道，称“这只是猜测”，具体的调查仍在进行中。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">米歇尔攀登慕田峪长城 或为奥巴马“探路”</a></h1>
-			<p>7站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">习近平再提中共进京赶考：向人民交优异答卷</a></h1>
-			<p>8站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">郁金香新品以彭丽媛命名</a></h1>
-			<p>9当地时间3月22日，荷兰阿姆斯特丹王宫，习近平主席和夫人彭丽媛身着中式服装，出席威廉-亚历山大国王举行的盛大国宴。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">习近平着中式服装赴宴</a></h1>
-			<p>10荷兰当地时间23日下午，在一个农业与食品的技术和科技成果的展示会中，将举行一个特别的仪式：将有一个荷兰郁金香的新品种以“彭丽媛”的名字命名。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">李克强：促进节能减排低碳发展</a></h1>
-			<p>113月21日，中共中央政治局常委、国务院总理李克强主持召开节能减排及应对气候变化工作会议，推动落实《政府工作报告》，促进节能减排和低碳发展，研究应对气候变化相关工作。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马方：法国卫星也在搜索区域发现可疑物</a></h1>
-			<p>12据外电报道，马来西亚交通部23日发表声明，声明称今日早些时候马方收到了法国卫星在印度洋搜索区域拍摄到的图像，图像中有漂浮物体。该物体在南部走廊区域，马来西亚方面立即将相关图片发送到了澳大利亚搜救协调中心。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马来警方称机长曾与神秘女通话系猜测</a></h1>
-			<p>13据马来西亚《新海峡时报》报道，马来西亚警方23日否认了此前关于“MH370机长起飞前曾与神秘女子通话”的报道，称“这只是猜测”，具体的调查仍在进行中。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">米歇尔攀登慕田峪长城 或为奥巴马“探路”</a></h1>
-			<p>14站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
-		</div>
-	</div>
+		</td>
+	</tr>
+	</table>
 	<div class="tips">{$WEB_EXT_CFG.STRING_FLAG2}</div>
 	<div class="clear">&nbsp;</div>
 </div>

@@ -1,0 +1,461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery缓慢弹出下拉导航</title>
+<style>
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;text-decoration:none;}
+body{ font: 12px/180% Arial, Helvetica, sans-serif, "新宋体"; background-color: #E8E8E8; }
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{display:inline-table}
+*html .clearfix{height:1%}
+.clearfix{display:block}
+*+html .clearfix{min-height:1%}
+/* nav_menu */
+.nav_menu{ height: 42px; background-color: #333333; }
+.nav{width:1006px;height:41px;position:relative;margin:0 auto;}
+.nav .list li{float:left;}
+.nav .list a{float:left;display:block;width:125px;height:42px;text-align:center;font:bold 13px/36px "微软雅黑";color:#fff;}
+.nav .list a:hover{color:#FFA304;}
+.nav .list a:hover,.nav .list .now{color:#F00;background:#fff;}
+.nav .box{position:absolute;left:-5px;top:42px;width:1006px;background:#FFF;overflow:hidden;height:0;filter:alpha(opacity=0);opacity:0;border-bottom:2px solid #074c52;}
+.nav .cont{position:relative;padding:25px 0 0px 24px;}
+/* sublist */
+.sublist li{float:left;width:168px;padding-right:24px;padding-bottom:24px;}
+.sublist li h3.mcate-item-hd{font-family:'微软雅黑';padding-left:2px;font-size:14px;height:26px;line-height:26px;border-bottom:1px dashed #666666;}
+.sublist li p.mcate-item-bd{padding-left:2px;}
+.sublist li p.mcate-item-bd a{height:26px;line-height:26px;margin-right:5px;font-size:12px;color:#666666;text-decoration:none;display:inline-block;}
+.sublist li p.mcate-item-bd a:hover{color:#6c5143;text-decoration:underline;}
+</style>
+<script type="text/javascript" src="/public/js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<div class="nav_menu">
+	<div class="nav">
+		<div class="list" id="navlist">
+			<ul id="navfouce">
+				<li><a href="/">公司概况</a></li>   
+				<li><a href="/">产品展示</a></li>   
+				<li><a href="/">新闻动态</a></li>
+				<li><a href="/">营销网络</a></li>
+				<li><a href="/">照明知识</a></li>   
+				<li><a href="/">人力资源</a></li>   
+				<li><a href="/">客服中心</a></li>   
+				<li><a href="/">联系我们</a></li>
+			</ul>
+		</div>
+		<div class="box" id="navbox" style="height:0px;opacity:0;overflow:hidden;">
+			<div class="cont" style="display:none;">
+				<ul class="sublist clearfix">
+					<li>
+						<h3 class="mcate-item-hd"><span>服饰内衣</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">女装</a>
+							<a href="/">男装</a>
+							<a href="/">内衣</a>
+							<a href="/">家居服</a>
+							<a href="/">配件</a>
+							<a href="/">羽绒</a>
+							<a href="/">呢大衣</a>
+							<a href="/">毛衣</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>鞋 箱包</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">女鞋</a>
+							<a href="/">男鞋</a>
+							<a href="/">箱包</a>
+							<a href="/">女包</a>
+							<a href="/">男包</a>
+							<a href="/">旅行箱</a>
+							<a href="/">钱包 </a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>珠宝、手表</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">饰品</a>
+							<a href="/">项链</a>
+							<a href="/">珠宝</a>
+							<a href="/">钻石</a>
+							<a href="/">手表</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>化妆品</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">护肤</a>
+							<a href="/">彩妆</a>
+							<a href="/">香水</a>
+							<a href="/">男士</a>
+							<a href="/">精油</a>
+							<a href="/">假发</a>
+							<a href="/">美体</a>
+							<a href="/">试用服务</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>运动 户外</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">运动鞋</a>
+							<a href="/">运动服</a>
+							<a href="/">运动用品</a>
+							<a href="/">户外</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>手机 数码</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">手机</a>
+							<a href="/">笔记本</a>
+							<a href="/">相机</a>
+							<a href="/">平板电脑</a>
+							<a href="/">配件</a>
+							<a href="/">电脑硬件</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>家用电器</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">大家电</a>
+							<a href="/">影音电器</a>
+							<a href="/">生活电器</a>
+							<a href="/">厨房电器</a>
+							<a href="/">健康护理</a>
+							<a href="/">剃须刀</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>家具 建材</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">家具</a>
+							<a href="/">卫浴</a>
+							<a href="/">地板</a>
+							<a href="/">灯具</a>
+							<a href="/">五金</a>
+							<a href="/">开关</a>
+							<a href="/">装修设计</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>家纺 居家</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">家纺</a>
+							<a href="/">磨毛套件</a>
+							<a href="/">羽绒被</a>
+							<a href="/">枕头</a>
+							<a href="/">软饰</a>
+							<a href="/">居家</a>
+							<a href="/">厨房</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>食品</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">零食</a>
+							<a href="/">进口</a>
+							<a href="/">茶叶</a>
+							<a href="/">冲饮</a>
+							<a href="/">酒水</a>
+							<a href="/">粮油</a>
+							<a href="/">干货</a>
+							<a href="/">生鲜</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>医药保健</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">保健</a>
+							<a href="/">滋补</a>
+							<a href="/">蛋白粉</a>
+							<a href="/">阿胶</a>
+							<a href="/">药品</a>
+							<a href="/">血压仪</a>
+							<a href="/">计生</a>
+							<a href="/">体检</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>母婴用品</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">玩具</a>
+							<a href="/">宝宝食品</a>
+							<a href="/">用品</a>
+							<a href="/">童装</a>
+							<a href="/">孕装</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>汽车 配件</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">新车</a>
+							<a href="/">座垫</a>
+							<a href="/">脚垫</a>
+							<a href="/">GPS</a>
+							<a href="/">车衣</a>
+							<a href="/">洗车机</a>
+							<a href="/">水枪</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>文化 玩乐</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">电子凭证</a>
+							<a href="/">图书</a>
+							<a href="/">乐器</a>
+							<a href="/">旅游</a>
+							<a href="/">鲜花</a>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div class="cont" style="display:none;">
+				<ul class="sublist clearfix">
+					<li>
+						<h3 class="mcate-item-hd"><span>服饰内衣</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">女装</a>
+							<a href="/">男装</a>
+							<a href="/">内衣</a>
+							<a href="/">家居服</a>
+							<a href="/">配件</a>
+							<a href="/">羽绒</a>
+							<a href="/">呢大衣</a>
+							<a href="/">毛衣</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>鞋 箱包</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">女鞋</a>
+							<a href="/">男鞋</a>
+							<a href="/">箱包</a>
+							<a href="/">女包</a>
+							<a href="/">男包</a>
+							<a href="/">旅行箱</a>
+							<a href="/">钱包 </a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>珠宝、手表</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">饰品</a>
+							<a href="/">项链</a>
+							<a href="/">珠宝</a>
+							<a href="/">钻石</a>
+							<a href="/">手表</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>化妆品</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">护肤</a>
+							<a href="/">彩妆</a>
+							<a href="/">香水</a>
+							<a href="/">男士</a>
+							<a href="/">精油</a>
+							<a href="/">假发</a>
+							<a href="/">美体</a>
+							<a href="/">试用服务</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>运动 户外</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">运动鞋</a>
+							<a href="/">运动服</a>
+							<a href="/">运动用品</a>
+							<a href="/">户外</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>手机 数码</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">手机</a>
+							<a href="/">笔记本</a>
+							<a href="/">相机</a>
+							<a href="/">平板电脑</a>
+							<a href="/">配件</a>
+							<a href="/">电脑硬件</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>家用电器</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">大家电</a>
+							<a href="/">影音电器</a>
+							<a href="/">生活电器</a>
+							<a href="/">厨房电器</a>
+							<a href="/">健康护理</a>
+							<a href="/">剃须刀</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>家具 建材</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">家具</a>
+							<a href="/">卫浴</a>
+							<a href="/">地板</a>
+							<a href="/">灯具</a>
+							<a href="/">五金</a>
+							<a href="/">开关</a>
+							<a href="/">装修设计</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>家纺 居家</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">家纺</a>
+							<a href="/">磨毛套件</a>
+							<a href="/">羽绒被</a>
+							<a href="/">枕头</a>
+							<a href="/">软饰</a>
+							<a href="/">居家</a>
+							<a href="/">厨房</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>食品</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">零食</a>
+							<a href="/">进口</a>
+							<a href="/">茶叶</a>
+							<a href="/">冲饮</a>
+							<a href="/">酒水</a>
+							<a href="/">粮油</a>
+							<a href="/">干货</a>
+							<a href="/">生鲜</a>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div class="cont" style="display:none;">
+				<ul class="sublist clearfix">
+					<li>
+						<h3 class="mcate-item-hd"><span>服饰内衣</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">女装</a>
+							<a href="/">男装</a>
+							<a href="/">内衣</a>
+							<a href="/">家居服</a>
+							<a href="/">配件</a>
+							<a href="/">羽绒</a>
+							<a href="/">呢大衣</a>
+							<a href="/">毛衣</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>鞋 箱包</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">女鞋</a>
+							<a href="/">男鞋</a>
+							<a href="/">箱包</a>
+							<a href="/">女包</a>
+							<a href="/">男包</a>
+							<a href="/">旅行箱</a>
+							<a href="/">钱包 </a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>珠宝、手表</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">饰品</a>
+							<a href="/">项链</a>
+							<a href="/">珠宝</a>
+							<a href="/">钻石</a>
+							<a href="/">手表</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>化妆品</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">护肤</a>
+							<a href="/">彩妆</a>
+							<a href="/">香水</a>
+							<a href="/">男士</a>
+							<a href="/">精油</a>
+							<a href="/">假发</a>
+							<a href="/">美体</a>
+							<a href="/">试用服务</a>
+						</p>
+					</li>
+					<li>
+						<h3 class="mcate-item-hd"><span>运动 户外</span></h3>
+						<p class="mcate-item-bd">
+							<a href="/">运动鞋</a>
+							<a href="/">运动服</a>
+							<a href="/">运动用品</a>
+							<a href="/">户外</a>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div class="cont" style="display:none;">3<br />3</div>
+			<div class="cont" style="display:none;">照明知识<br />3<br />4</div>
+			<div class="cont" style="display:none;">人力资源</div>
+			<div class="cont" style="display:none;">客服中心<br />3<br />3</div>
+			<div class="cont" style="display:none;">联系我们<br />3<br />3<br />3</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+(function(){
+	var time = null;
+	var list = $("#navlist");
+	var box = $("#navbox");
+	var lista = list.find("a");
+	for(var i=0,j=lista.length;i<j;i++){
+		if(lista[i].className == "now"){
+			var olda = i;
+		}
+	}
+	var box_show = function(hei){
+		box.stop().animate({
+			height:hei,
+			opacity:1
+		},400);
+	}
+	var box_hide = function(){
+		box.stop().animate({
+			height:0,
+			opacity:0
+		},400);
+	}
+	lista.hover(function(){
+		lista.removeClass("now");
+		$(this).addClass("now");
+		clearTimeout(time);
+		var index = list.find("a").index($(this));
+		box.find(".cont").hide().eq(index).show();
+		var _height = box.find(".cont").eq(index).height()+54;
+		box_show(_height)
+	},function(){
+		time = setTimeout(function(){	
+			box.find(".cont").hide();
+			box_hide();
+		},50);
+		lista.removeClass("now");
+		lista.eq(olda).addClass("now");
+	});
+	box.find(".cont").hover(function(){
+		var _index = box.find(".cont").index($(this));
+		lista.removeClass("now");
+		lista.eq(_index).addClass("now");
+		clearTimeout(time);
+		$(this).show();
+		var _height = $(this).height()+54;
+		box_show(_height);
+	},function(){
+		time = setTimeout(function(){		
+			$(this).hide();
+			box_hide();
+		},50);
+		lista.removeClass("now");
+		lista.eq(olda).addClass("now");
+	});
+})();
+</script>
+</body>
+</html>

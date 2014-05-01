@@ -7,98 +7,50 @@
 <include file="Public:scripts"/>
 <script type="text/javascript">
 $(document).ready(function () {
-	var $container = $('#masonry');
-	$container.imagesLoaded(function(){
-		$container.masonry({
-			itemSelector : '.box',
-			gutterWidth  : 10,
-			isAnimated   : true,
-		});
+	var imgpos = $('img[rel="sliders"]:first').position();
+	$('#float-wechat').css({
+		'left': imgpos.left+885,
+		'top': imgpos.top+55
+	}).fadeIn();
+	$(window).resize(function () {
+		$('#float-wechat').css({
+			'left': imgpos.left+885,
+			'top': imgpos.top+55
+		}).fadeIn();
 	});
 });
 </script>
 </head>
 <body>
 <include file="Public:exp"/>
-<div class="wrap height-12"></div>
-<div class="wrap height-270"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img src="/public/images/slider1.jpg" border="0" /></a></div>
-<div class="wrap height-12"></div>
+<div class="wrap height-12 tri2"></div>
+<div class="wrap height-170"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img rel="sliders" src="/public/images/slider1.jpg" border="0" width="1000" height="170" /></a></div>
 <div class="wrap color-bg-white">
-	<ul class="exp3">
-	<li><a href="/multimarketing" title="整合营销">金融行业</a></li>
-	<li><a href="/multimarketing" title="食品餐饮">食品餐饮</a></li>
-	<li><a href="/multimarketing" title="家居建材">家居建材</a></li>
-	<li><a href="/multimarketing" title="时尚服饰">时尚服饰</a></li>
-	<li><a href="/multimarketing" title="城市形象">城市形象</a></li>
-	<li><a href="/multimarketing" title="机械制造">机械制造</a></li>
-	<li><a href="/multimarketing" title="工业材料">工业材料</a></li>
-	<li><a href="/multimarketing" title="建筑行业">建筑行业</a></li>
-	</ul>
-	<div class="clear">&nbsp;</div>
-	<div id="masonry">
-		<div class="box">
-			<h1><a href="#">习近平再提中共进京赶考：向人民交优异答卷</a></h1>
-			<div><a href="#"><img src="/public/images/box1.png" border="0" /></a></div>
-			<p>1站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
+	<div class="wrap height-12"></div>
+	<table width="940" align="center" border="0">
+	<tr>
+		<td>
+		<div class="cts">
+<p>品牌形象设计的价值在于将品牌核心价值通过视觉及视觉带来的综合体验来进行直观表达，是品牌战略的核心组成部分之一。熔意品牌形象设计，致力于通过战略匹配、原创表达、综合应用的方法，来达到以视觉解读品牌信仰、传播品牌价值、增强品牌沟通的目的。</p>
+<p>基于此，我们将品牌形象的设计分为VI（品牌识别系统）、SI（终端识别系统）、UI（用户界面互动系统）三大系统。</p>
+
+<h2 class="flag-head">VI系统的建设</h2>
+
+
+<p>VI系统是品牌视觉的静态符号。我们认为，VI系统的功能不仅要做到吸引目标消费群的注意并产生记忆，更要获得企业员工及消费者的认同，从而提升品牌忠诚度。</p>
+
+<h2 class="flag-head">SI系统建设</h2>
+
+<p>熔意品牌营销机构倡导“大终端”的SI设计理念，我们认为SI系统除了终端的形象设计、陈列系统设计，还包括店员行为识别系统及终端宣传规范系统。SI系统的建设不仅要基于品牌战略打造终端视觉形象，也要根据品牌定位来规范店员的行为及宣传方式，使顾客在终端店面的“所见、所听、所感”美学化、规范化、统一化，从而加深品牌印象，凸显品牌价值。</p>
+
+<h2 class="flag-head">UI系统建设</h2>
+<p>在信息技术高度发达的今天，品牌通过网络与客户进行互动的频率越来越高，无论是在PC（家用电脑）端还是在移动手机端，都涌现了大量的创新的互动渠道和模式，这就要求品牌也时刻不停地更新自己与客户在网络上互动的方式，因此我们认为，将传统的以网页设计为主的UI从VI中剥离出来，重新审视我们的用户界面和互动系统，显得尤为必要。</p>
+<p>一套好的UI，不仅要让用户使用舒适、界面美观，更要将使用过程变为客户品牌体验的过程。同时，随着智能手机的普及及微信、APP等创新系统的应用，品牌的UI又须随着潮流的变化而不断推陈出新。</p>
+
 		</div>
-		<div class="box">
-			<h1><a href="#">郁金香新品以彭丽媛命名</a></h1>
-			<div><a href="#"><img src="/public/images/box2.jpg" border="0" /></a></div>
-			<p>2当地时间3月22日，荷兰阿姆斯特丹王宫，习近平主席和夫人彭丽媛身着中式服装，出席威廉-亚历山大国王举行的盛大国宴。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">习近平着中式服装赴宴</a></h1>
-			<div><a href="#"><img src="/public/images/box3.jpg" border="0" /></a></div>
-			<p>3荷兰当地时间23日下午，在一个农业与食品的技术和科技成果的展示会中，将举行一个特别的仪式：将有一个荷兰郁金香的新品种以“彭丽媛”的名字命名。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">李克强：促进节能减排低碳发展</a></h1>
-			<div><a href="#"><img src="/public/images/box4.jpg" border="0" /></a></div>
-			<p>43月21日，中共中央政治局常委、国务院总理李克强主持召开节能减排及应对气候变化工作会议，推动落实《政府工作报告》，促进节能减排和低碳发展，研究应对气候变化相关工作。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马方：法国卫星也在搜索区域发现可疑物</a></h1>
-			<div><a href="#"><img src="/public/images/box5.jpg" border="0" /></a></div>
-			<p>5据外电报道，马来西亚交通部23日发表声明，声明称今日早些时候马方收到了法国卫星在印度洋搜索区域拍摄到的图像，图像中有漂浮物体。该物体在南部走廊区域，马来西亚方面立即将相关图片发送到了澳大利亚搜救协调中心。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马来警方称机长曾与神秘女通话系猜测</a></h1>
-			<div><a href="#"><img src="/public/images/box6.jpg" border="0" /></a></div>
-			<p>6据马来西亚《新海峡时报》报道，马来西亚警方23日否认了此前关于“MH370机长起飞前曾与神秘女子通话”的报道，称“这只是猜测”，具体的调查仍在进行中。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">米歇尔攀登慕田峪长城 或为奥巴马“探路”</a></h1>
-			<p>7站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">习近平再提中共进京赶考：向人民交优异答卷</a></h1>
-			<p>8站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">郁金香新品以彭丽媛命名</a></h1>
-			<p>9当地时间3月22日，荷兰阿姆斯特丹王宫，习近平主席和夫人彭丽媛身着中式服装，出席威廉-亚历山大国王举行的盛大国宴。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">习近平着中式服装赴宴</a></h1>
-			<p>10荷兰当地时间23日下午，在一个农业与食品的技术和科技成果的展示会中，将举行一个特别的仪式：将有一个荷兰郁金香的新品种以“彭丽媛”的名字命名。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">李克强：促进节能减排低碳发展</a></h1>
-			<p>113月21日，中共中央政治局常委、国务院总理李克强主持召开节能减排及应对气候变化工作会议，推动落实《政府工作报告》，促进节能减排和低碳发展，研究应对气候变化相关工作。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马方：法国卫星也在搜索区域发现可疑物</a></h1>
-			<p>12据外电报道，马来西亚交通部23日发表声明，声明称今日早些时候马方收到了法国卫星在印度洋搜索区域拍摄到的图像，图像中有漂浮物体。该物体在南部走廊区域，马来西亚方面立即将相关图片发送到了澳大利亚搜救协调中心。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马来警方称机长曾与神秘女通话系猜测</a></h1>
-			<p>13据马来西亚《新海峡时报》报道，马来西亚警方23日否认了此前关于“MH370机长起飞前曾与神秘女子通话”的报道，称“这只是猜测”，具体的调查仍在进行中。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">米歇尔攀登慕田峪长城 或为奥巴马“探路”</a></h1>
-			<p>14站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
-		</div>
-	</div>
+		</td>
+	</tr>
+	</table>
 	<div class="tips">{$WEB_EXT_CFG.STRING_FLAG2}</div>
 	<div class="clear">&nbsp;</div>
 </div>

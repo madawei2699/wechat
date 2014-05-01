@@ -7,13 +7,16 @@
 <include file="Public:scripts"/>
 <script type="text/javascript">
 $(document).ready(function () {
-	var $container = $('#masonry');
-	$container.imagesLoaded(function(){
-		$container.masonry({
-			itemSelector : '.box',
-			gutterWidth  : 10,
-			isAnimated   : true,
-		});
+	var imgpos = $('img[rel="sliders"]:first').position();
+	$('#float-wechat').css({
+		'left': imgpos.left+885,
+		'top': imgpos.top+55
+	}).fadeIn();
+	$(window).resize(function () {
+		$('#float-wechat').css({
+			'left': imgpos.left+885,
+			'top': imgpos.top+55
+		}).fadeIn();
 	});
 });
 </script>
@@ -21,84 +24,69 @@ $(document).ready(function () {
 <body>
 <include file="Public:exp"/>
 <div class="wrap height-12"></div>
-<div class="wrap height-270"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img src="/public/images/slider1.jpg" border="0" /></a></div>
-<div class="wrap height-12"></div>
+<div class="wrap height-170"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img rel="sliders" src="/public/images/slider1.jpg" border="0" width="1000" height="170" /></a></div>
 <div class="wrap color-bg-white">
-	<ul class="exp3">
-	<li><a href="/multimarketing" title="整合营销">金融行业</a></li>
-	<li><a href="/multimarketing" title="食品餐饮">食品餐饮</a></li>
-	<li><a href="/multimarketing" title="家居建材">家居建材</a></li>
-	<li><a href="/multimarketing" title="时尚服饰">时尚服饰</a></li>
-	<li><a href="/multimarketing" title="城市形象">城市形象</a></li>
-	<li><a href="/multimarketing" title="机械制造">机械制造</a></li>
-	<li><a href="/multimarketing" title="工业材料">工业材料</a></li>
-	<li><a href="/multimarketing" title="建筑行业">建筑行业</a></li>
-	</ul>
-	<div class="clear">&nbsp;</div>
-	<div id="masonry">
-		<div class="box">
-			<h1><a href="#">习近平再提中共进京赶考：向人民交优异答卷</a></h1>
-			<div><a href="#"><img src="/public/images/box1.png" border="0" /></a></div>
-			<p>1站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
+	<div class="wrap height-12"></div>
+	<table width="940" align="center" border="0">
+	<tr>
+		<td>
+		<div class="cts"><h2 class="flag-head">服务</h2></div>
+		<div class="cts">
+<p><b>熔意能为您做什么？</b></p>
+<p><b>熔意，是品牌孵化器！</b></p>
+<p>小米、聚美优品、雕爷牛腩……近些年一些充斥着极强个性的品牌在市场中的强势突围，说明了什么？在品牌消费的大时代，一桩生意要建立自己的市场格局除了要有优秀的产品外，更要依靠势如破竹的品牌力量！有态度、有个性的品牌形象已经成为一桩新生意切入市场时的必须推动力和唯一机会！熔意品牌孵化，就是从生意的起点，为新生意提供全方位的战略策划、创意支持与落地执行，创造新品牌，创造市场的新生力量，为迅速打开市场，创造最大可能性！让您赢在起跑线！</p>
+<p>小米用崭新的商业模式、用互联网思维玩出了中国成长最快手机品牌。你的产品要以怎样的个性征服市场，开辟独属于自己的黄金大道？</p>
+<p><b>熔意，是品牌建筑师！</b></p>
+<p>任何一个品牌的构建都是一项庞大而伟大的工程，必须渗透到企业发展、市场运营的每一个细节。只有保持形象设计、沟通策略、渠道招商、电商运营等各个维度的高度统一性，才能合力而为发挥出强大的品牌势能，这也是我们坚持的“大品牌”经营理念。我们是品牌建筑师，为您的生意提供全面、全程的品牌支持，助您步步为营！</p>
+<p><b>熔意，是品牌攻坚队！</b></p>
+<p>您的生意进入瓶颈期，是哪里出了问题，从哪里获得持续的发展能量？也或者，您的产品极为优秀，可品牌知名度与品牌口碑的建立却举步维艰，如何打破僵局？我们就是您的品牌攻坚队，全力发现并解决您品牌发展过程中遇到的所有问题，为您的生意提供全面而深入的诊断，并通过调整品牌策略、经营策略\导入新形象等多种手段解决问题，让您的品牌走出困境，从激烈的市场竞争中脱颖而出，重树品牌优势！</p>
+<p><b>熔意，您值得信赖的品牌导师，与您一路携手创赢！</b></p>
 		</div>
-		<div class="box">
-			<h1><a href="#">郁金香新品以彭丽媛命名</a></h1>
-			<div><a href="#"><img src="/public/images/box2.jpg" border="0" /></a></div>
-			<p>2当地时间3月22日，荷兰阿姆斯特丹王宫，习近平主席和夫人彭丽媛身着中式服装，出席威廉-亚历山大国王举行的盛大国宴。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">习近平着中式服装赴宴</a></h1>
-			<div><a href="#"><img src="/public/images/box3.jpg" border="0" /></a></div>
-			<p>3荷兰当地时间23日下午，在一个农业与食品的技术和科技成果的展示会中，将举行一个特别的仪式：将有一个荷兰郁金香的新品种以“彭丽媛”的名字命名。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">李克强：促进节能减排低碳发展</a></h1>
-			<div><a href="#"><img src="/public/images/box4.jpg" border="0" /></a></div>
-			<p>43月21日，中共中央政治局常委、国务院总理李克强主持召开节能减排及应对气候变化工作会议，推动落实《政府工作报告》，促进节能减排和低碳发展，研究应对气候变化相关工作。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马方：法国卫星也在搜索区域发现可疑物</a></h1>
-			<div><a href="#"><img src="/public/images/box5.jpg" border="0" /></a></div>
-			<p>5据外电报道，马来西亚交通部23日发表声明，声明称今日早些时候马方收到了法国卫星在印度洋搜索区域拍摄到的图像，图像中有漂浮物体。该物体在南部走廊区域，马来西亚方面立即将相关图片发送到了澳大利亚搜救协调中心。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马来警方称机长曾与神秘女通话系猜测</a></h1>
-			<div><a href="#"><img src="/public/images/box6.jpg" border="0" /></a></div>
-			<p>6据马来西亚《新海峡时报》报道，马来西亚警方23日否认了此前关于“MH370机长起飞前曾与神秘女子通话”的报道，称“这只是猜测”，具体的调查仍在进行中。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">米歇尔攀登慕田峪长城 或为奥巴马“探路”</a></h1>
-			<p>7站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">习近平再提中共进京赶考：向人民交优异答卷</a></h1>
-			<p>8站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">郁金香新品以彭丽媛命名</a></h1>
-			<p>9当地时间3月22日，荷兰阿姆斯特丹王宫，习近平主席和夫人彭丽媛身着中式服装，出席威廉-亚历山大国王举行的盛大国宴。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">习近平着中式服装赴宴</a></h1>
-			<p>10荷兰当地时间23日下午，在一个农业与食品的技术和科技成果的展示会中，将举行一个特别的仪式：将有一个荷兰郁金香的新品种以“彭丽媛”的名字命名。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">李克强：促进节能减排低碳发展</a></h1>
-			<p>113月21日，中共中央政治局常委、国务院总理李克强主持召开节能减排及应对气候变化工作会议，推动落实《政府工作报告》，促进节能减排和低碳发展，研究应对气候变化相关工作。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马方：法国卫星也在搜索区域发现可疑物</a></h1>
-			<p>12据外电报道，马来西亚交通部23日发表声明，声明称今日早些时候马方收到了法国卫星在印度洋搜索区域拍摄到的图像，图像中有漂浮物体。该物体在南部走廊区域，马来西亚方面立即将相关图片发送到了澳大利亚搜救协调中心。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">马来警方称机长曾与神秘女通话系猜测</a></h1>
-			<p>13据马来西亚《新海峡时报》报道，马来西亚警方23日否认了此前关于“MH370机长起飞前曾与神秘女子通话”的报道，称“这只是猜测”，具体的调查仍在进行中。</p>
-		</div>
-		<div class="box">
-			<h1><a href="#">米歇尔攀登慕田峪长城 或为奥巴马“探路”</a></h1>
-			<p>14站在九月会议旧址前，习近平神色凝重，目光穿越历史。此时中国，正处在全面建成小康社会、实现中华民族伟大复兴中国梦的关键阶段。</p>
-		</div>
-	</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<table width="100%" align="center" border="0">
+		<tr>
+			<td width="25%" valign="top"><h2>新品牌创建</h2>
+			<ul class="sub-list">
+<li>项目发展规划</li>
+<li>新品牌市场策略</li>
+<li>产品线策略</li>
+<li>品牌传播策略</li>
+<li>形象创意设计</li>
+			</ul>
+			</td>
+			<td width="25%" valign="top"><h2>老品牌提升</h2>
+			<ul class="sub-list">
+<li>全方位问题诊断</li>
+<li>品牌策略重置</li>
+<li>品牌形象提升</li>
+			</ul>
+			</td>
+			<td width="25%" valign="top"><h2>品牌招商</h2>
+			<ul class="sub-list">
+<li>渠道开发</li>
+<li>品牌化招商框架搭建</li>
+<li>企业信息化管理</li>
+<li>经销商关系维护</li>
+			</ul>
+			</td>
+			<td width="25%" valign="top"><h2>大电商</h2>
+			<ul class="sub-list">
+<li>平台品牌化形象管理</li>
+<li>微电商系统搭建</li>
+<li>微电商运营托管</li>
+<li>线上线下生意系统梳理</li>
+<li>数据管理系统开发</li>
+			</ul>
+			</td>
+		</tr>
+		</table>
+		</td>
+	</tr>
+	</table>
+	<div class="wrap height-12"></div>
 	<div class="tips">{$WEB_EXT_CFG.STRING_FLAG2}</div>
 	<div class="clear">&nbsp;</div>
 </div>

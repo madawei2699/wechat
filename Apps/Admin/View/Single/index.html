@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>西闽科仪 管理系统控制台</title>
+<link rel="stylesheet" href="/public/layout/css/layout.css" type="text/css" media="screen" />
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/public/layout/css/ie.css" type="text/css" media="screen" />
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="/public/layout/js/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="/public/layout/js/hideshow.js" type="text/javascript"></script>
+<script src="/public/layout/js/jquery.tablesorter.min.js" type="text/javascript"></script>
+<script charset="utf-8" src="/public/kindeditor4110/kindeditor-min.js"></script>
+<script charset="utf-8" src="/public/kindeditor4110/lang/zh_CN.js"></script>
+<script type="text/javascript">
+$(document).ready(function() { 
+	var KE = KindEditor.create('#content',{
+        width : '98%',
+        height: '400px',
+        themeType : 'simple',
+        uploadJson : '/public/kindeditor4110/php/upload_json.php',
+        allowFileManager : false
+	});
+});
+</script>
+</head>
+<body>
+	
+	<section id="secondary_bar">
+		<div class="breadcrumbs_container">
+			<article class="breadcrumbs">
+			<a href="/frame" target="_parent">控制台</a>
+			<div class="breadcrumb_divider"></div>
+			<a href="#" class="current">{$ch_name}</a>
+			</article>
+		</div>
+	</section><!-- end of secondary bar -->
+	
+	<section id="main" class="column">
+		
+		<h4 class="alert_info none">{$ch_name}</h4>
+		
+		<article class="module width_3_quarter">
+		<header><h3 class="tabs_involved">{$ch_name}</h3></header>
+
+		<div class="tab_container">
+			
+			<div id="tab2" class="tab_content">
+			
+				<article class="module width_full">
+				<form name="single-form" id="single-form" method="post" action="/single/save">
+					<div class="module_content">
+						<fieldset>
+							<label>标题</label>
+							<input type="text" name="title" id="title" value="{$info.title}" />
+							<label>正文</label>
+							<textarea rows="12" name="content" id="content">{$info.content}</textarea>
+						</fieldset>
+						<div class="clear"></div>
+					</div>
+					<footer>
+						<div class="submit_link">
+							<input type="submit" value="保存发布" class="alt_btn" />
+							<input type="reset" value="重置" />
+							<input type="hidden" name="id" id="id" value="{$info.id}"/>
+						</div>
+					</footer>
+				</form>
+				</article><!-- end of post new article -->
+				<div class="clear"></div>
+				<br/><br/>
+
+			</div><!-- end of #tab2 -->
+			
+		</div><!-- end of .tab_container -->
+		
+		</article><!-- end of content manager article -->
+		
+		<div class="spacer"></div>
+	</section>
+
+
+</body>
+</html>

@@ -28,6 +28,9 @@ body {
 .width-520 {
 	width: 520px;
 }
+.width-660 {
+	width: 660px;
+}
 .width-670 {
 	width: 670px;
 }
@@ -48,6 +51,9 @@ body {
 }
 .height-160 {
 	height: 160px;
+}
+.height-170 {
+	height: 170px;
 }
 .height-270 {
 	height: 270px;
@@ -72,7 +78,7 @@ body {
 }
 /***********************************/
 .q {
-	width: 150px;
+	width: 120px;
 	font-size: 12px;
 	color: #ffffff;
 	line-height: 90px;
@@ -88,15 +94,15 @@ body {
 .exp1 {
 	list-style: none;
 	margin: 0;
-	padding: 0 0 0 10px;
+	padding: 0 0 0 35px;
 }
 .exp1 li {
 	float: left;
 	width: auto;
 	height: 60px;
-	line-height: 90px;
+	line-height: 70px;
 	text-align: center;
-	margin-right: 20px;
+	margin-right: 45px;
 	white-space:nowrap;
 }
 .exp1 li a {
@@ -109,7 +115,7 @@ body {
 /***********************************/
 .exp2 {
 	list-style: none;
-	margin: 0;
+	margin: 0 0 0 -10px;
 	padding: 0 0 0 10px;
 }
 .exp2 li {
@@ -118,8 +124,14 @@ body {
 	height: 60px;
 	line-height: 60px;
 	text-align: center;
-	margin:0 25px;
+	padding:0 30px;
 	white-space:nowrap;
+	background-image: url(/public/images/bar.jpg);
+	background-repeat: no-repeat;
+	background-position: -5px center;
+}
+.exp2 li.first {
+	background-image: none;
 }
 .exp2 li a {
 	font-size: 18px;
@@ -189,25 +201,53 @@ body {
 .box {
 	margin-bottom: 10px;
 	float: left;
-	width: 280px;
+	width: 278px;
 	border: 0;
 	padding: 10px;
-	background-color: #efefef;
+	border: 1px solid #efefef;
 }
 .box img {
 	max-width: 100%;
 }
 .box h1 {
 	font-size: 16px;
-	margin: 0 auto 10px auto;
+	margin: 5px auto 10px auto;
+	line-height: 22px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #efefef;
 }
 .box h1 a {
-	color: #000000;
+	color: #999999;
 	font-size: 16px;
 	text-decoration: none;
 }
 .box h1 a:hover {
 	text-decoration: underline;
+}
+.box h3 {
+	color: #999999;
+	font-size: 12px;
+	font-weight: normal;
+	margin: -3px auto 10px auto;
+}
+.box p {
+	color: #999999;
+}
+.box .detail{
+	border-top: 1px solid #efefef;
+	padding: 5px;
+}
+.box .detail span{
+	color: #999999;
+	float: left;
+	width: 200px;
+}
+.box .detail a{
+	color: #999999;
+	float: right;
+	width: 60px;
+	text-align: right;
+	text-decoration: none;
 }
 /***********************************/
 .tips {
@@ -217,9 +257,22 @@ body {
 	border-bottom: 1px solid silver;
 	border-left: 0;
 	border-right: 0;
-	padding: 20px 10px;
+	padding: 12px 10px;
 	margin: 0 auto 20px auto;
 	display: block;
+	color: #999999;
+}
+.tips2 {
+	font-weight: bold;
+	width: 740px;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
+	border-left: 0;
+	border-right: 0;
+	padding: 6px 0;
+	margin: 20px auto 20px auto;
+	display: block;
+	color: #999999;
 }
 
 .bottom-logo {
@@ -242,4 +295,118 @@ body {
 	padding: 0;
 	border: 0;
 	display: block;
+}
+
+.split-01 {
+	height: 1px;
+	border: 0;
+	border-bottom: 1px solid silver;
+}
+.header-01 {
+	font-size: 24px;
+	margin: 0;
+	padding: 0;
+}
+
+.cts {
+	padding: 0 10px 0 10px;
+	margin: 0 auto;	
+}
+.cts b {
+	color: #003399;
+}
+.cts1 {
+	color: #999999;
+	padding: 0 10px 0 0;
+	margin: 20px auto 5px auto;	
+	border-top: 1px solid silver;
+}
+.cts1 p {
+	line-height: 2em;
+}
+.cts1_h3 {
+	font-size: 1.2em;
+	color: #999999;
+	padding: 15px 0 10px 0;
+}
+.flag-head {
+	font-size: 16px;
+	line-height: 22px;
+	padding: 6px;
+	background-color: #ffe500;
+}
+.sub-list {
+	margin: 0;
+	padding: 0 0 0 20px;
+}
+.sub-list li {
+	width: 100%;
+	height: auto;
+	line-height: 20px;
+}
+.tri {
+	background-image: url(/public/images/tri.jpg);
+	background-repeat: no-repeat;
+	background-position: 140px center;
+}
+.tri1 {
+	background-image: url(/public/images/tri.jpg);
+	background-repeat: no-repeat;
+	background-position: 370px center;
+}
+.tri2 {
+	background-image: url(/public/images/tri.jpg);
+	background-repeat: no-repeat;
+	background-position: 500px center;
+}
+.tri3 {
+	background-image: url(/public/images/tri.jpg);
+	background-repeat: no-repeat;
+	background-position: 624px center;
+}
+.tri4 {
+	background-image: url(/public/images/tri.jpg);
+	background-repeat: no-repeat;
+	background-position: 784px center;
+}
+.tri5 {
+	background-image: url(/public/images/tri.jpg);
+	background-repeat: no-repeat;
+	background-position: 880px center;
+}
+#float-wechat {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 128px;
+	height: 128px;
+	padding: 0;
+	border: 0;
+	display: none;
+	z-index: 20;
+}
+
+.p_t1 {
+	font-size: 1.8em;
+	color: #999999;
+}
+.p_t1 a {
+	color: #999999;
+	text-decoration: none;
+}
+.p_t2 {
+	font-size: 1.2em;
+	color: #999999;
+	padding: 2px 2px 10px 2px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #999999;
+}
+.p_t2 a {
+	color: #999999;
+	text-decoration: none;
+}
+.p_t3 {
+	font-size: 1.2em;
+	color: #999999;
+	padding: 5px 20px 10px 0;
 }

@@ -16,6 +16,6 @@ class EvolutionController extends BaseController {
 	
     function index(){
     	$this->assign('WEB_EXT_CFG', C('WEB_EXT_CFG'));
-		$this->display('index/evolution');
+		$this->display('Index/evolution');
     }
 }

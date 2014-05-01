@@ -16,6 +16,6 @@ class BrandxController extends BaseController {
 	
     function index(){
     	$this->assign('WEB_EXT_CFG', C('WEB_EXT_CFG'));
-		$this->display('index/brandx');
+		$this->display('Index/brandx');
     }
 }

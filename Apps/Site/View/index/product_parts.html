@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>产品 - {$WEB_PAGE_CO} {$WEB_PAGE_TITLE}</title>
+<link rel="stylesheet" href="/public/image/main.css" type="text/css" media="screen" />
+</head>
+<body bgcolor="#FFFFFF"><a name="gotop"></a>
+<table id="__01" width="1004" border="0" cellpadding="0" cellspacing="0" align="center">
+    <tr>
+        <td>
+            <a href="/"><img id="xm_product01" src="/public/image/xm-product01.jpg" width="234" height="77" alt="{$WEB_PAGE_CO}" /></a></td>
+        <td><div class="exp-product">
+        <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+        	<td width="113" align="center"><a href="/">首页</a></td>
+        	<td width="113" align="center"><include file="Public:menu"/></td>
+        	<td width="113" align="center"><a href="/service">客户服务</a></td>
+        	<td width="110" align="center"><a href="/news">最新动态</a></td>
+        	<td width="110" align="center"><a href="/hr">招聘信息</a></td>
+        	<td width="110" align="center"><a href="/about">关于我们</a></td>
+        </tr>
+        </table>
+        </div></td>
+    </tr>
+    <tr>
+        <td colspan="2"><div class="exp1-product">
+        <a href="/member/reg">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/member/login">登录</a>
+        </div></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <img id="xm_product04" src="/public/image/xm-product04.jpg" width="1004" height="140" alt="" /></td>
+    </tr>
+    <tr>
+        <td>
+            <img id="xm_product05" src="/public/image/xm-product05.jpg" width="234" height="117" alt="" /></td>
+        <td rowspan="2"><div class="news-content">
+        <table id="table1" width="625" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+        	<td class="h48">产品中心 - 备品备件</td>
+        </tr>
+        <tr>
+        	<td>&nbsp;</td>
+        </tr>
+        <tr>
+        	<td>
+<table id="table-list" width="92%" cellpadding="0" cellspacing="0" border="0" align="center">
+<volist name="list" id="item">
+<tr>
+        	<td><a href="/product/parts?id={$item.id}" target="_blank" class="f14 lh30">●&nbsp;{$item.title}</a></td>
+        	<td class="f14" align="right">[{$item.create_time}]</td>
+</tr>
+<tr><td colspan="2" class="split1"></td></tr>
+</volist>
+</table>
+        	</td>
+        </tr>
+        </table>
+        </div></td>
+    </tr>
+    <tr>
+        <td><div class="product-left">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+        	<td><a href="/product/safe">▪&nbsp;生命安全</a></td>
+        </tr>
+        <tr>
+        	<td><a href="/product/monitor">▪&nbsp;环境监测</a></td>
+        </tr>
+        <tr>
+        	<td><a href="/product/parts">▪&nbsp;备品备件</a></td>
+        </tr>
+        <tr>
+        	<td><a href="/product/maintain">▪&nbsp;维护维修</a></td>
+        </tr>
+        </table>
+        </div></td>
+    </tr>
+    <tr>
+        <td colspan="2"><include file="Public:copyright"/></td>
+    </tr>
+</table>
+<include file="Public:go"/>
+</body>
+</html>

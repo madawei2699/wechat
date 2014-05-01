@@ -13,17 +13,27 @@ $(document).ready(function () {
 		$container.masonry({
 			itemSelector : '.box',
 			gutterWidth  : 10,
-			isAnimated   : true,
+			isAnimated   : true
 		});
+	});
+	var imgpos = $('img[rel="sliders"]:first').position();
+	$('#float-wechat').css({
+		'left': imgpos.left+885,
+		'top': imgpos.top+155
+	}).fadeIn();
+	$(window).resize(function () {
+		$('#float-wechat').css({
+			'left': imgpos.left+885,
+			'top': imgpos.top+155
+		}).fadeIn();
 	});
 });
 </script>
 </head>
 <body>
 <include file="Public:exp"/>
-<div class="wrap height-12"></div>
-<div class="wrap height-270"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img src="/public/images/slider1.jpg" border="0" /></a></div>
-<div class="wrap height-12"></div>
+<div class="wrap height-12 tri"></div>
+<div class="wrap height-270"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img rel="sliders" src="/public/images/slider1.jpg" border="0" width="1000" height="270" /></a></div>
 <div class="wrap color-bg-white">
 	<ul class="exp3">
 	<li><a href="/multimarketing" title="整合营销">金融行业</a></li>
@@ -39,9 +49,11 @@ $(document).ready(function () {
 	<div id="masonry">
 		<volist name="projects" id="item">
 		<div class="box">
-			<h1><a href="{$item.href}">{$item.title}</a></h1>
-			<div><a href="#"><img src="/public/{$item.img}" border="0" /></a></div>
-			<if condition="$item.summary neq ''">{$item.summary}</if>
+			<h1><a href="/project?id={$item.id}">{$item.title}</a></h1>
+			<if condition="$item.title2 neq ''"><h3>{$item.title2}</h3></if>
+			<div><a href="/project?id={$item.id}"><img src="/public/{$item.img}" border="0" /></a></div>
+			<if condition="$item.summary neq ''">{$item.summary}<else/>&nbsp;</if>
+			<div class="detail"><span>进入阅读</span><a href="/project?id={$item.id}">&gt;</a></div>
 		</div>
 		</volist>
 	</div>

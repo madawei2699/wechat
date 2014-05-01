@@ -92,6 +92,11 @@ class BaseController extends Controller {
 			1006 => array('result'=>1006, 'message'=>'令牌错误或已过期'),
 			1100 => array('result'=>1100, 'message'=>'查询结果为空'),
 		);
+		// 随机宣传口号
+		$flag = C('STRING_FLAG1');
+		$seed = mt_rand(0, count($flag)-1);
+		$flag = $flag[$seed];
+		$this->assign('STRING_FLAG', $flag);
 	}
 	
 	/**

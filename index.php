@@ -17,6 +17,8 @@ $mapping = array(
 		'114' => 'Mobile',
 		'118' => 'Control',
 		'120' => 'Wechat',
+		'121' => 'Admin',
+		'122' => 'Site',
 	),
 	'REMOTE' => array(
 		'f-fusion.com'      => 'Web',
@@ -26,6 +28,8 @@ $mapping = array(
 		'm.f-fusion.com'    => 'Mobile',
 		'c.f-fusion.com'    => 'Control',
 		'w.f-fusion.com'    => 'Wechat',
+		'xx.f-fusion.com'   => 'Admin',
+		'x.f-fusion.com'    => 'Site',
 	),
 );
 // process
@@ -39,8 +43,8 @@ if (strcmp(constant('DEV_MODE'), 'LOCAL') == 0) {
 	};
 };
 if (strcmp(constant('DEV_MODE'), 'REMOTE') == 0) {
-	define('APP_DEBUG', false);
-	//define('APP_STATUS', 'remote');
+	define('APP_DEBUG', true);
+	define('APP_STATUS', 'remote');
 	$def = $mapping[constant('DEV_MODE')];
 	$key = (string)strtolower($_SERVER['HTTP_HOST']);
 	if (array_key_exists($key, $def)) {

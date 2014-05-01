@@ -1,0 +1,47 @@
+<ul class="nav1">
+	<li>
+		<a href="/product">产品中心</a>
+		<ul class="nav2">
+			<li class="nav2-1">
+				<h1>应急设备方案</h1>
+				<p>
+				<a href="#">个人 应急防护装备</a>
+				<a href="#">生化防护</a>
+				<a href="#">核辐射防护装备</a>
+				<a href="#">气 应急监测设备</a>
+				<a href="#">水 应急监测设备</a>
+				<a href="#">核辐射  应急监测设备</a>
+				<a href="#">重金属  应急监测设备</a>
+				</p>
+			</li>
+			<li class="nav2-2">
+				<h1>在线系统方案</h1>
+				<p>
+				<a href="#">烟气在线连续监测系统(CEMS)</a>
+				<a href="#">大气环境监测系统(PM2.5、超级站)</a>
+				<a href="#">核辐射在线监控</a>
+				</p>
+			</li>
+			<li class="nav2-3">
+				<h1>实验室仪器成套解决方案</h1>
+				<p>
+				<a href="#">德国耶拿分析仪器</a>
+				</p>
+			</li>
+		</ul>
+	</li>
+</ul>
+<script type="text/javascript" src="/public/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	var time = null;
+	$('.nav1 li:first').hover(function () {
+		$('.nav2').fadeIn();
+		clearTimeout(time);
+	}, function () {
+		time = setTimeout(function(){	
+			$('.nav2').fadeOut();
+		}, 50);
+	});
+});
+</script>
