@@ -19,6 +19,8 @@ $mapping = array(
 		'120' => 'Wechat',
 		'121' => 'Admin',
 		'122' => 'Site',
+		'100' => 'Site',
+		'105' => 'Site',
 	),
 	'REMOTE' => array(
 		'f-fusion.com'      => 'Web',
@@ -30,6 +32,8 @@ $mapping = array(
 		'w.f-fusion.com'    => 'Wechat',
 		'xx.f-fusion.com'   => 'Admin',
 		'x.f-fusion.com'    => 'Site',
+		'crm.f-fusion.com'  => 'Crm',
+		'erp.f-fusion.com'  => 'Erp',
 	),
 );
 // process
