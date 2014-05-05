@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>SkinWith管理系统控制台</title>
+<link rel="stylesheet" href="/public/layout/css/layout.css" type="text/css" media="screen" />
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/public/layout/css/ie.css" type="text/css" media="screen" />
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="/public/layout/js/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="/public/layout/js/hideshow.js" type="text/javascript"></script>
+<style>
+body {
+	background-color: #E0E0E3;
+}
+</style>
+</head>
+<body>
+	<section id="secondary_bar">
+		<div class="user">
+			<p>管理员</p>
+			<a class="logout_user" href="/index/singout" target="_parent" title="注销">注销</a>
+		</div>
+	</section><!-- end of secondary bar -->
+	
+	<aside id="sidebar" class="column">
+		
+		<!-- ENTERPRISE MENU -->
+		<h3>系统管理</h3>
+		<ul class="toggle">
+			<li class="icn_categories"><a href="/member" target="content">注册用户</a></li>
+			<li class="icn_categories"><a href="/feedback" target="content">留言反馈</a></li>
+		</ul>
+		<hr/>
+		<h3>产品中心</h3>
+		<ul class="toggle">
+			<li class="icn_categories"><a href="/article?ch=101" target="content">生命安全</a></li>
+			<li class="icn_categories"><a href="/article?ch=102" target="content">环境监测</a></li>
+			<li class="icn_categories"><a href="/article?ch=103" target="content">备品备件</a></li>
+			<li class="icn_categories"><a href="/article?ch=104" target="content">维护维修</a></li>
+		</ul>
+		<hr/>
+		<h3>客户服务</h3>
+		<ul class="toggle">
+			<li class="icn_categories"><a href="/article?ch=201" target="content">PDF资料</a></li>
+			<li class="icn_categories"><a href="/article?ch=202" target="content">服务网点</a></li>
+			<li class="icn_categories"><a href="/article?ch=203" target="content">指导培训</a></li>
+		</ul>
+		<hr/>
+		<h3>最新动态</h3>
+		<ul class="toggle">
+			<li class="icn_categories"><a href="/article?ch=301" target="content">最新动态</a></li>
+		</ul>
+		<hr/>
+		<h3>招聘信息</h3>
+		<ul class="toggle">
+			<li class="icn_categories"><a href="/article?ch=401" target="content">招聘信息</a></li>
+		</ul>
+		<hr/>
+		<h3>关于我们</h3>
+		<ul class="toggle">
+			<li class="icn_new_article"><a href="/single?id=1" target="content">公司简介</a></li>
+			<li class="icn_new_article"><a href="/single?id=2" target="content">公司理念</a></li>
+			<li class="icn_new_article"><a href="/single?id=3" target="content">公司荣誉</a></li>
+			<li class="icn_new_article"><a href="/single?id=4" target="content">联系我们</a></li>
+		</ul>
+		
+		<footer>
+			<hr />
+			<p><strong>Copyright &copy; <a href="http://www.ideaskin.com" target="_blank">SkinWith</a></strong></p>
+			<p>Theme by <a href="http://www.medialoot.com" target="_blank">MediaLoot</a></p>
+			<p>&nbsp;</p>
+		</footer>
+	</aside><!-- end of sidebar -->
+</body>
+</html>

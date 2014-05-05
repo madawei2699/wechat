@@ -9,3 +9,5 @@
 
 Apps/Runtime/*
 *.txt
+
+*.log

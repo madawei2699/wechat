@@ -6,11 +6,11 @@ if (strcmp(constant('DEV_MODE'), 'LOCAL') == 0) {
 		'DB_FIELDS_CACHE' => true, // CACHE FIELD
 		'DB_TYPE'		=> 'mysql',
 		'DB_HOST' 		=> '127.0.0.1',
-		'DB_NAME' 		=> 'bdm0150168_db',
-		'DB_USER'		=> 'bdm0150168',
-		'DB_PWD' 		=> '123456',
+		'DB_NAME' 		=> 'xm',
+		'DB_USER'		=> 'xm',
+		'DB_PWD' 		=> '666666',
 		'DB_PORT' 		=> '3306',
-		'DB_PREFIX' 	=> 'ff_v_',
+		'DB_PREFIX' 	=> '',
 	);
 };
 if (strcmp(constant('DEV_MODE'), 'REMOTE') == 0) {
@@ -23,6 +23,6 @@ if (strcmp(constant('DEV_MODE'), 'REMOTE') == 0) {
 		'DB_USER'		=> 'bdm0150168',
 		'DB_PWD' 		=> 'zy8629ff',
 		'DB_PORT' 		=> '3306',
-		'DB_PREFIX' 	=> 'ff_v_',
+		'DB_PREFIX' 	=> '',
 	);
 };

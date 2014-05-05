@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>SkinWith管理系统控制台</title>
+<include file="Public:scripts"/>
+<script type="text/javascript">
+function refeshCode() {
+	$('#verifyImg').attr('src', '/public/verify/?t='+(new Date()).valueOf().toString());
+}
+</script>
+<style>
+body {
+	background-color: #f2f2f2;
+}
+a {
+	font-size: 14px;
+	text-decoration: none;
+}
+a:hover {
+	color: red;
+	text-decoration: underline;
+}
+h2 {
+	width: 500px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 10px 0;
+	border: 1px solid #e9edee;
+	background-color: #fff;
+}
+#signinForm {
+	width: 400px;
+	padding: 20px 0 20px 100px;
+	margin: 1px auto;
+	border: 1px solid #e9edee;
+	background-color: #ffffff;
+}
+input {
+	font-size: 14px;
+	padding: 2px;
+}
+</style>
+</head>
+<body>
+<h2>SkinWith管理系统控制台</h2>
+<form name="signinForm" id="signinForm" method="post" action="/index/signin">
+<p>管理账号：<input type="text" name="user" id="user" value="admin" /></p>
+<p>管理密码：<input type="password" name="password" id="password" value="123456" /></p>
+<p>扰码校验：<input type="text" name="verify" id="verify" size="8" /><img id="verifyImg" src="/public/verify" border="0" style="vertical-align:middle;" onclick="refeshCode()" />&nbsp;&nbsp;<a class="aaa" href="javascript:refeshCode();">换一张</a></p>
+<p><input type="submit" value="登录控制台" /></p>
+</form>
+</body>
+</html>

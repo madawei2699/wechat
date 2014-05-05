@@ -8,7 +8,7 @@
 <!--
 /* important to be same as image width */
 /* important to be same as image height */
-#slider				{width: 991px; height: 394px; position: relative; overflow: hidden;left:0;top:0;}
+#slider				{width: 991px; height: 300px; position: relative; overflow: hidden;left:0;top:0;}
 #slider img			{border: 0px;}
 /* important to be same as image width or wider */
 #sliderContent		{width: 991px; position: absolute;top: 0;margin: 0;padding: 0;}
@@ -31,10 +31,18 @@
         <tr>
         	<td width="113" align="center"><a href="/">首页</a></td>
         	<td width="113" align="center"><include file="Public:menu"/></td>
-        	<td width="113" align="center"><a href="/service">客户服务</a></td>
+        	<td width="113" align="center"><include file="Public:serv"/></td>
         	<td width="110" align="center"><a href="/news">最新动态</a></td>
         	<td width="110" align="center"><a href="/hr">招聘信息</a></td>
         	<td width="110" align="center"><a href="/about">关于我们</a></td>
+        </tr>
+        <tr>
+        	<td width="113" align="center">Home</td>
+        	<td width="113" align="center">Product</td>
+        	<td width="113" align="center">Service</td>
+        	<td width="110" align="center">News</td>
+        	<td width="110" align="center">Jobs</a></td>
+        	<td width="110" align="center">About</td>
         </tr>
         </table>
         </div></td>
@@ -42,25 +50,18 @@
             <img src="/public/image/s.gif" width="1" height="77" alt="" /></td>
     </tr>
     <tr>
-        <td colspan="7"><div class="exp1-index">
-        <a href="/member/reg">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/member/login">登录</a>
-        </div></td>
-        <td>
-            <img src="/public/image/s.gif" width="1" height="31" alt="" /></td>
-    </tr>
-    <tr>
         <td colspan="7">
 <div id="slider">
 	<ul id="sliderContent">
-		<li class="sliderImage"><a href="#" target="_blank"><img src="/public/image/slider1.jpg"/></a><span class="bottom"><strong>应急设备方案</strong></span></li>
-		<li class="sliderImage"><a href="#" target="_blank"><img src="/public/image/slider2.jpg"/></a><span class="bottom"><strong>在线系统方案</strong></span></li>
-		<li class="sliderImage"><a href="#" target="_blank"><img src="/public/image/slider3.jpg"/></a><span class="bottom"><strong>实验室仪器成套解决方案</strong></span></li>
+		<li class="sliderImage"><a href="#" target="_blank"><img src="/public/image/slider1.jpg" width="991" height="300" border="0" /></a><span class="bottom"><strong>应急设备方案</strong></span></li>
+		<li class="sliderImage"><a href="#" target="_blank"><img src="/public/image/slider2.jpg" width="991" height="300" border="0" /></a><span class="bottom"><strong>在线系统方案</strong></span></li>
+		<li class="sliderImage"><a href="#" target="_blank"><img src="/public/image/slider3.jpg" width="991" height="300" border="0" /></a><span class="bottom"><strong>实验室仪器成套解决方案</strong></span></li>
 		<div class="clear sliderImage"></div>
 	</ul>
 </div>
         </td>
         <td>
-            <img src="/public/image/s.gif" width="1" height="394" alt="" /></td>
+            <img src="/public/image/s.gif" width="1" height="300" alt="" /></td>
     </tr>
     <tr>
         <td colspan="7">
@@ -69,54 +70,39 @@
             <img src="/public/image/s.gif" width="1" height="18" alt="" /></td>
     </tr>
     <tr>
-        <td colspan="2">
-            <a href="/about"><img id="xm_index06" src="/public/image/xm-index06.jpg" width="234" height="51" alt="" /></a></td>
-        <td rowspan="3">
-            <img id="xm_index07" src="/public/image/xm-index07.jpg" width="7" height="235" alt="" /></td>
-        <td rowspan="2">
-            <a href="/product"><img id="xm_index08" src="/public/image/xm-index08.jpg" width="218" height="54" alt="" /></a></td>
-        <td rowspan="3">
-            <img id="xm_index09" src="/public/image/xm-index09.jpg" width="9" height="235" alt="" /></td>
-        <td rowspan="3">
-            <a href="/news"><img id="xm_index10" src="/public/image/xm-index10.jpg" width="77" height="235" alt="" /></a></td>
-        <td rowspan="3" bgcolor="#ececec" valign="top"><div class="news-list-index">
-        <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <volist name="list" id="item">
-        <tr>
-        	<td><a href="/news/detail?id={$item.id}" target="_blank" class="f14 lh30">●&nbsp;{$item.title}</a></td>
-        	<td class="f14">[{$item.create_time}]</td>
-        </tr>
-        </volist>
-        </table>
-        </div></td>
-        <td>
-            <img src="/public/image/s.gif" width="1" height="51" alt="" /></td>
-    </tr>
-    <tr>
-        <td rowspan="2">
-            <img id="xm_index12" src="/public/image/xm-index12.jpg" width="147" height="184" alt="" /></td>
-        <td rowspan="2" bgcolor="#ececec" valign="top"><table width="87" cellpdding="0" cellspacing="0" border="0">
-        <tr>
-        	<td><a href="/about" class="f14 lh30">公司简介</a></td>
-        </tr>
-        <tr>
-        	<td><a href="/believes" class="f14 lh30">公司理念</a></td>
-        </tr>
-        <tr>
-        	<td><a href="/glory" class="f14 lh30">公司荣誉</a></td>
-        </tr>
-        <tr>
-        	<td><a href="/contact" class="f14 lh30">联系我们</a></td>
-        </tr>
-        </table></td>
-        <td>
-            <img src="/public/image/s.gif" width="1" height="3" alt="" /></td>
-    </tr>
-    <tr>
-        <td>
-            <img id="xm_index14" src="/public/image/xm-index14.jpg" width="218" height="181" alt="" /></td>
-        <td>
-            <img src="/public/image/s.gif" width="1" height="181" alt="" /></td>
+        <td colspan="7">
+        <div class="w991">
+        	<table width="100%" cellpadding="10" cellspacing="0" border="0">
+        	<tr>
+        		<td width="33.3%" valign="top">
+        		<h1 class="index-h1">产品分类 Category</h1>
+        		<ul class="index-ul">
+        		<li><a href="#">应急设备方案</a></li>
+        		<li><a href="#">在线系统方案</a></li>
+        		<li><a href="#">实验室仪器成套解决方案</a></li>
+        		</ul>
+        		</td>
+        		<td width="33.3%" valign="top">
+        		<h1 class="index-h1">培训服务 Service</h1>
+        		<ul class="index-ul">
+        		<li><a href="#">应急装备培训</a></li>
+        		<li><a href="#">大型实验室设备培训</a></li>
+        		<li><a href="#">抢险救援培训</a></li>
+        		</ul>
+        		</td>
+        		<td width="33.3%" valign="top">
+        		<h1 class="index-h1">售后运维 Maintenance</h1>
+        		<ul class="index-ul">
+        		<li><a href="#">售后巡检</a></li>
+        		<li><a href="#">备件及维修</a></li>
+        		<li><a href="#">运营维护</a></li>
+        		</ul>
+        		</td>
+        	</tr>
+        	</table>
+        </div>
+        </td>
+        <td><img src="/public/image/s.gif" width="1" height="18" alt="" /></td>
     </tr>
     <tr>
         <td colspan="7"><include file="Public:copyright"/></td>

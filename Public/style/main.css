@@ -147,6 +147,7 @@ body {
 	height: 30px;
 	margin: 0 auto;
 	padding: 10px 0 10px 50px;
+	background-color: #ffffff;
 }
 .exp3 li {
 	float: left;
@@ -164,6 +165,16 @@ body {
 }
 .exp3 li a:hover {
 	text-decoration: underline;
+}
+.exp3-copy {
+	position: relative;
+	left: 0;
+	top: 0;
+	list-style: none;
+	height: 30px;
+	margin: 0 auto;
+	padding: 10px 0 10px 50px;
+	background-color: #ffffff;
 }
 /***********************************/
 .exp4 {

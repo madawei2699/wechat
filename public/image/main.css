@@ -19,9 +19,10 @@ a:hover {
 .f14 {font-size: 14px;}
 .lh30 {line-height: 30px;}
 .exp-index {
+	color: gray;
 	width: 757px;
-	height: 62px;
-	padding: 15px 0 0 0;
+	height: 57px;
+	padding: 20px 0 0 0;
 	border: 0;
 	background: url(/public/image/xm-index02.jpg) no-repeat center center #ffffff;
 }
@@ -391,6 +392,76 @@ a:hover {
 .nav2 li a:hover {
 	text-decoration: underline;
 }
+
+
+
+.serv1, .serv2 {
+	position: relative;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.serv2 {
+	position: absolute;
+	left: -3px;
+	top: 20px;
+	width: 200px;
+	height: 160px;
+	border: 0;
+	background-color: #ffffff;
+	z-index: 99;
+	display: none;
+	border-bottom: 5px solid gray;
+	/* filter:alpha(opacity=0.95);opacity:0.95; */
+}
+.serv2 li.serv2-1 {
+	float: left;
+	width: 140px;
+	height: 215px;
+	padding: 20px;
+}
+.serv2 li a {
+	font-size: 14px;
+	text-align: left;
+	color: #000000;
+	text-decoration: none;
+	float: left;
+	width: 190px;
+	height: auto;
+	line-height: 26px;
+}
+.serv2 li.serv2-2 a {
+	font-size: 14px;
+	text-align: left;
+	color: #000000;
+	text-decoration: none;
+	float: left;
+	width: 220px;
+	height: auto;
+	line-height: 26px;
+}
+.serv2 li a:hover {
+	text-decoration: underline;
+}
+
+.w991 {
+	width: 991px;
+	background-color: #ececec;
+}
+.index-h1 {
+	color: gray;
+	font-size: 16px;
+	text-indent: 0.8em;
+	padding: 0 0 8px 0;
+	margin: 0;
+	border-bottom: 1px solid silver;
+}
+.index-ul li a {
+	color: gray;
+	font-size: 14px;
+	text-decoration: none;
+}
+
 
 #wechat {
 	position: absolute;

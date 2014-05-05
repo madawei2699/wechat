@@ -1,17 +1,18 @@
 <?php
-namespace Control\Controller;
+namespace Skin\Controller;
 
 use Think\Controller;
-use Common\Controller\BaseController;
 
 /**
  * Index 类
  * 主要用于显示控制台登录首页
+ * http://127.0.0.1:121
+ * http://xx.f-fusion.com
  * 
- * @category Control
- * @package Control
+ * @category Skin
+ * @package Skin
  * @author guanxuejun <guanxuejun@gmail.com>
- * @copyright http://vc.f-fusion.com/ <http://vc.f-fusion.com/>
+ * @copyright http://www.ximin.cn/ <http://www.ximin.cn/>
  *
  */
 class IndexController extends BaseController {
@@ -20,7 +21,6 @@ class IndexController extends BaseController {
 	}
 	
     function index(){
-		//$this->show('<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} body{ background: #fff; font-family: "微软雅黑"; color: #333;} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.8em; font-size: 36px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p>欢迎使用 <b>Control</b>！</p></div><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script>','utf-8');
 		$this->display();
     }
     
@@ -38,7 +38,7 @@ class IndexController extends BaseController {
     		return;
     	};
     	$verify = md5($verify);
-    	if (strcmp($verify, session('CONTROL_VRERIFY')) != 0) {
+    	if (strcmp($verify, session('ADMIN_VRERIFY')) != 0) {
     		$this->error('验证码错误！', '/');
     		return;
     	};
@@ -49,5 +49,16 @@ class IndexController extends BaseController {
     	};
     	$this->success('登录成功', '/frame');
     	// 需要判断角色，根据角色限制权限
+    }
+    
+    /**
+     * 注销动作
+     */
+    function singout() {
+    	session('admin_id',       null);
+    	session('admin_name',     null);
+    	session('admin_group_id', null);
+    	session('admin_expire',   $this->time-1);
+    	$this->success('您已退出', '/');
     }
 }

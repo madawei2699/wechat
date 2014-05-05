@@ -11,7 +11,9 @@ define('APP_PATH','./Apps/');
 // 定义模块绑定
 $mapping = array(
 	'LOCAL' => array(
+		'98'  => 'Skin',
 		'106' => 'Vshop',
+		'107' => 'Vcontrol',
 		'108' => 'Web',
 		'112' => 'Api',
 		'116' => 'Shop',
@@ -26,7 +28,9 @@ $mapping = array(
 	'REMOTE' => array(
 		'f-fusion.com'      => 'Web',
 		'www.f-fusion.com'  => 'Web',
+		'm.ideaskin.com'    => 'Skin',
 		'v.f-fusion.com'    => 'Vshop',
+		'vc.f-fusion.com'   => 'Vcontrol',
 		'a.f-fusion.com'    => 'Api',
 		's.f-fusion.com'    => 'Shop',
 		'm.f-fusion.com'    => 'Mobile',
@@ -43,9 +47,12 @@ if (strcmp(constant('DEV_MODE'), 'LOCAL') == 0) {
 	define('APP_DEBUG', true);
 	define('APP_STATUS', 'local');
 	$def = $mapping[constant('DEV_MODE')];
-	$key = (string)substr($_SERVER['HTTP_HOST'], -3);
-	if (array_key_exists($key, $def)) {
-		define('BIND_MODULE', $def[$key]);
+	$pos = strripos($_SERVER['HTTP_HOST'], ':');
+	if ($pos === false) {} else {
+		$key = (string)substr($_SERVER['HTTP_HOST'], $pos+1);
+		if (array_key_exists($key, $def)) {
+			define('BIND_MODULE', $def[$key]);
+		};
 	};
 };
 if (strcmp(constant('DEV_MODE'), 'REMOTE') == 0) {

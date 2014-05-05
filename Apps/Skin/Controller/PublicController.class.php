@@ -1,5 +1,5 @@
 <?php
-namespace Admin\Controller;
+namespace Skin\Controller;
 
 use Think\Controller;
 use Org\Util\Image;
@@ -8,8 +8,8 @@ use Org\Util\Image;
  * 公共页面处理类
  * 此类主要用于显示登录页面的验证码图片用
  *
- * @category Admin
- * @package Admin
+ * @category Skin
+ * @package Skin
  * @author guanxuejun <guanxuejun@gmail.com>
  * @copyright http://www.ximin.cn/ <http://www.ximin.cn/>
  */
