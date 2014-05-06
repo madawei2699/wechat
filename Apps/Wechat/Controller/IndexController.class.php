@@ -42,7 +42,7 @@ class IndexController extends BaseController {
 	 */
 	static $wx_last_token_string = '';
 	/**
-	 * 装载安师傅员工微信号，内测用
+	 * 装载员工微信号，内测用
 	 * @var array
 	 */
 	private $employees = array();
@@ -58,38 +58,8 @@ class IndexController extends BaseController {
 	private $areaID = 0;
 	private $area = '';
 	private $lang = array(
-		"DEFAULT" => "感谢您关注安师傅代驾，开启更便捷、愉悦的微信预约代驾之旅！",
-		"UNBIND" => "您好，首次使用安师傅代驾服务需要绑定您的手机号，请输入您的手机号码，系统将自动回复短信，将短信中收到的6位验证码数字回复给服务号完成绑定。",
-		"SUBSCRIBE" => "感谢关注安师傅代驾！现在您不安装App也可使用微信通过手机叫代驾啦！叫代驾请点击【我要代驾】~",
-		"NO_LOCATION" => "您可能未允许安师傅代驾获取您的位置信息，请点击安师傅代驾服务号头像，开启“提供位置信息”选项；或从手工提交一个位置信息！",
-		"NO_ADDRESS" => "安师傅代驾解析您的地址信息失败，请再次提交一个位置信息重试！",
-		"ACCOUNT_CASH" => "您是安师傅现金用户，已绑定手机号码{UserMobile}。",
-		"ACCOUNT_CHARGE" => "您是安师傅储值卡用户，当前账户余额为{UserBalance}元，已绑定手机号码{UserMobile}。",
-		"ACCOUNT_VIP" => "您是安师傅后付费用户，已绑定手机号码{UserMobile}。",
-		"ACCOUNT_CHARGE_VIP" => "您是安师傅储值卡用户，当前账户余额为{UserBalance}元，同时您也是{VipName}后付费用户，已绑定手机号码{UserMobile}。",
-		"COUPON_EMPTY" => "您当前没有抵用券。",
-		"COUPON_LIST_HEAD" => "您全部{CouponCount}张抵用券清单：{Item}",
-		"COUPON_LIST_ITEM_CASH" => "● 一张免{CouponAmount}元抵用券(于{AvailableTime}到期)",
-		"COUPON_LIST_ITEM_RANGE" => "● 一张免{CouponDistance}公里抵用券(于{AvailableTime}到期)",
-		"SCORE_EMPTY" => "您当前没有里程累计。",
-		"SCORE_AMOUNT" => "您当前里程累计为{UserScore}公里。",
-		"LEVEL" => "您当前用户等级为{UserLevel}。",
-		"ORDER_EMPTY" => "未能查询到您正在执行中、或待评价的订单！",
-		"MSG_ORDER_TITLE" => "我的订单",
-		"MSG_ORDER_DESCRIPTION" => "亲~您当前有 {OrderCount} 张订单~\n您的订单清单中会包含正在执行中的订单，和已经完成等待您评价的订单\n点击“阅读全文”可查看订单清单~",
-		"PRICE_SH" => "安师傅代驾{City}价格表：\n【起步价(含8公里)】\n07:00-22:00  35元\n22:00-23:00  55元\n23:00-24:00  75元\n00:00-07:00  95元\n* 超出8公里后每公里2.8元\n【等候费用】司机到达接车地点后至完成代驾任务期间，累计等待29分钟内无等候费用，第30分钟起加收20元，30分钟之后每分钟1元。\n【客服服务时间】10:00-03:00，法定节假日前一天延长至次日凌晨4点。",
-		"PRICE_OTHER" => "安师傅代驾{City}价格表：\n【起步价(含8公里)】\n07:00-22:00  35元\n22:00-07:00  55元\n* 超出8公里后每公里4.6元\n【等候费用】司机到达接车地点后至完成代驾任务期间，累计等待30分钟内无等候费用，第30分钟起加收20元，30分钟后每3分钟2元。\n【客服服务时间】10:00-03:00，法定节假日前一天延长至次日凌晨4点。",
-		"SERVICE_UNAVAILABEL" => "安师傅代驾尚未在您所在的城市[{City}]开通代驾服务，不过我们很快就来了！感谢您的关注！",
-		"MSG_VERIFY_COUPON_TITLE" => "兑换抵用券",
-		"MSG_VERIFY_COUPON_DESCRIPTION" => "{Rule}\n点击“阅读全文”可进入兑换抵用券页面~",
-		"MSG_SHARE_TILE" => "分享给朋友",
-		"MSG_SHARE_DESCRIPTION" => "进入此页后分享给朋友或朋友圈可获得神秘大礼！赶紧行动吧！\n点击“阅读全文”进入分享页面~",
-		"RECEIVE_SEND_VERIFY_FAILED" => "发送验证码失败，请重新发送手机号码尝试。",
-		"RECEIVE_SEND_VERIFY_SUCCESS" => "发送验证码成功，请查收短信，将短信中收到的验证码回复给服务号完成绑定。",
-		"RECEIVE_CHANGE_MOBILE" => "该手机号已经绑定过微信用户！请更换其他手机号码重试。",
-		"BIND_SUCCESS" => "您的手机号绑定成功！现在您可以使用微信叫代驾啦！叫代驾请点击【我要代驾】~",
-		"PUSH_TIMEOUT_ORDER_CANCEL_ADDRESS" => "您的超时订单已被取消！之前的叫单地址如下：",
-		"PUSH_TIMEOUT_ORDER_EMPTY" => "未找到您的超时订单！",
+		"DEFAULT" => "感谢关注熔意！",
+		"SUBSCRIBE" => "感谢关注熔意！",
 		"WORKFLOW_ERR_REC" => "记录流程失败，请重试！",
 	);
 	
@@ -99,8 +69,7 @@ class IndexController extends BaseController {
 	function __construct() {
 		parent::__construct();
 		$this->employees = array(
- 			'oLDrijm5XTH2HMh1Un9PExpw6hHk' => 'xxuyou',
- 			'oLDrijmU0j3gUqBbTGfPfYaqItbQ' => 'VrWorking！',
+ 			'ouTetjpJvbB3o43-WzskTlKfHReQ' => 'VrWorking！',
 		);
 		
 		if (!array_key_exists('signature', $_GET) || !array_key_exists('nonce', $_GET) || !array_key_exists('timestamp', $_GET)) {
