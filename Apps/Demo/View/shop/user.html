@@ -61,7 +61,7 @@ $(document).ready(function(){
 	<!-- Page title -->
 	<div id="pagetitle" style="position:fixed;z-index:20;">
 		<div class="wrapper">
-			<h1>渠道&nbsp;&nbsp;&bull;&nbsp;&nbsp;管理超级管理员账户及权限</h1>
+			<h1>微店&nbsp;&nbsp;&bull;&nbsp;&nbsp;管理员账户及权限</h1>
 		</div>
 	</div>
 	<!-- End of Page title -->
@@ -73,7 +73,7 @@ $(document).ready(function(){
 				<!-- Left column/section -->
 				<section class="column width6 first">
 					
-					<h4>渠道管理员: <a href="#">4个</a></h4>
+					<h4>微店管理员: <a href="#">4个</a></h4>
 					
 					<table id="report" class="stylized full" style="">
 						<thead>
@@ -125,7 +125,7 @@ $(document).ready(function(){
 					<form id="sampleform" method="post" action="#">
 
 						<fieldset>
-							<legend>渠道管理员设置</legend>
+							<legend>微店管理员设置</legend>
 
 							<p>
 								<label class="required" for="firstname">所属渠道:</label><br/>
@@ -137,13 +137,13 @@ $(document).ready(function(){
 							</p>
 
 							<p>
-								<label class="required" for="username">超级管理员账号:</label><br/>
+								<label class="required" for="username">管理员账号:</label><br/>
 								<input type="text" id="username" class="half" value="" name="username"/>
 								<small>e.g. ui.templates</small>
 							</p>
 							
 							<p>
-								<label class="required" for="password">超级管理员密码:</label><br/>
+								<label class="required" for="password">管理员密码:</label><br/>
 								<input type="password" id="password" class="half" value="" name="password"/>
 							</p>
 
@@ -168,7 +168,7 @@ $(document).ready(function(){
 								</thead>
 								<tbody>
 									<tr>
-									<td>渠道</td>
+									<td>微店设置</td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
@@ -177,7 +177,7 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
-									<td>渠道管理员</td>
+									<td>商品管理</td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
@@ -186,7 +186,61 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
-									<td>分销/代理/直营店</td>
+									<td>会员管理</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>订单管理</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>积分管理</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>团购管理</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>促销管理</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>货运管理</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>客服管理</td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>

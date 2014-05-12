@@ -13,6 +13,9 @@ body {
 	padding: 0;
 	display: block;
 }
+.color999999 {
+	color: #999999;
+}
 .color-bg-white {
 	background-color: #ffffff;
 }
@@ -27,6 +30,9 @@ body {
 }
 .width-520 {
 	width: 520px;
+}
+.width-640 {
+	width: 640px;
 }
 .width-660 {
 	width: 660px;
@@ -60,6 +66,9 @@ body {
 }
 .height-400 {
 	height: 400px;
+}
+.height-359 {
+	height: 359px;
 }
 .space-15 {
 	width: 1000px;
@@ -185,7 +194,7 @@ body {
 }
 .exp4 li {
 	float: left;
-	width: 60px;
+	width: 90px;
 	height: 30px;
 	line-height: 30px;
 	text-align: center;

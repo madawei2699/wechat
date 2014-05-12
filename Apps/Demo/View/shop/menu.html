@@ -61,7 +61,7 @@ $(document).ready(function(){
 	<!-- Page title -->
 	<div id="pagetitle" style="position:fixed;z-index:20;">
 		<div class="wrapper">
-			<h1>渠道&nbsp;&nbsp;&bull;&nbsp;&nbsp;管理超级管理员账户及权限</h1>
+			<h1>微店&nbsp;&nbsp;&bull;&nbsp;&nbsp;自定义菜单管理</h1>
 		</div>
 	</div>
 	<!-- End of Page title -->
@@ -73,59 +73,10 @@ $(document).ready(function(){
 				<!-- Left column/section -->
 				<section class="column width6 first">
 					
-					<h4>渠道管理员: <a href="#">4个</a></h4>
-					
-					<table id="report" class="stylized full" style="">
-						<thead>
-							<tr>
-								<th>登录名</th>
-								<th>渠道</th>
-								<th>权限</th>
-								<th>类别</th>
-								<th class="ta-right">创建时间</th>
-								<th class="ta-right">操作</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="title"><a href="#"><b>yuehai</b></a></td>
-								<td>LINcTEX</td>
-								<td>超级管理员</td>
-								<td>全部权限</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>eric</b></a></td>
-								<td>LINcTEX</td>
-								<td>管理员</td>
-								<td>商品权限</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>anna</b></a></td>
-								<td>LINcTEX</td>
-								<td>管理员</td>
-								<td>文章权限</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>wanjun</b></a></td>
-								<td>菊赖服饰</td>
-								<td>超级管理员</td>
-								<td>全部权限</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-						</tbody>
-					</table>
-					
 					<form id="sampleform" method="post" action="#">
 
 						<fieldset>
-							<legend>渠道管理员设置</legend>
+							<legend>微店自定义菜单设置</legend>
 
 							<p>
 								<label class="required" for="firstname">所属渠道:</label><br/>
@@ -137,23 +88,7 @@ $(document).ready(function(){
 							</p>
 
 							<p>
-								<label class="required" for="username">超级管理员账号:</label><br/>
-								<input type="text" id="username" class="half" value="" name="username"/>
-								<small>e.g. ui.templates</small>
-							</p>
-							
-							<p>
-								<label class="required" for="password">超级管理员密码:</label><br/>
-								<input type="password" id="password" class="half" value="" name="password"/>
-							</p>
-
-							<p>
-								<label class="required" for="password_confirm">重复密码:</label><br/>
-								<input type="password" id="password_confirm" class="half" value="" name="password_confirm"/>
-							</p>
-
-							<p>
-								<label class="required" for="password_confirm">权限地图:</label><br/>
+								<label class="required" for="password_confirm">自定义菜单:</label><br/>
 								<table class="stylized">
 								<thead>
 									<tr>
@@ -168,7 +103,7 @@ $(document).ready(function(){
 								</thead>
 								<tbody>
 									<tr>
-									<td>渠道</td>
+									<td>微店设置&nbsp;&gt;</td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
@@ -177,7 +112,7 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
-									<td>渠道管理员</td>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;商品管理</td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
@@ -186,7 +121,61 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
-									<td>分销/代理/直营店</td>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;会员管理</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>订单管理&nbsp;&gt;</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;积分管理</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;团购管理</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>促销管理&nbsp;&gt;</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;货运管理</td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
+									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
+									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
+									</tr>
+									<tr>
+									<td>&nbsp;&nbsp;&nbsp;&nbsp;客服管理</td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
@@ -198,7 +187,7 @@ $(document).ready(function(){
 								</table>
 							</p>
 							
-							<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+							<p class="box"><input type="submit" class="btn btn-green big" value="创建二维码"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
 
 						</fieldset>
 

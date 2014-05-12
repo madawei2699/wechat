@@ -9,7 +9,7 @@ use Common\Controller\BaseController;
  * @author guanxuejun
  *
  */
-class ProjectController extends Controller {
+class ProjectController extends BaseController {
 	function __construct() {
 		parent::__construct();
 	}

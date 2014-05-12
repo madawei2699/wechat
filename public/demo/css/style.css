@@ -399,6 +399,9 @@ textarea.medium {
 textarea.large {
 	height:20em;
 }
+input.qtr,select.qtr,textarea.qtr {
+	width:25%;
+}
 input.half,select.half,textarea.half {
 	width:50%;
 }
@@ -708,11 +711,13 @@ fieldset small {
 /* Wrappers & headers
 ---------------------------------------------------------------------*/
 
+.wrapper {
+	position:relative;
+}
 .wrapper, .wrapper-login {
 	margin:0 auto;
 	text-align:left;
 	width: 990px;
-	position:relative;
 }
 .wrapper-login {
 	width: 550px;

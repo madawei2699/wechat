@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>熔意网络科技管理系统 v0.1a</title>
+<include file="Public:scripts"/>
+<!-- jQuery wysiwyg editor -->
+<script type="text/javascript" SRC="/public/demo/js/jquery.wysiwyg.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	/* setup navigation, content boxes, etc... */
+	Administry.setup();
+	
+	$('#productdesc').wysiwyg({
+    controls: {
+      strikeThrough : { visible : true },
+      underline     : { visible : true },
+      
+      justifyLeft   : { visible : true },
+      justifyCenter : { visible : true },
+      justifyRight  : { visible : true },
+      justifyFull   : { visible : true },
+      
+      indent  : { visible : true },
+      outdent : { visible : true },
+      
+      subscript   : { visible : true },
+      superscript : { visible : true },
+      
+      undo : { visible : true },
+      redo : { visible : true },
+      
+      insertOrderedList    : { visible : true },
+      insertUnorderedList  : { visible : true },
+      insertHorizontalRule : { visible : true },
+
+      h4: {
+              visible: true,
+              className: 'h4',
+              command: $.browser.msie ? 'formatBlock' : 'heading',
+              arguments: [$.browser.msie ? '<h4>' : 'h4'],
+              tags: ['h4'],
+              tooltip: 'Header 4'
+      },
+      h5: {
+              visible: true,
+              className: 'h5',
+              command: $.browser.msie ? 'formatBlock' : 'heading',
+              arguments: [$.browser.msie ? '<h5>' : 'h5'],
+              tags: ['h5'],
+              tooltip: 'Header 5'
+      },
+      h6: {
+              visible: true,
+              className: 'h6',
+              command: $.browser.msie ? 'formatBlock' : 'heading',
+              arguments: [$.browser.msie ? '<h6>' : 'h6'],
+              tags: ['h6'],
+              tooltip: 'Header 6'
+      },
+      
+      cut   : { visible : true },
+      copy  : { visible : true },
+      paste : { visible : true },
+      html  : { visible: true }
+    }
+  }); 
+	
+	// 固定浮动条 //////////////////////////////////////
+	(function () {
+		var el= $('#pagetitle');
+		var ec= $('#page');
+		var w = el.next().width();
+		var c = ec.offset().top;
+		el.css({'top':c, 'width':w});
+		$(window).scroll(function () {
+			var e = document.body.scrollTop || document.documentElement.scrollTop;
+			if (e <= 0) {
+				el.css({'top':c.toString()+'px'});
+			} else {
+				if (e <= c) {
+					el.css({'top':(c-e).toString()+'px'});
+				} else {
+					el.css({'top':0});
+				};
+			};
+		});
+	})();
+
+});
+</script>
+</head>
+<body>
+	<!-- Header -->
+	<header id="top">
+		<div class="wrapper">
+			<!-- Title/Logo - can use text instead of image -->
+			<include file="Public:title"/>
+			<!-- Top navigation -->
+			<div id="topnav">
+				<a href="#"><img class="avatar" src="/public/demo/img/user_32.png" alt="" /></a>
+				登录为 <b>Admin</b>
+				<span>|</span> <a href="/settings">设置</a>
+				<span>|</span> <a href="/logout">退出</a><br />
+				<small>您有 <a href="/message/unread" class="high"><b>1</b> 新消息!</a></small>
+			</div>
+			<!-- End of Top navigation -->
+			<!-- Main navigation -->
+			<include file="Public:menu"/>
+			<!-- End of Main navigation -->
+			<!-- Aside links -->
+			<!-- aside><b>English</b> &middot; <a href="#">Spanish</a> &middot; <a href="#">German</a></aside -->
+			<!-- End of Aside links -->
+		</div>
+	</header>
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle" style="position:fixed;z-index:20;">
+		<div class="wrapper">
+			<h1>微店&nbsp;&nbsp;&bull;&nbsp;&nbsp;管理商品信息</h1>
+		</div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper" style="margin-top:52px;">
+				<!-- Left column/section -->
+				<section class="column width6 first">
+					
+					<h4>商品信息: <a href="#">409个</a></h4>
+					
+					<table id="report" class="stylized full" style="">
+						<thead>
+							<tr>
+								<th>编号</th>
+								<th>名称</th>
+								<th>货号</th>
+								<th class="ta-right">价格</th>
+								<th>创建时间</th>
+								<th class="ta-right">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>4922</td>
+								<td class="title"><a href="#"><b>Aura-j-(21809)毛针织衫</b></a></td>
+								<td>BUSELFAA002</td>
+								<td class="ta-right">421.00</td>
+								<td>2014-01-23 12:55</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td>4921</td>
+								<td class="title"><a href="#"><b>Attystory-(21710)马夹</b></a></td>
+								<td>ATVT00582522</td>
+								<td class="ta-right">327.00</td>
+								<td>2014-01-23 12:55</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td>4920</td>
+								<td class="title"><a href="#"><b>Attystory-(21711)T恤</b></a></td>
+								<td>ATTS00582521</td>
+								<td class="ta-right">228.00</td>
+								<td>2014-01-23 12:55</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td>4919</td>
+								<td class="title"><a href="#"><b>Anappletree-(SK317)半身裙</b></a></td>
+								<td>APSS00582503</td>
+								<td class="ta-right">1098.00</td>
+								<td>2014-01-23 12:55</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td>4918</td>
+								<td class="title"><a href="#"><b>Anappletree-(BAG0468)包</b></a></td>
+								<td>APSB00582500</td>
+								<td class="ta-right">2869.00</td>
+								<td>2014-01-23 12:55</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td>4917</td>
+								<td class="title"><a href="#"><b>Aka-(AW1-13-F-PNT-8250)休闲裤</b></a></td>
+								<td>AKLP00582715</td>
+								<td class="ta-right">679.00</td>
+								<td>2014-01-23 12:55</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td>4916</td>
+								<td class="title"><a href="#"><b>45seven-(45SOPSHS0005976)连衣裙</b></a></td>
+								<td>SVOP00582619</td>
+								<td class="ta-right">1299.00</td>
+								<td>2014-01-23 12:55</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td>4915</td>
+								<td class="title"><a href="#"><b>11am-(12215)短外套</b></a></td>
+								<td>SWJK00582385</td>
+								<td class="ta-right">625.00</td>
+								<td>2014-01-23 12:55</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td>4914</td>
+								<td class="title"><a href="#"><b>Withipun-(3241)风衣</b></a></td>
+								<td>WPCT00584379</td>
+								<td class="ta-right">2899.00</td>
+								<td>2014-01-23 12:55</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td>4913</td>
+								<td class="title"><a href="#"><b>Uptownholic-(85356)高帮鞋</b></a></td>
+								<td>UPSH00584222</td>
+								<td class="ta-right">1799.00</td>
+								<td>2014-01-23 12:55</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<form id="sampleform" method="post" action="#">
+
+						<fieldset>
+							<legend>商品设置</legend>
+
+							<p>
+								<label class="required" for="firstname">所属微店:</label><br/>
+								<select id="select1" class="qtr" name="select1">
+									<option value="1">LINcTEX</option>
+									<option value="2">菊赖服饰</option>
+									<option value="3">三只松鼠</option>
+								</select>
+							</p>
+							
+							<p>
+								<label class="required" for="password">名称:</label><br/>
+								<input type="text" id="password" class="half" value="" name="password"/>
+							</p>
+
+							<p>
+								<label class="required" for="username">货号:</label><br/>
+								<input type="text" id="username" class="half" value="" name="username"/>
+								<small>如果您不输入商品货号，系统将自动生成一个唯一的货号。</small>
+							</p>
+							
+							<p>
+								<label class="required" for="password">市场价:</label><br/>
+								<input type="text" id="password" class="qtr" value="" name="password"/>
+							</p>
+							
+							<p>
+								<label class="required" for="password">店内价:</label><br/>
+								<input type="text" id="password" class="qtr" value="" name="password"/>
+							</p>
+							
+							<p>
+								<label class="required" for="password">会员折扣率:</label><br/>
+								<input type="text" id="password" class="qtr" value="" name="password"/>
+								<small>会员价格为-1时表示会员价格按会员等级折扣率计算。你也可以为每个等级指定一个固定价格</small>
+							</p>
+							
+							<p>
+								<label class="required" for="password">商品分类:</label><br/>
+								<select id="select1" class="qtr" name="select1">
+									<option value="1">女装</option>
+									<option value="2">女包</option>
+									<option value="3">女鞋</option>
+								</select>
+							</p>
+							
+							<p>
+								<label class="required" for="password">商品品牌:</label><br/>
+								<select id="select1" class="qtr" name="select1">
+									<option value="1">LINcTEX</option>
+									<option value="2">菊赖服饰</option>
+									<option value="3">三只松鼠</option>
+								</select>
+							</p>
+							
+							<p>
+								<label class="required" for="password">赠送消费积分数:</label><br/>
+								<input type="text" id="password" class="qtr" value="" name="password"/>
+							</p>
+							
+							<p>
+								<label class="required" for="password">商品重量:</label><br/>
+								<input type="text" id="password" class="qtr" value="" name="password"/>
+							</p>
+							
+							<p>
+								<label class="required" for="password">能作为普通商品销售:</label><br/>
+								<input type="text" id="password" class="half" value="" name="password"/>
+								<small>打勾表示能作为普通商品销售，否则只能作为配件或赠品销售。</small>
+							</p>
+							
+							<p>
+								<label class="required" for="password">是否为免运费商品:</label><br/>
+								<input type="text" id="password" class="half" value="" name="password"/>
+								<small>打勾表示此商品不会产生运费花销，否则按照正常运费计算。</small>
+							</p>
+							
+							<p>
+								<label class="required" for="password">商家备注:</label><br/>
+								<input type="text" id="password" class="half" value="" name="password"/>
+							</p>
+							
+							<p>
+								<label class="required" for="password">扩展属性:</label><br/>
+								<input type="text" id="password" class="half" value="" name="password"/>
+							</p>
+							
+							<p>
+								<label class="required" for="password">商品详情:</label><br/>
+								<textarea id="productdesc" class="full" name="productdesc" rows="20"></textarea>
+							</p>
+							
+							<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+
+						</fieldset>
+
+					</form>
+				
+					<div class="clear">&nbsp;</div>
+				
+				</section>
+				<!-- End of Left column/section -->
+				
+				<!-- Right column/section -->
+				<aside class="column width2">
+					<div id="rightmenu">
+						<header>
+							<h3>账户信息</h3>
+						</header>
+						<dl class="first">
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/key.png"></dt>
+							<dd><a href="#">企业账户 (admin)</a></dd>
+							<dd class="last">30d体验版.</dd>
+							
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/help.png"></dt>
+							<dd><a href="#">技术支持</a></dd>
+							<dd class="last">相关技术支持请查看 http://doc.f-fusion.com</dd>
+						</dl>
+					</div>
+				</aside>
+				<!-- End of Right column/section -->
+				
+		</div>
+		<!-- End of Wrapper -->
+	</div>
+	<!-- End of Page content -->
+	
+	<!-- Page footer -->
+	<include file="Public:footer"/>
+	<!-- End of Page footer -->
+	
+	<!-- Animated footer -->
+	<include file="Public:footer-float"/>
+	<!-- End of Animated footer -->
+	
+	<!-- Scroll to top link -->
+	<include file="Public:go"/>
+
+</body>
+</html>

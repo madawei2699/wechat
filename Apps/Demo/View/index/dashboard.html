@@ -1,50 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
 <meta charset="utf-8" />
 <title>熔意网络科技管理系统 v0.1a</title>
-<meta name="description" content="Administry - Admin Template by www.865171.cn" />
-<meta name="keywords" content="Admin,Template" />
-<!-- We need to emulate IE7 only when we are to use excanvas -->
-<!--[if IE]>
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<![endif]-->
-<!-- Favicons --> 
-<link rel="shortcut icon" type="image/png" href="/public/demo/img/favicons/favicon.png"/>
-<link rel="icon" type="image/png" href="/public/demo/img/favicons/favicon.png"/>
-<link rel="apple-touch-icon" href="/public/demo/img/favicons/apple.png" />
-<!-- Main Stylesheet --> 
-<link rel="stylesheet" href="/public/demo/css/style.css" type="text/css" />
-<!-- Your Custom Stylesheet --> 
-<link rel="stylesheet" href="/public/demo/css/custom.css" type="text/css" />
-<!--swfobject - needed only if you require <video> tag support for older browsers -->
-<script type="text/javascript" src="/public/demo/js/swfobject.js"></script>
-<!-- jQuery with plugins -->
-<script type="text/javascript" src="/public/demo/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="/public/demo/js/jquery.ui.core.min.js"></script>
-<script type="text/javascript" src="/public/demo/js/jquery.ui.widget.min.js"></script>
-<script type="text/javascript" src="/public/demo/js/jquery.ui.tabs.min.js"></script>
-<!-- jQuery tooltips -->
-<script type="text/javascript" src="/public/demo/js/jquery.tipTip.min.js"></script>
-<!-- Superfish navigation -->
-<script type="text/javascript" src="/public/demo/js/jquery.superfish.min.js"></script>
-<script type="text/javascript" src="/public/demo/js/jquery.supersubs.min.js"></script>
-<!-- jQuery form validation -->
-<script type="text/javascript" src="/public/demo/js/jquery.validate_pack.js"></script>
-<!-- jQuery popup box -->
-<script type="text/javascript" src="/public/demo/js/jquery.nyroModal.pack.js"></script>
-<!-- jQuery graph plugins -->
-<!--[if IE]><script type="text/javascript" src="/public/demo/js/flot/excanvas.min.js"></script><![endif]-->
-<script type="text/javascript" src="/public/demo/js/flot/jquery.flot.min.js"></script>
-<!-- Internet Explorer Fixes --> 
-<!--[if IE]>
-<link rel="stylesheet" type="text/css" media="all" href="/public/demo/css/ie.css"/>
-<script src="/public/demo/js/html5.js"></script>
-<![endif]-->
-<!--Upgrade MSIE5.5-7 to be compatible with MSIE8: http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE8.js -->
-<!--[if lt IE 8]>
-<script src="/public/demo/js/IE8.js"></script>
-<![endif]-->
+<include file="Public:scripts"/>
 <script type="text/javascript">
 $(document).ready(function(){
 	
@@ -84,19 +43,7 @@ $(document).ready(function(){
 	<header id="top">
 		<div class="wrapper">
 			<!-- Title/Logo - can use text instead of image -->
-			<div id="title">
-				<img src="/public/demo/img/logo.png" alt="熔意" />
-				<ul class="title-exp">
-					<li><a href="/shop/quick">一键开店</a></li>
-					<li><a href="/order">订单管理</a></li>
-					<li><a href="/shop/member">会员管理</a></li>
-					<li><a href="/active">互动管理</a></li>
-					<li><a href="/promotion">促销系统</a></li>
-					<li><a href="/shop/lbs">地理围栏</a></li>
-					<li><a href="/shop/media">素材模板</a></li>
-					<li><a href="/lib">扩展功能</a></li>
-				</ul>
-			</div>
+			<include file="Public:title"/>
 			<!-- Top navigation -->
 			<div id="topnav">
 				<a href="#"><img class="avatar" src="/public/demo/img/user_32.png" alt="" /></a>
@@ -107,167 +54,7 @@ $(document).ready(function(){
 			</div>
 			<!-- End of Top navigation -->
 			<!-- Main navigation -->
-			<nav id="menu">
-				<ul class="sf-menu">
-					<li class="current"><a href="/dashboard">系统</a>
-						<ul>
-							<li><a href="/dashboard/serv">云服务器</a>
-								<ul>
-									<li><a href="#">阿里云杭州节点</a>
-										<ul>
-											<li><a href="#">Server-1</a></li>
-											<li><a href="#">Server-2</a></li>
-											<li><a href="#">Server-3</a></li>
-											<li><a href="#">Server-4</a></li>
-										</ul>
-									</li>
-									<li><a href="#">阿里云青岛节点</a>
-										<ul>
-											<li><a href="#">Server-1</a></li>
-											<li><a href="#">Server-2</a></li>
-										</ul>
-									</li>
-									<li><a href="#">腾讯云</a>
-										<ul>
-											<li><a href="#">Server-T1</a></li>
-											<li><a href="#">Server-T2</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="/dashboard/db">云数据库</a>
-								<ul>
-									<li><a href="#">MySQL</a></li>
-									<li><a href="#">MongoDB</a></li>
-									<li><a href="#">MSSQL</a></li>
-									<li><a href="#">Oracle</a></li>
-								</ul>
-							</li>
-							<li><a href="/dashboard/cdn">CDN镜像</a>
-								<ul>
-									<li><a href="#">北京节点</a></li>
-									<li><a href="#">青岛节点</a></li>
-									<li><a href="#">江浙沪节点</a></li>
-									<li><a href="#">广深节点</a></li>
-								</ul>
-							</li>
-							<li><a href="/dashboard/dns">DNS服务器</a>
-								<ul>
-									<li><a href="#">CAP节点</a></li>
-									<li><a href="#">CN-USA骨干节点</a></li>
-									<li><a href="#">深港节点</a></li>
-								</ul>
-							</li>
-							<li><a href="/dashboard/lvs">负载均衡</a></li>
-							<li><a href="/dashboard/backup">异地灾备</a>
-								<ul>
-									<li><a href="#">杭州READer</a></li>
-									<li><a href="#">青岛READer</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="/agent">渠道</a>
-						<ul>
-							<li>
-								<a href="/agent/latest">最新入驻</a>
-								<ul>
-									<li><a href="#">LINcTEX</a></li>
-									<li><a href="#">菊赖服饰</a></li>
-									<li><a href="#">驰球保险箱</a></li>
-									<li><a href="#">三只松鼠</a></li>
-								</ul>
-							</li>
-							<li><a href="/agent">全部渠道</a></li>
-							<li><a href="/agent/user">渠道管理员</a></li>
-							<li><a href="/agent/shop">分销/代理/直营店</a>
-								<ul>
-									<li><a href="#">跨区总代</a></li>
-									<li><a href="#">分销商</a></li>
-									<li><a href="#">代理商</a></li>
-									<li><a href="#">直营门店</a></li>
-								</ul>
-							</li>
-							<li><a href="/agent/lbs">LBS地理围栏</a></li>
-						</ul>
-					</li>
-					<li><a href="/shop">微店</a>
-						<ul>
-							<li><a href="/shop/quick">一键开店</a></li>
-							<li><a href="/shop">全部微店</a></li>
-							<li><a href="/shop/user">微店管理员</a></li>
-							<li><a href="/shop/goods">商品上架/下架</a></li>
-							<li><a href="/shop/member">会员</a>
-								<ul>
-									<li><a href="#">绑定手机会员</a></li>
-									<li><a href="#">会员分组</a></li>
-									<li><a href="#">全部会员</a></li>
-									<li><a href="#">会员信用</a></li>
-								</ul>
-							</li>
-							<li><a href="/shop/lbs">LBS地理围栏</a></li>
-							<li><a href="/shop/media">素材/模板</a>
-								<ul>
-									<li><a href="#">已上传素材</a></li>
-									<li><a href="#">通用模板</a></li>
-									<li><a href="#">行业模板</a></li>
-									<li><a href="#">自定义模板</a></li>
-								</ul>
-							</li>
-							<li><a href="/shop/qrcode">二维码管理</a></li>
-							<li><a href="/shop/menu">自定义菜单</a></li>
-						</ul>
-					</li>
-					<li><a href="/active">互动</a>
-						<ul>
-							<li><a href="/active/message">粉丝留言</a></li>
-							<li><a href="/active/send?history">已发送消息</a></li>
-							<li><a href="/active/send">客服消息</a></li>
-							<li><a href="/active/send?group">群发消息</a></li>
-						</ul>
-					</li>
-					<li><a href="/order">订单</a>
-						<ul>
-							<li><a href="/order">订单/交易</a></li>
-							<li><a href="/order/shipping">仓储/货运/快递</a></li>
-							<li><a href="/order/money">款项明细</a></li>
-							<li><a href="/card/score">会员卡</a></li>
-							<li><a href="/card/charge">预充值</a></li>
-							<li><a href="/wechat/feedback">维权</a></li>
-						</ul>
-					</li>
-					<li><a href="/promotion">促销</a>
-						<ul>
-							<li><a href="/promotion/price">特价促销</a></li>
-							<li><a href="/promotion/time">限时特卖</a></li>
-							<li><a href="/promotion/group">团购</a></li>
-							<li><a href="/promotion/moneypack">红包满天飞</a></li>
-						</ul>
-					</li>
-					<li><a href="/game">游戏</a>
-						<ul>
-							<li><a href="/game/egg">砸金蛋</a></li>
-							<li><a href="/game/card">刮刮乐</a></li>
-							<li><a href="/game/wheel">幸运大转盘</a></li>
-						</ul>
-					</li>	
-					<li><a href="/statistics">统计</a>
-						<ul>
-							<li><a href="/statistics/a1">销售统计图表</a></li>
-							<li><a href="/statistics/a2">地区统计图表</a></li>
-							<li><a href="/statistics/a3">粉丝所属地区图表</a></li>
-							<li><a href="/statistics/a4">收货所属地区图表</a></li>
-							<li><a href="/statistics/a5">交易转化率</a></li>
-							<li><a href="/statistics/a6">重复消费率</a></li>
-							<li><a href="/statistics/a7">团购统计</a></li>
-						</ul>
-					</li>
-					<li><a href="/user">成员</a></li>
-					<li><a href="/log">日志</a></li>
-					<li><a href="/lib">扩展</a></li>
-				</ul>
-			</nav>
+			<include file="Public:menu"/>
 			<!-- End of Main navigation -->
 			<!-- Aside links -->
 			<!-- aside><b>English</b> &middot; <a href="#">Spanish</a> &middot; <a href="#">German</a></aside -->
@@ -434,48 +221,15 @@ $(document).ready(function(){
 	<!-- End of Page content -->
 	
 	<!-- Page footer -->
-	<footer id="bottom">
-		<div class="wrapper">
-			<nav>
-				<a href="#">系统</a> &middot;
-				<a href="#">渠道</a> &middot;
-				<a href="#">微店</a> &middot;
-				<a href="#">互动</a> &middot;
-				<a href="#">订单</a> &middot;
-				<a href="#">促销</a> &middot;
-				<a href="#">游戏</a> &middot;
-				<a href="#">统计</a> &middot;
-				<a href="#">成员</a> &middot;
-				<a href="#">日志</a> &middot;
-				<a href="#">扩展</a>
-			</nav>
-			<p>Copyright &copy; 熔意网络科技 2014</p>
-		</div>
-	</footer>
+	<include file="Public:footer"/>
 	<!-- End of Page footer -->
 	
 	<!-- Animated footer -->
-	<footer id="animated">
-		<ul>
-			<li><a href="#">系统</a></li>
-			<li><a href="#">渠道</a></li>
-			<li><a href="#">微店</a></li>
-			<li><a href="#">互动</a></li>
-			<li><a href="#">订单</a></li>
-			<li><a href="#">促销</a></li>
-			<li><a href="#">游戏</a></li>
-			<li><a href="#">统计</a></li>
-			<li><a href="#">成员</a></li>
-			<li><a href="#">日志</a></li>
-			<li><a href="#">扩展</a></li>
-		</ul>
-	</footer>
+	<include file="Public:footer-float"/>
 	<!-- End of Animated footer -->
 	
 	<!-- Scroll to top link -->
-	<a href="#" id="totop">^ 到顶部</a>
+	<include file="Public:go"/>
 
-<!-- Admin template javascript load -->
-<script type="text/javascript" src="/public/demo/js/administry.js"></script>
 </body>
 </html>

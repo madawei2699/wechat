@@ -1,47 +1,165 @@
-<ul class="nav1">
-	<li>
-		<a href="/product">产品中心</a>
-		<ul class="nav2">
-			<li class="nav2-1">
-				<h1>应急设备方案</h1>
-				<p>
-				<a href="#">个人 应急防护装备</a>
-				<a href="#">生化防护</a>
-				<a href="#">核辐射防护装备</a>
-				<a href="#">气 应急监测设备</a>
-				<a href="#">水 应急监测设备</a>
-				<a href="#">核辐射  应急监测设备</a>
-				<a href="#">重金属  应急监测设备</a>
-				</p>
-			</li>
-			<li class="nav2-2">
-				<h1>在线系统方案</h1>
-				<p>
-				<a href="#">烟气在线连续监测系统(CEMS)</a>
-				<a href="#">大气环境监测系统(PM2.5、超级站)</a>
-				<a href="#">核辐射在线监控</a>
-				</p>
-			</li>
-			<li class="nav2-3">
-				<h1>实验室仪器成套解决方案</h1>
-				<p>
-				<a href="#">德国耶拿分析仪器</a>
-				</p>
-			</li>
-		</ul>
-	</li>
-</ul>
-<script type="text/javascript" src="/public/js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-	var time = null;
-	$('.nav1 li:first').hover(function () {
-		$('.nav2').fadeIn();
-		clearTimeout(time);
-	}, function () {
-		time = setTimeout(function(){	
-			$('.nav2').fadeOut();
-		}, 50);
-	});
-});
-</script>
+<nav id="menu">
+	<ul class="sf-menu">
+		<li class="current"><a href="/dashboard">系统</a>
+			<ul>
+				<li><a href="/dashboard/serv">云服务器</a>
+					<ul>
+						<li><a href="#">阿里云杭州节点</a>
+							<ul>
+								<li><a href="#">Server-1</a></li>
+								<li><a href="#">Server-2</a></li>
+								<li><a href="#">Server-3</a></li>
+								<li><a href="#">Server-4</a></li>
+							</ul>
+						</li>
+						<li><a href="#">阿里云青岛节点</a>
+							<ul>
+								<li><a href="#">Server-1</a></li>
+								<li><a href="#">Server-2</a></li>
+							</ul>
+						</li>
+						<li><a href="#">阿里云北京节点</a>
+							<ul>
+								<li><a href="#">Server-1</a></li>
+							</ul>
+						</li>
+						<li><a href="#">腾讯云</a>
+							<ul>
+								<li><a href="#">Server-T1</a></li>
+								<li><a href="#">Server-T2</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="/dashboard/db">云数据库</a>
+					<ul>
+						<li><a href="#">MySQL</a></li>
+						<li><a href="#">MongoDB</a></li>
+						<li><a href="#">MSSQL</a></li>
+						<li><a href="#">Oracle</a></li>
+					</ul>
+				</li>
+				<li><a href="/dashboard/cdn">CDN镜像</a>
+					<ul>
+						<li><a href="#">北京节点</a></li>
+						<li><a href="#">青岛节点</a></li>
+						<li><a href="#">江浙沪节点</a></li>
+						<li><a href="#">广深节点</a></li>
+					</ul>
+				</li>
+				<li><a href="/dashboard/dns">DNS服务器</a>
+					<ul>
+						<li><a href="#">CAP节点</a></li>
+						<li><a href="#">CN-USA骨干节点</a></li>
+						<li><a href="#">深港节点</a></li>
+					</ul>
+				</li>
+				<li><a href="/dashboard/lvs">负载均衡</a></li>
+				<li><a href="/dashboard/backup">异地灾备</a>
+					<ul>
+						<li><a href="#">杭州READer</a></li>
+						<li><a href="#">青岛READer</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="/agent">渠道</a>
+			<ul>
+				<li>
+					<a href="/agent/latest">最新入驻</a>
+					<ul>
+						<li><a href="#">LINcTEX</a></li>
+						<li><a href="#">菊赖服饰</a></li>
+						<li><a href="#">驰球保险箱</a></li>
+					</ul>
+				</li>
+				<li><a href="/agent">全部渠道</a></li>
+				<li><a href="/agent/user">渠道管理员</a></li>
+				<li><a href="/agent/shop">分销/代理/直营店</a>
+					<ul>
+						<li><a href="#">跨区总代</a></li>
+						<li><a href="#">分销商</a></li>
+						<li><a href="#">代理商</a></li>
+						<li><a href="#">直营门店</a></li>
+					</ul>
+				</li>
+				<li><a href="/agent/lbs">LBS地理围栏</a></li>
+			</ul>
+		</li>
+		<li><a href="/shop">微店</a>
+			<ul>
+				<li><a href="/shop/quick">一键开店</a></li>
+				<li><a href="/shop">全部微店</a></li>
+				<li><a href="/shop/user">微店管理员</a></li>
+				<li><a href="/shop/goods">商品上架/下架</a></li>
+				<li><a href="/shop/member">会员</a>
+					<ul>
+						<li><a href="#">绑定手机会员</a></li>
+						<li><a href="#">会员分组</a></li>
+						<li><a href="#">全部会员</a></li>
+						<li><a href="#">会员信用</a></li>
+					</ul>
+				</li>
+				<li><a href="/shop/lbs">LBS地理围栏</a></li>
+				<li><a href="/shop/media">素材/模板</a>
+					<ul>
+						<li><a href="#">已上传素材</a></li>
+						<li><a href="#">通用模板</a></li>
+						<li><a href="#">行业模板</a></li>
+						<li><a href="#">自定义模板</a></li>
+					</ul>
+				</li>
+				<li><a href="/shop/qrcode">二维码管理</a></li>
+				<li><a href="/shop/menu">自定义菜单</a></li>
+			</ul>
+		</li>
+		<li><a href="/active">互动</a>
+			<ul>
+				<li><a href="/active/message">粉丝留言</a></li>
+				<li><a href="/active/send?history">已发送消息</a></li>
+				<li><a href="/active/send">客服消息</a></li>
+				<li><a href="/active/send?group">群发消息</a></li>
+			</ul>
+		</li>
+		<li><a href="/order">订单</a>
+			<ul>
+				<li><a href="/order">订单/交易</a></li>
+				<li><a href="/order/shipping">仓储/货运/快递</a></li>
+				<li><a href="/order/money">款项明细</a></li>
+				<li><a href="/card/score">会员卡</a></li>
+				<li><a href="/card/charge">预充值</a></li>
+				<li><a href="/wechat/feedback">维权</a></li>
+			</ul>
+		</li>
+		<li><a href="/promotion">促销</a>
+			<ul>
+				<li><a href="/promotion/price">特价促销</a></li>
+				<li><a href="/promotion/time">限时特卖</a></li>
+				<li><a href="/promotion/group">团购</a></li>
+				<li><a href="/promotion/moneypack">红包满天飞</a></li>
+			</ul>
+		</li>
+		<li><a href="/game">游戏</a>
+			<ul>
+				<li><a href="/game/egg">砸金蛋</a></li>
+				<li><a href="/game/card">刮刮乐</a></li>
+				<li><a href="/game/wheel">幸运大转盘</a></li>
+			</ul>
+		</li>	
+		<li><a href="/statistics">统计</a>
+			<ul>
+				<li><a href="/statistics/a1">销售统计图表</a></li>
+				<li><a href="/statistics/a2">地区统计图表</a></li>
+				<li><a href="/statistics/a3">粉丝所属地区图表</a></li>
+				<li><a href="/statistics/a4">收货所属地区图表</a></li>
+				<li><a href="/statistics/a5">交易转化率</a></li>
+				<li><a href="/statistics/a6">重复消费率</a></li>
+				<li><a href="/statistics/a7">团购统计</a></li>
+			</ul>
+		</li>
+		<li><a href="/user">成员</a></li>
+		<li><a href="/log">日志</a></li>
+		<li><a href="/lib">扩展</a></li>
+	</ul>
+</nav>

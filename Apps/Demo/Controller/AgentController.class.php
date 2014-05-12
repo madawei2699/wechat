@@ -4,8 +4,7 @@ namespace Demo\Controller;
 use Think\Controller;
 
 /**
- * Dashboard 类
- * 网站首页
+ * Agent 类
  * http://127.0.0.1:124/agent
  * http://demo.f-fusion.com/agent
  * 

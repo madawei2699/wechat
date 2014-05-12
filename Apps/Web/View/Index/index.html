@@ -27,26 +27,6 @@ $(document).ready(function () {
 			'top': imgpos.top+155
 		}).fadeIn();
 	});
-
-	// 
-    var obj=$("#e1");
-	if (obj.length == 1) {
-	    var navH = obj.offset().top; // 获取要定位元素距离浏览器顶部的距离
-	    // 滚动条事件
-	    $(window).scroll(function(){
-	        var scroH = $(this).scrollTop(); // 获取滚动条的滑动距离
-	        // 滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定
-	        if (scroH>=navH){
-	            obj.css({
-	            	"position":"fixed",
-	            	"top":0,
-	            }); // top值因不同主题而定
-	        } else if (scroH<navH){
-	            obj.css({"position":"static"});
-	        };
-	        //console.log(scroH==navH);
-	    });
-	};
 });
 </script>
 </head>
@@ -56,16 +36,6 @@ $(document).ready(function () {
 <div class="wrap height-270"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img rel="sliders" src="/public/images/slider1.jpg" border="0" width="1000" height="270" /></a></div>
 <div class="wrap color-bg-white">
 	<ul id="e1" class="exp3">
-	<li><a href="/multimarketing" title="整合营销">金融行业</a></li>
-	<li><a href="/multimarketing" title="食品餐饮">食品餐饮</a></li>
-	<li><a href="/multimarketing" title="家居建材">家居建材</a></li>
-	<li><a href="/multimarketing" title="时尚服饰">时尚服饰</a></li>
-	<li><a href="/multimarketing" title="城市形象">城市形象</a></li>
-	<li><a href="/multimarketing" title="机械制造">机械制造</a></li>
-	<li><a href="/multimarketing" title="工业材料">工业材料</a></li>
-	<li><a href="/multimarketing" title="建筑行业">建筑行业</a></li>
-	</ul>
-	<ul class="exp3-copy">
 	<li><a href="/multimarketing" title="整合营销">金融行业</a></li>
 	<li><a href="/multimarketing" title="食品餐饮">食品餐饮</a></li>
 	<li><a href="/multimarketing" title="家居建材">家居建材</a></li>
