@@ -17,6 +17,9 @@ class IndexController extends BaseController {
     function index(){
     	// 案例
     	$projects = array(
+    		array('id'=>10,'img'=>'images/project/didilu/index.jpg','href'=>'#', 'title'=>'孩子的梦想！世界的希望！','summary'=>'<p>超越家长的期望，自然与健康不仅体现在衣服本身，更重要的是对儿童精神层面的理解与支持。</p>', 'title2'=>'如何定义迪迪鹿品牌文化'),
+    		array('id'=>11,'img'=>'images/project/fapai/index.jpg','href'=>'#', 'title'=>'从本土男装先驱到国际时尚名品的转变','summary'=>'<p>法派不仅仅是有代言人，而是所有上流有成就的名人的集合</p>', 'title2'=>'法派'),
+    		array('id'=>12,'img'=>'images/project/bailide/index.jpg','href'=>'#', 'title'=>'活出自我','summary'=>'<p>新生代的“新势力”</p>', 'title2'=>'拜丽德'),
     		array('id'=>1,'img'=>'images/project/ciiq/ciiq.jpg','href'=>'#', 'title'=>'推动安防产业升级，颠覆对保险箱行业的定义！安防艺术大师横空出世！','summary'=>'<p>传统的行业，传统的渠道，传统的认识，保险箱行业的发展一直都被固有营销模式所禁锢着，与家居生活的发展有着巨大的落差！驰球是如何通过品牌变革重新赢得发展契机的？</p>', 'title2'=>'驰球保险箱的转型之路'),
     		array('id'=>2,'img'=>'images/project/maomaozhu/maomaozhu.jpg','href'=>'#', 'title'=>'一个服装设计师对孩子的爱，但当与市场发生冲撞的时候，如何把握这个火花呢？','summary'=>'<p>挑战：当所有人都在模仿抄袭的时候，当大多数人追赶韩流的时候，市场对这样的产品不知道如何接纳，是不是不够流行？是不是不适合我的孩子？</p>', 'title2'=>'毛毛猪童装'),
     		array('id'=>3,'img'=>'images/project/janus/001.png','href'=>'#', 'title'=>'重新挖掘“豪门”文化，开创门业颠覆之作！','summary'=>'<p>挑战：当亚斯王决定进入高端门业的时候，只有高端的产品是远远不够的，要怎样才能突显自己的价值，并赢得高端消费者的心？</p>', 'title2'=>'亚斯王防盗门的华丽转型！'),

@@ -56,7 +56,7 @@ if (strcmp(constant('DEV_MODE'), 'LOCAL') == 0) {
 	};
 };
 if (strcmp(constant('DEV_MODE'), 'REMOTE') == 0) {
-	define('APP_DEBUG', true);
+	define('APP_DEBUG', false);
 	define('APP_STATUS', 'remote');
 	$def = $mapping[constant('DEV_MODE')];
 	$key = (string)strtolower($_SERVER['HTTP_HOST']);

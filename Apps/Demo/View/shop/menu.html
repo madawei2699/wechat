@@ -92,13 +92,11 @@ $(document).ready(function(){
 								<table class="stylized">
 								<thead>
 									<tr>
-									<th>权限节点</th>
-									<th>列表</th>
-									<th>增加</th>
-									<th>修改</th>
-									<th>删除</th>
-									<th>授权</th>
-									<th>继承</th>
+									<th>节点</th>
+									<th>URL</th>
+									<th>类型</th>
+									<th>特性</th>
+									<th>事件</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -108,8 +106,6 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
-									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
-									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
 									<td>&nbsp;&nbsp;&nbsp;&nbsp;商品管理</td>
@@ -117,8 +113,6 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
-									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
-									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
 									<td>&nbsp;&nbsp;&nbsp;&nbsp;会员管理</td>
@@ -126,8 +120,6 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
-									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
-									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
 									<td>订单管理&nbsp;&gt;</td>
@@ -135,8 +127,6 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
-									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
-									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
 									<td>&nbsp;&nbsp;&nbsp;&nbsp;积分管理</td>
@@ -144,8 +134,6 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
-									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
-									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
 									<td>&nbsp;&nbsp;&nbsp;&nbsp;团购管理</td>
@@ -153,8 +141,6 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
-									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
-									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
 									<td>促销管理&nbsp;&gt;</td>
@@ -162,8 +148,6 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
-									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
-									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
 									<td>&nbsp;&nbsp;&nbsp;&nbsp;货运管理</td>
@@ -171,8 +155,6 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
-									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
-									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 									<tr>
 									<td>&nbsp;&nbsp;&nbsp;&nbsp;客服管理</td>
@@ -180,8 +162,6 @@ $(document).ready(function(){
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms"/></td>
 									<td><input type="checkbox" id="terms" class="" value="1" name="terms"/></td>
-									<td><input type="checkbox" id="terms" class="" value="1" name="terms" disabled="disabled"/></td>
-									<td><input type="checkbox" id="terms" checked="checked" value="1" name="terms" disabled="disabled"/></td>
 									</tr>
 								</tbody>
 								</table>
