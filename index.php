@@ -22,7 +22,7 @@ $mapping = array(
 		'121' => 'Admin',
 		'122' => 'Site',
 		'100' => 'Crm',
-		'105' => 'Erp',
+		'105' => 'Ciiq',
 	),
 	'REMOTE' => array(
 		'f-fusion.com'      => 'Web',
@@ -39,7 +39,7 @@ $mapping = array(
 		'xx.f-fusion.com'   => 'Admin',
 		'x.f-fusion.com'    => 'Site',
 		'crm.f-fusion.com'  => 'Crm',
-		'erp.f-fusion.com'  => 'Erp',
+		'ciiq.f-fusion.com' => 'Ciiq',
 	),
 );
 // process
