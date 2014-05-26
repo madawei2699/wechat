@@ -1,9 +1,9 @@
 <div class="wrap height-60">
-	<div class="fl width-315 height-60 color-bg-white top">{$STRING_FLAG}</div>
+	<div class="fl width-315 height-60 color-bg-white top">{$WEB_EXT_CFG.STRING_FLAG3}</div>
 	<div class="fl width-660 height-60">
 		<ul class="exp1">
 		<volist name="WEB_EXT_CFG.MENU_SITE" id="ITEM">
-		<li><a href="{$ITEM.URL}" title="{$ITEM.NAME}">{$ITEM.NAME}</a></li>
+		<li><a class="it-link" href="{$ITEM.URL}" title="{$ITEM.NAME}">{$ITEM.NAME}</a></li>
 		</volist>
 		</ul>
 	</div>
@@ -11,13 +11,13 @@
 <div class="clear">&nbsp;</div>
 <div class="wrap" style="position:relative;margin-bottom:60px;">
 	<div class="wrap height-60 color-bg-white" id="pagetitle" style="position:fixed;z-index:30;">
-		<div class="fl width-315 height-60 text-align-center padding-top-10">
-			<a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img src="/public/images/logo.png" border="0" alt="{$WEB_EXT_CFG.STRING_SITE_TITLE}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}" /></a>
+		<div class="fl width-315 height-60 text-align-center">
+			<a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img src="/public/images/logo-it.png" border="0" alt="{$WEB_EXT_CFG.STRING_SITE_TITLE}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}" /></a>
 		</div>
 		<div class="fl width-670 height-60">
 			<ul class="exp2">
-			<volist name="WEB_EXT_CFG.MENU_CATEGORY" id="ITEM">
-			<li><a href="{$ITEM.URL}" title="{$ITEM.NAME}">{$ITEM.NAME}</a></li>
+			<volist name="WEB_EXT_CFG.MENU_IT" id="ITEM">
+			<li class="it"><a href="{$ITEM.URL}" title="{$ITEM.NAME}">{$ITEM.NAME}</a></li>
 			</volist>
 			</ul>
 		</div>

@@ -11,3 +11,9 @@ Apps/Runtime/*
 *.txt
 
 *.log
+
+public/images/project/*.jpg
+
+*.jpg
+
+*.png

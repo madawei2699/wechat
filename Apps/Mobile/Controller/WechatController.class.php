@@ -108,21 +108,67 @@ class WechatController extends BaseController {
     
     /**
      * OK QRCode
-     * http://127.0.0.1:114/wechat/qr
-     * http://m.f-fusion.com/wechat/qr
+     * http://127.0.0.1:114/wechat/guanxuejun
+     * http://m.f-fusion.com/wechat/guanxuejun
      */
-    function qr(){
+    function guanxuejun(){
     	$text = 'BEGIN:VCARD
-VERSION:4.0
+VERSION:3.0
+FN:管雪军
 ORG:上海熔意网络科技有限公司
-TITLE:技术总监
-ADR:上海市闵行区梅陇西路413号311室
-URL:http://www.f-fusion.com
-TEL;TYPE=cell:13916615867
-TEL;TYPE=cell:13182081166
+TITLE:技术总监 Technical Director
+ADR;WORK:上海市闵行区梅陇西路413号310-313室(200237)
+URL:http://it.f-fusion.com
+TEL;CELL:13916615867
+TEL;WORK;VOICE:021-34096793
+TEL;WORK;FAX:021-34096792
 EMAIL:guanxuejun@f-fusion.com
-N:管雪军
+NOTE:微信开发,行业电商,在线支付,CRM,MIS,ERP
 END:VCARD';
-    	QRcode::png($text);
+    	QRcode::png($text, false, 2, 8);
+    }
+    
+    /**
+     * OK QRCode
+     * http://127.0.0.1:114/wechat/zhangwanjun
+     * http://m.f-fusion.com/wechat/zhangwanjun
+     */
+    function zhangwanjun(){
+    	$text = 'BEGIN:VCARD
+VERSION:3.0
+FN:张万军
+ORG:上海熔意网络科技有限公司
+TITLE:客户总监 Account Director
+ADR;WORK:上海市闵行区梅陇西路413号310-313室(200237)
+URL:http://it.f-fusion.com
+TEL;CELL:13701943000
+TEL;WORK;VOICE:021-34096793
+TEL;WORK;FAX:021-34096792
+EMAIL:zhangwanjun@f-fusion.com
+NOTE:微信开发,行业电商,在线支付,CRM,MIS,ERP
+END:VCARD';
+    	QRcode::png($text, false, 2, 8);
+    }
+    
+    /**
+     * OK QRCode
+     * http://127.0.0.1:114/wechat/zhangzhenyu
+     * http://m.f-fusion.com/wechat/zhangzhenyu
+     */
+    function zhangzhenyu(){
+    	$text = 'BEGIN:VCARD
+VERSION:3.0
+FN:张振宇
+ORG:上海熔意网络科技有限公司
+TITLE:执行总监 Executive Director
+ADR;WORK:上海市闵行区梅陇西路413号310-313室(200237)
+URL:http://it.f-fusion.com
+TEL;CELL:18602118629
+TEL;WORK;VOICE:021-34096793
+TEL;WORK;FAX:021-34096792
+EMAIL:zhangzhenyu@f-fusion.com
+NOTE:微信开发,行业电商,在线支付,CRM,MIS,ERP
+END:VCARD';
+    	QRcode::png($text, false, 2, 8);
     }
 }

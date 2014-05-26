@@ -2,7 +2,6 @@
 namespace Web\Controller;
 
 use Think\Controller;
-use Common\Controller\BaseController;
 
 /**
  * 网站页面控制器类

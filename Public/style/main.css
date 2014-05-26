@@ -6,6 +6,9 @@ body {
 	font-family: 微软雅黑,verdana,tahoma,宋体;
 	background-color: #f0c320;
 }
+.body-bg-color-gray {
+	background-color: #e6e5e5;
+}
 .wrap {
 	width: 1000px;
 	margin: 0 auto;
@@ -121,6 +124,13 @@ body {
 .exp1 li a:hover {
 	text-decoration: underline;
 }
+.exp1 li a.it-link {
+	color: #182d78;
+	text-decoration: none;
+}
+.exp1 li a.it-link:hover {
+	text-decoration: underline;
+}
 /***********************************/
 .exp2 {
 	list-style: none;
@@ -138,6 +148,9 @@ body {
 	background-image: url(/public/images/bar.jpg);
 	background-repeat: no-repeat;
 	background-position: -5px center;
+}
+.exp2 li.it {
+	padding:0 20px;
 }
 .exp2 li.first {
 	background-image: none;
@@ -385,14 +398,22 @@ body {
 	background-position: 624px center;
 }
 .tri4 {
-	background-image: url(/public/images/tri.jpg);
+	background-image: url(/public/images/tri1.jpg);
 	background-repeat: no-repeat;
-	background-position: 784px center;
+	background-position: 748px center;
 }
 .tri5 {
 	background-image: url(/public/images/tri.jpg);
 	background-repeat: no-repeat;
 	background-position: 880px center;
+}
+.tri-it1 {
+	background-image: url(/public/images/tri1.jpg);
+	background-repeat: no-repeat;
+	background-position: 420px center;
+}
+#pagetitle {
+	border-bottom: 1px solid #ffffff;
 }
 #float-wechat {
 	position: absolute;
@@ -429,4 +450,23 @@ body {
 	font-size: 1.2em;
 	color: #999999;
 	padding: 5px 20px 10px 0;
+}
+
+.it-big-text {
+	font-size: 22px;
+	font-family: "simhei","微软雅黑";
+	color: #888889;
+}
+.it-icon-title {
+	line-height: 30px;
+	font-size: 28px;
+	font-family: "simhei","微软雅黑";
+	color: #888889;
+}
+.it-icon-summary {
+	line-height: 26px;
+	font-size: 16px;
+	font-family: "simhei","微软雅黑";
+	color: #b9b5b4;
+	font-weight: normal;
 }

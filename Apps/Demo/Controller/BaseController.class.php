@@ -22,6 +22,7 @@ class BaseController extends Controller {
 	protected $time = 0;
 	function __construct() {
 		parent::__construct();
+		if (!session('?admin')) exit;
 		$this->TABLE_PRIFIX = C('TABLE_PREFIX_SYSTEM');
 		$this->MODEL_PRIFIX = C('MODEL_PREFIX_SYSTEM');
 		$this->MEMBER_SALT   = C('MEMBER_SALT');

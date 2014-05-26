@@ -2,7 +2,6 @@
 namespace Web\Controller;
 
 use Think\Controller;
-use Common\Controller\BaseController;
 
 /**
  * 网站页面控制器类
@@ -15,8 +14,16 @@ class IndexController extends BaseController {
 	}
 	
     function index(){
+    	// 判断不同的主机头，显示不同的网站
+    	$key = (string)strtolower($_SERVER['HTTP_HOST']);
+    	if ($key == 'it.f-fusion.com') {
+    		redirect('/it');
+    		return;
+    	};
     	// 案例
     	$projects = array(
+    		array('id'=>14,'img'=>'images/project/cityvision/index.jpg','href'=>'#', 'title'=>'不是低档地摊眼镜而是快速时尚饰品','summary'=>'<p>CV代表生活时尚，自由轻松；在时尚的背后，是CV永远创新、与众不同的信念。</p>', 'title2'=>'CityVision'),
+    		array('id'=>13,'img'=>'images/project/francispal/index.jpg','href'=>'#', 'title'=>'FRANCEPAL　一个世纪的浮华浪漫梦想','summary'=>'<p>Francispal，追寻那段令人无限神往的华贵生活，于历史的氤氲气息中蔓延出浪漫欧式情怀，以现代时尚来诠释，再现法国巴黎的浮华梦。</p>', 'title2'=>'Francispal'),
     		array('id'=>10,'img'=>'images/project/didilu/index.jpg','href'=>'#', 'title'=>'孩子的梦想！世界的希望！','summary'=>'<p>超越家长的期望，自然与健康不仅体现在衣服本身，更重要的是对儿童精神层面的理解与支持。</p>', 'title2'=>'如何定义迪迪鹿品牌文化'),
     		array('id'=>11,'img'=>'images/project/fapai/index.jpg','href'=>'#', 'title'=>'从本土男装先驱到国际时尚名品的转变','summary'=>'<p>法派不仅仅是有代言人，而是所有上流有成就的名人的集合</p>', 'title2'=>'法派'),
     		array('id'=>12,'img'=>'images/project/bailide/index.jpg','href'=>'#', 'title'=>'活出自我','summary'=>'<p>新生代的“新势力”</p>', 'title2'=>'拜丽德'),

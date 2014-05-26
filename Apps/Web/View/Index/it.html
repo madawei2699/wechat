@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>熔意电商 - {$WEB_EXT_CFG.STRING_SITE_TITLE}</title>
+<link rel="stylesheet" rev="stylesheet" type="text/css" media="all" href="/public/style/main.css" />
+<include file="Public:scripts"/>
+<script type="text/javascript">
+$(document).ready(function () {
+	var imgpos = $('img[rel="sliders"]:first').position();
+	$('#float-wechat').css({
+		'left': imgpos.left+885,
+		'top': imgpos.top+55
+	}).fadeIn();
+	$(window).resize(function () {
+		$('#float-wechat').css({
+			'left': imgpos.left+885,
+			'top': imgpos.top+55
+		}).fadeIn();
+	});
+});
+</script>
+</head>
+<body class="body-bg-color-gray">
+<include file="Public:expit"/>
+<div class="wrap height-12 tri-it1"></div>
+<div class="wrap height-170"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img rel="sliders" src="/public/images/it-banner1.jpg" border="0" width="1000" height="170" /></a></div>
+<div class="wrap color-bg-white">
+	<div class="wrap height-12"></div>
+	<table width="940" align="center" border="0">
+	<tr>
+		<td colspan="3">
+		<div class="cts">
+<p class="it-big-text">线上零售对线下的冲击！线上各类运营者相互冲击！</p>
+<p class="it-big-text">全网比价！真假难辨！你死我活！平台腐败！高成本引流！规则善变！</p>
+<p class="it-big-text">乱象丛生的传统电商圈！熔意移动电商分销系统为你带来更加和谐的商业生态！</p>
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td width="33.3%" align="center" valign="top"><img src="/public/images/icon1.jpg" border="0" />
+		<h3 class="it-icon-title">1家微店<br/>1000家分店</h3>
+		<h4 class="it-icon-summary">同一个微店入口，开发统一的分销平台<br/>所有参与者都可以入驻</h4></td>
+		<td width="33.3%" align="center" valign="top"><img src="/public/images/icon2.jpg" border="0" />
+		<h3 class="it-icon-title">我的地盘<br/>我做主</h3>
+		<h4 class="it-icon-summary">地理围栏技术，分销商自主运作<br/>分销市场，消费者将与店铺<br/>自动匹配，不比价，不窜货</h4></td>
+		<td width="33.3%" align="center" valign="top"><img src="/public/images/icon3.jpg" border="0" />
+		<h3 class="it-icon-title">有限商铺<br/>无限组货</h3>
+		<h4 class="it-icon-summary">实体模块与线上模块无限延展<br/>甚至无成本开店！</h4></td>
+	</tr>
+	<tr>
+		<td width="33.3%" align="center" valign="top"><img src="/public/images/icon4.jpg" border="0" />
+		<h3 class="it-icon-title">一键开店<br/>无忧管理</h3>
+		<h4 class="it-icon-summary">模块化管理，人性化便捷操作<br/>降低操作门槛</h4></td>
+		<td width="33.3%" align="center" valign="top"><img src="/public/images/icon5.jpg" border="0" />
+		<h3 class="it-icon-title">消费者<br/>也是合伙人</h3>
+		<h4 class="it-icon-summary">订单追踪系统，让每个消费轨迹<br/>都可识别，每一笔交易都可以设定分成</h4></td>
+		<td width="33.3%" align="center" valign="top"><img src="/public/images/icon6.jpg" border="0" />
+		<h3 class="it-icon-title">O2O双线并轨<br/>无缝对接</h3>
+		<h4 class="it-icon-summary">从技术到政策都讲实现线上与线下<br/>销售的无缝对接，让O2O不再是幻想！</h4></td>
+	</tr>
+	</table>
+	<div class="clear">&nbsp;</div>
+</div>
+<include file="Public:bottom"/>
+</body>
+</html>

@@ -8,13 +8,13 @@ use Think\Controller;
  * @author guanxuejun
  *
  */
-class AboutController extends BaseController {
+class ItController extends BaseController {
 	function __construct() {
 		parent::__construct();
 	}
 	
     function index(){
     	$this->assign('WEB_EXT_CFG', C('WEB_EXT_CFG'));
-		$this->display('Index/about');
+		$this->display('Index/it');
     }
 }

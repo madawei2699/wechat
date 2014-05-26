@@ -1,5 +1,5 @@
 <?php
-namespace Common\Controller; // 定义为公用空间
+namespace Web\Controller; // 定义为公用空间
 
 use Think\Controller;
 
@@ -92,12 +92,15 @@ class BaseController extends Controller {
 			1006 => array('result'=>1006, 'message'=>'令牌错误或已过期'),
 			1100 => array('result'=>1100, 'message'=>'查询结果为空'),
 		);
+		// 随机宣传口号
+		$flag = C('WEB_EXT_CFG.STRING_FLAG1');
+		$seed = mt_rand(0, count($flag)-1);
+		$flag = $flag[$seed];
+		$this->assign('STRING_FLAG', $flag);
 	}
 	
 	/**
 	 * 检测请求头，判断是 iOS（1）还是Android（2）客户端的请求
-	 * 安师傅代驾 2.1.2 (iPhone; iPhone OS 6.1.3; zh_CN)
-	 * android-async-http/1.4.1 (http://loopj.com/android-async-http)
 	 * 
 	 * 
 	Device              OS       CFNetwork Version

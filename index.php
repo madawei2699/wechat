@@ -4,16 +4,16 @@
 // 检测PHP环境
 if(version_compare(PHP_VERSION,'5.3.0','<'))  die('require PHP > 5.3.0 !');
 // 设置开发模式，LOCAL使用本地模式，其他则是远程运行模式
-define('DEV_MODE', 'LOCAL');
-//define('DEV_MODE', 'REMOTE');
+define('DEV_MODE', 'LOCAL'); // LOCAL REMOTE
 // 定义应用目录
 define('APP_PATH','./Apps/');
 // 定义模块绑定
 $mapping = array(
 	'LOCAL' => array(
+		'108' => 'Web',
+		'124' => 'Demo',
 		'106' => 'Vshop',
 		'107' => 'Vcontrol',
-		'108' => 'Web',
 		'112' => 'Api',
 		'116' => 'Shop',
 		'114' => 'Mobile',
@@ -23,11 +23,12 @@ $mapping = array(
 		'122' => 'Site',
 		'100' => 'Crm',
 		'105' => 'Erp',
-		'124' => 'Demo',
 	),
 	'REMOTE' => array(
 		'f-fusion.com'      => 'Web',
 		'www.f-fusion.com'  => 'Web',
+		'it.f-fusion.com'   => 'Web',
+		'd.f-fusion.com'    => 'Demo',
 		'v.f-fusion.com'    => 'Vshop',
 		'vc.f-fusion.com'   => 'Vcontrol',
 		'a.f-fusion.com'    => 'Api',
@@ -39,7 +40,6 @@ $mapping = array(
 		'x.f-fusion.com'    => 'Site',
 		'crm.f-fusion.com'  => 'Crm',
 		'erp.f-fusion.com'  => 'Erp',
-		'demo.f-fusion.com' => 'Demo',
 	),
 );
 // process
