@@ -10,7 +10,7 @@ if (strcmp(constant('DEV_MODE'), 'LOCAL') == 0) {
 		'DB_USER'		=> 'bdm0150168',
 		'DB_PWD' 		=> '123456',
 		'DB_PORT' 		=> '3306',
-		'DB_PREFIX' 	=> 'ff_vc_',
+		'DB_PREFIX' 	=> '',
 	);
 };
 if (strcmp(constant('DEV_MODE'), 'REMOTE') == 0) {
@@ -23,6 +23,6 @@ if (strcmp(constant('DEV_MODE'), 'REMOTE') == 0) {
 		'DB_USER'		=> 'bdm0150168',
 		'DB_PWD' 		=> 'zy8629ff',
 		'DB_PORT' 		=> '3306',
-		'DB_PREFIX' 	=> 'ff_vc_',
+		'DB_PREFIX' 	=> '',
 	);
 };
