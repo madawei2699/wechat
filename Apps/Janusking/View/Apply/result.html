@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="yes" name="apple-touch-fullscreen" />
+<meta content="telephone=no" name="format-detection" />
+<meta id="viewport" name="viewport" content="width=device-width; initial-scale=0.5; maximum-scale=0.5; " />
+<script type="text/javascript" src="/public/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/public/js/jquery.qtip-1.0.0-rc3.min.js"></script>
+<script type="text/javascript" src="/public/datepicker/WdatePicker.js"></script>
+<title>亚斯王 - 在线招商</title>
+<style>
+html, body {
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+	-webkit-text-size-adjust:none;
+}
+input, select {
+	font-size: 1.2em;
+}
+.wrap {
+	width: 630px;
+	height: auto;
+	min-height: 10px;
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+}
+.mt5 {
+	margin-top: 5px;
+}
+.wrap table {
+	background-color: #f2f2f2;
+}
+.pt10 {
+	padding-top: 10px;
+}
+.pt30 {
+	padding-top: 30px;
+}
+.acenter {
+	text-align: center;
+}
+.fs0 {
+	font-size: 1em;
+}
+.fs-1 {
+	font-size: .6em;
+}
+.fs1 {
+	font-size: 2em;
+}
+.fs2 {
+	font-size: 2.2em;
+}
+.fs3 {
+	font-size: 1.8em;
+}
+.fs4 {
+	font-size: 1.4em;
+}
+.fs5 {
+	font-size: 2.8em;
+}
+.color0 {
+	color: #ffffff;
+}
+.color1 {
+	color: #000000;
+}
+.color2 {
+	color: #00bbff;
+}
+.color3 {
+	color: #ff9a00;
+}
+.color4 {
+	color: #919499;
+}
+.wrap p {
+	margin: 10px 0 10px 30px;
+}
+.lh50 {
+	line-height: 50px;
+}
+</style>
+</head>
+<body>
+<div class="wrap mt5">
+<table width="100%">
+<tr>
+	<td align="center" valign="center" height="120" class="fs2 color4 lh50">
+	<if condition="$jump eq 1">
+	<img src="/public/images/loading4.gif" border="0" hspace="15" align="absmiddle" />&nbsp;&nbsp;
+	</if>{$result}</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript">
+$(document).ready(function () {
+	if ($('#jump_to').length == 1 && $('#jump_timeout').length == 1) {
+		window.setTimeout(function () {
+			location.replace($('#jump_to').val());
+		}, $('#jump_timeout').val());
+	};
+});
+</script>
+<if condition="$jump eq 1"><input type="hidden" name="jump_to" id="jump_to" value="{$jump_to}" />
+<input type="hidden" name="jump_timeout" id="jump_timeout" value="{$jump_timeout}" /></if>
+</body>
+</html>

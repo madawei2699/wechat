@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>亚斯王 v0.1a</title>
+<include file="Public:scripts"/>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	/* setup navigation, content boxes, etc... */
+	Administry.setup();
+	
+	// 固定浮动条 //////////////////////////////////////
+	(function () {
+		var el= $('#pagetitle');
+		var ec= $('#page');
+		var w = el.next().width();
+		var c = ec.offset().top;
+		el.css({'top':c, 'width':w});
+		$(window).scroll(function () {
+			var e = document.body.scrollTop || document.documentElement.scrollTop;
+			if (e <= 0) {
+				el.css({'top':c.toString()+'px'});
+			} else {
+				if (e <= c) {
+					el.css({'top':(c-e).toString()+'px'});
+				} else {
+					el.css({'top':0});
+				};
+			};
+		});
+	})();
+
+});
+</script>
+</head>
+<body>
+	<!-- Header -->
+	<header id="top1">
+		<div class="wrapper">
+			<!-- Title/Logo - can use text instead of image -->
+			<include file="Public:title"/>
+			<!-- Top navigation -->
+			<div id="topnav">
+				<a href="#"><img class="avatar" src="/public/demo/img/user_32.png" alt="" /></a>
+				登录为 <b>Janusking</b>
+				<span>|</span> <a href="/index/signout">退出</a><br />
+			</div>
+			<!-- End of Top navigation -->
+			<!-- Main navigation -->
+			<include file="Public:menu"/>
+			<!-- End of Main navigation -->
+			<!-- Aside links -->
+			<!-- aside><b>English</b> &middot; <a href="#">Spanish</a> &middot; <a href="#">German</a></aside -->
+			<!-- End of Aside links -->
+		</div>
+	</header>
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle" style="position:fixed;z-index:20;">
+		<div class="wrapper">
+			<h1>互动&nbsp;&nbsp;&bull;&nbsp;&nbsp;管理全部在线招商报名</h1>
+		</div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper" style="margin-top:52px;">
+				<!-- Left column/section -->
+				<section class="column width6 first">
+					
+					<h4>招商报名清单: <a href="#">{$count}条</a></h4>
+					
+					<table id="report" class="stylized full" style="">
+						<thead>
+							<tr>
+								<th>姓名</th>
+								<th>城市</th>
+								<th>手机</th>
+								<th>座机</th>
+								<th>公司</th>
+								<th>地址</th>
+								<th class="ta-right">时间</th>
+							</tr>
+						</thead>
+						<tbody>
+							<volist name="list" id="item">
+							<tr>
+								<td class="title" nowrap="nowrap"><a href="#"><b>{$item.name}</b></a></td>
+								<td>{$item.city}</td>
+								<td>{$item.mobile}</td>
+								<td>{$item.tel}&nbsp;</td>
+								<td>{$item.co}&nbsp;</td>
+								<td>{$item.addr}&nbsp;</td>
+								<td class="ta-right" nowrap="nowrap">{$item.create_time}</td>
+							</tr>
+							</volist>
+						</tbody>
+					</table>
+				
+					<div class="clear">&nbsp;</div>
+				
+				</section>
+				<!-- End of Left column/section -->
+				
+				<!-- Right column/section -->
+				<aside class="column width2">
+					<div id="rightmenu">
+						<header>
+							<h3>账户信息</h3>
+						</header>
+						<dl class="first">
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/key.png"></dt>
+							<dd><a href="#">企业账户 (admin)</a></dd>
+							<dd class="last">30d体验版.</dd>
+							
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/help.png"></dt>
+							<dd><a href="#">技术支持</a></dd>
+							<dd class="last">相关技术支持请查看 http://doc.f-fusion.com</dd>
+						</dl>
+					</div>
+				</aside>
+				<!-- End of Right column/section -->
+				
+		</div>
+		<!-- End of Wrapper -->
+	</div>
+	<!-- End of Page content -->
+	
+	<!-- Page footer -->
+	<include file="Public:footer"/>
+	<!-- End of Page footer -->
+	
+	<!-- Animated footer -->
+	<include file="Public:footer-float"/>
+	<!-- End of Animated footer -->
+	
+	<!-- Scroll to top link -->
+	<include file="Public:go"/>
+
+</body>
+</html>
