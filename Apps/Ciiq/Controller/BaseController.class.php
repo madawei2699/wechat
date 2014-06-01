@@ -45,6 +45,7 @@ class BaseController extends Controller {
 	protected $_bd_api_url = 'http://api.map.baidu.com';
 	protected $_amap_lbs_key = 'ae2d731f519af0502a0575161a88d610';
 	protected $_amap_api_url = 'http://restapi.amap.com';
+	protected $WECHATCONFIG = array();
 	protected $FFCONFIG = array();
 	
 	function __construct() {
@@ -53,6 +54,8 @@ class BaseController extends Controller {
 		$this->date = date('Y-m-d H:i:s');
 		header('Content-Type:text/html;charset=utf-8');
 		$this->_app_os = $this->checkAppOS(); // 确定请求方是iOS还是Android
+		// load local config
+		$this->WECHATCONFIG = C('WECHAT_EXT_CFG');
 		// load my config
 		$this->FFCONFIG = F('FFCONFIG');
 		if ($this->FFCONFIG === false) {
@@ -92,11 +95,8 @@ class BaseController extends Controller {
 			1006 => array('result'=>1006, 'message'=>'令牌错误或已过期'),
 			1100 => array('result'=>1100, 'message'=>'查询结果为空'),
 		);
-		// 随机宣传口号
-		$flag = C('WEB_EXT_CFG.STRING_FLAG1');
-		$seed = mt_rand(0, count($flag)-1);
-		$flag = $flag[$seed];
-		$this->assign('STRING_FLAG', $flag);
+		$this->assign('WECHAT_EXT_CFG', C('WECHAT_EXT_CFG'));
+		$this->assign('WEB_EXT_CFG', C('WEB_EXT_CFG'));
 	}
 	
 	/**
@@ -144,6 +144,25 @@ class BaseController extends Controller {
 		};
 		$url .= '&hash='.md5($str); // 最后得到完整的url字串
 		return $url;
+	}
+	
+	/**
+	 * 获取模型对象
+	 * @param string $name
+	 * @return \Think\Model
+	 */
+	protected function getModel($name) {
+		$name = strtoupper(substr($name, 0, 1)).substr($name, 1);
+		return D(C('TABLE_PREFIX').$name);
+	}
+	
+	/**
+	 * 获取表名
+	 * @param string $name
+	 * @return string
+	 */
+	protected function getTable($name) {
+		return strtolower(C('TABLE_PREFIX')).'_'.strtolower($name);
 	}
 	
 	/**
@@ -230,5 +249,40 @@ class BaseController extends Controller {
 		$count = (int)$count;
 		if ($count > $this->_connect_limit) return false;
 		return F($cacheName, $count+1);
+	}
+	
+	/**
+	 * 验证密码是否有效
+	 * 方法内负责对 session 赋值
+	 * 
+	 * @param string $userName 指定用户名
+	 * @param string $originPassword 登录密码明文
+	 * @return boolean
+	 */
+	protected function varifyPassword($userName, $originPassword) {
+		if (trim($userName) == '') return false;
+		if (trim($originPassword) == '') return false;
+		$params = array(C('APPLICATION_USER_SALT'), $originPassword);
+		// 取出指定用户的 salt
+		$user = $this->getModel('User');
+		$row = $user->field('id,name,group_id,role_id,salt,password')->where(array('name'=>$userName,'status'=>1))->find();
+		// echo $user->_sql();
+		// echo $user->getDbError();
+		if ($row == null) return false;
+		$params[] = $row['salt'];
+		// 校验密码
+		sort($params, SORT_STRING);
+		$password = sha1( implode('', $params) );
+		if (strcmp($row['password'], $password) != 0) return false;
+		$user->last_time = $this->date;
+		$user->last_ip = get_client_ip(0, true);
+		$user->save();
+		// success
+		session('enterprise_id',       $row['id']);
+		session('enterprise_name',     $row['name']);
+		session('enterprise_role_id',  $row['role_id']);
+		session('enterprise_group_id', $row['group_id']);
+		session('enterprise_expire',   time()+C('APPLICATION_SESSION_EXPIRE'));
+		return true;
 	}
 };
