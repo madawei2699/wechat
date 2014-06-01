@@ -127,6 +127,18 @@ class BaseController extends Controller {
 	}
 	
 	/**
+	 * 检测session是否超时
+	 * @return boolean
+	 */
+	protected function checkSession() {
+		if (!session('?enterprise_id') || !session('?enterprise_expire')) return false;
+		$expire = session('enterprise_expire');
+		if ($this->time > (int)$expire) return false;
+		session('enterprise_expire', $this->time+C('APPLICATION_SESSION_EXPIRE'));
+		return true;
+	}
+	
+	/**
 	 * 构建API URL
 	 * @param string $url
 	 * @param array $params

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>{$WEB_EXT_CFG.PAGE_TITLE} v0.1a</title>
+<include file="Public:scripts"/>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	/* setup navigation, content boxes, etc... */
+	Administry.setup();
+	
+	// 固定浮动条 //////////////////////////////////////
+	(function () {
+		var el= $('#pagetitle');
+		var ec= $('#page');
+		var w = el.next().width();
+		var c = ec.offset().top;
+		el.css({'top':c, 'width':w});
+		$(window).scroll(function () {
+			var e = document.body.scrollTop || document.documentElement.scrollTop;
+			if (e <= 0) {
+				el.css({'top':c.toString()+'px'});
+			} else {
+				if (e <= c) {
+					el.css({'top':(c-e).toString()+'px'});
+				} else {
+					el.css({'top':0});
+				};
+			};
+		});
+	})();
+
+});
+</script>
+</head>
+<body>
+	<!-- Header -->
+	<header id="top">
+		<div class="wrapper">
+			<!-- Title/Logo - can use text instead of image -->
+			<include file="Public:title"/>
+			<!-- Top navigation -->
+			<div id="topnav">
+				<a href="#"><img class="avatar" src="/public/demo/img/user_32.png" alt="" /></a>
+				登录为 <b>Admin</b>
+				<span>|</span> <a href="/settings">设置</a>
+				<span>|</span> <a href="/logout">退出</a><br />
+				<small>您有 <a href="/message/unread" class="high"><b>1</b> 新消息!</a></small>
+			</div>
+			<!-- End of Top navigation -->
+			<!-- Main navigation -->
+			<include file="Public:menu"/>
+			<!-- End of Main navigation -->
+			<!-- Aside links -->
+			<!-- aside><b>English</b> &middot; <a href="#">Spanish</a> &middot; <a href="#">German</a></aside -->
+			<!-- End of Aside links -->
+		</div>
+	</header>
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle" style="position:fixed;z-index:20;">
+		<div class="wrapper">
+			<h1>渠道&nbsp;&nbsp;&bull;&nbsp;&nbsp;管理全部渠道/代理/经销/专营</h1>
+		</div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper" style="margin-top:52px;">
+				<!-- Left column/section -->
+				<section class="column width6 first">
+					
+					<h4>渠道清单: <a href="#">108家</a></h4>
+					
+					<table id="report" class="stylized full" style="">
+						<thead>
+							<tr>
+								<th>名称</th>
+								<th>地区</th>
+								<th>类别</th>
+								<th>品类</th>
+								<th class="ta-right">申请时间</th>
+								<th class="ta-right">创建时间</th>
+								<th class="ta-right">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="title"><a href="#"><b>莲花服饰有限公司</b></a></td>
+								<td>上海,上海</td>
+								<td>服装,服饰,箱包</td>
+								<td>服装</td>
+								<td class="ta-right">2014-01-23 12:55</td>
+								<td class="ta-right">2014-01-21 09:25</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td class="title"><a href="#"><b>金易服饰公司</b></a></td>
+								<td>江苏,南通</td>
+								<td>服装,服饰</td>
+								<td>服装</td>
+								<td class="ta-right">2014-01-23 12:55</td>
+								<td class="ta-right">2014-01-21 09:25</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td class="title"><a href="#"><b>沪之梦商贸有限公司</b></a></td>
+								<td>安徽,合肥</td>
+								<td>服装,服饰</td>
+								<td>服装</td>
+								<td class="ta-right">2014-01-23 12:55</td>
+								<td class="ta-right">2014-01-21 09:25</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td class="title"><a href="#"><b>威锋商贸有限公司</b></a></td>
+								<td>安徽,太和</td>
+								<td>服装,服饰</td>
+								<td>服装</td>
+								<td class="ta-right">2014-01-23 12:55</td>
+								<td class="ta-right">2014-01-21 09:25</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td class="title"><a href="#"><b>凯凯进出口贸易有限公司</b></a></td>
+								<td>浙江,宁波</td>
+								<td>服装,服饰,箱包,鞋帽</td>
+								<td>服装</td>
+								<td class="ta-right">2014-01-23 12:55</td>
+								<td class="ta-right">2014-01-21 09:25</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td class="title"><a href="#"><b>霸王服饰</b></a></td>
+								<td>浙江,宁波</td>
+								<td>服装,服饰,箱包,鞋帽</td>
+								<td>服装</td>
+								<td class="ta-right">2014-01-23 12:55</td>
+								<td class="ta-right">2014-01-21 09:25</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td class="title"><a href="#"><b>海之天兰</b></a></td>
+								<td>浙江,宁波</td>
+								<td>服装,服饰,鞋帽</td>
+								<td>服装</td>
+								<td class="ta-right">2014-01-23 12:55</td>
+								<td class="ta-right">2014-01-21 09:25</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td class="title"><a href="#"><b>初语女装</b></a></td>
+								<td>浙江,宁波</td>
+								<td>服装,服饰,箱包,鞋帽</td>
+								<td>服装</td>
+								<td class="ta-right">2014-01-23 12:55</td>
+								<td class="ta-right">2014-01-21 09:25</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td class="title"><a href="#"><b>爱恋服装</b></a></td>
+								<td>江苏,昆山</td>
+								<td>服装,服饰,皮具</td>
+								<td>服装</td>
+								<td class="ta-right">2014-01-23 12:55</td>
+								<td class="ta-right">2014-01-21 09:25</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+							<tr>
+								<td class="title"><a href="#"><b>梦里人服装世界</b></a></td>
+								<td>江苏,昆山</td>
+								<td>服装,服饰,皮具</td>
+								<td>服装</td>
+								<td class="ta-right">2014-01-23 12:55</td>
+								<td class="ta-right">2014-01-21 09:25</td>
+								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<form id="sampleform" method="post" action="#">
+
+						<fieldset>
+							<legend>渠道设置</legend>
+							
+							<p>
+								<label class="required" for="lastname">企业全称:</label><br/>
+								<input type="text" id="lastname" class="half" value="" name="lastname"/>
+							</p>
+							
+							<p>
+								<label class="required" for="lastname">详细地址:</label><br/>
+								<select id="select1" class="qtr" name="select1">
+									<option value="1">北京</option>
+									<option value="2">上海</option>
+									<option value="3">天津</option>
+									<option value="4">南京</option>
+									<option value="5">黑龙江</option>
+								</select>
+								<select id="select1" class="qtr" name="select1">
+									<option value="1">北京市</option>
+									<option value="2">郊县</option>
+								</select><br/>
+								<input type="text" id="lastname" class="half" value="" name="lastname"/>
+							</p>
+							
+							<p>
+								<label class="required" for="lastname">邮政编码:</label><br/>
+								<input type="text" id="lastname" class="qtr" value="" name="lastname"/>
+							</p>
+
+							<p>
+								<label class="required" for="email">电话(请填写区号):</label><br/>
+								<input type="text" id="email" class="half" value="" name="email"/>
+							</p>
+
+							<p>
+								<label class="required" for="email">传真(请填写区号):</label><br/>
+								<input type="text" id="email" class="half" value="" name="email"/>
+							</p>
+
+							<p>
+								<label class="required" for="email">手机:</label><br/>
+								<input type="text" id="email" class="half" value="" name="email"/>
+							</p>
+
+							<p>
+								<label class="required" for="email">备注:</label><br/>
+								<textarea id="area3" class="half" name="area3" rows="6"></textarea>
+							</p>
+							
+							<p>
+								<input type="checkbox" id="terms" class="" value="1" name="terms"/>
+								<label class="choice" for="terms">已有实体店</label>
+							</p>
+							
+							<p>
+								<input type="checkbox" id="terms" class="" value="1" name="terms"/>
+								<label class="choice" for="terms">兼营其他品类</label>
+							</p>
+							
+							<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+
+						</fieldset>
+
+					</form>
+				
+					<div class="clear">&nbsp;</div>
+				
+				</section>
+				<!-- End of Left column/section -->
+				
+				<!-- Right column/section -->
+				<aside class="column width2">
+					<div id="rightmenu">
+						<header>
+							<h3>账户信息</h3>
+						</header>
+						<dl class="first">
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/key.png"></dt>
+							<dd><a href="#">企业账户 (admin)</a></dd>
+							<dd class="last">30d体验版.</dd>
+							
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/help.png"></dt>
+							<dd><a href="#">技术支持</a></dd>
+							<dd class="last">相关技术支持请查看 http://doc.f-fusion.com</dd>
+						</dl>
+					</div>
+				</aside>
+				<!-- End of Right column/section -->
+				
+		</div>
+		<!-- End of Wrapper -->
+	</div>
+	<!-- End of Page content -->
+	
+	<!-- Page footer -->
+	<include file="Public:footer"/>
+	<!-- End of Page footer -->
+	
+	<!-- Animated footer -->
+	<include file="Public:footer-float"/>
+	<!-- End of Animated footer -->
+	
+	<!-- Scroll to top link -->
+	<include file="Public:go"/>
+
+</body>
+</html>

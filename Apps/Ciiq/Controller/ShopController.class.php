@@ -16,16 +16,11 @@ use Think\Controller;
 class ShopController extends BaseController {
 	function __construct() {
 		parent::__construct();
-    	if (!session('?enterprise_id') || !session('?enterprise_expire')) {
+    	if (!$this->checkSession()) {
     		$this->error('抱歉，登录超时！请重新登录！', '/');
     		exit;
     	};
-    	$expire = session('enterprise_expire');
-    	if ($this->time > (int)$expire) {
-    		$this->error('抱歉，登录超时！请重新登录！', '/');
-    		exit;
-    	};
-    	session('enterprise_expire',   $this->time+C('APPLICATION_SESSION_EXPIRE'));
+    	$this->assign('current', 'shop');
 	}
 	
 	function index() {

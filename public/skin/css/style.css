@@ -295,7 +295,6 @@ table {
 /* html 5 specific */
 article,aside,header,hgroup,nav,section,footer {
 	float:left;
-	clear: both;
 	display:block;
 }
 figure {

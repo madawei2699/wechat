@@ -4,7 +4,7 @@ namespace Ciiq\Controller;
 use Think\Controller;
 
 /**
- * Log 类
+ * Site 类
  * 主要用于渠道
  *
  * @category Ciiq
@@ -13,17 +13,25 @@ use Think\Controller;
  * @copyright http://ciiq.f-fusion.com/ <http://ciiq.f-fusion.com/>
  *
  */
-class LogController extends BaseController {
+class SiteController extends BaseController {
 	function __construct() {
 		parent::__construct();
     	if (!$this->checkSession()) {
     		$this->error('抱歉，登录超时！请重新登录！', '/');
     		exit;
     	};
-    	$this->assign('current', 'log');
+    	$this->assign('current', 'site');
 	}
 	
 	function index() {
+		$this->display();
+	}
+	
+	function config() {
+		$this->display();
+	}
+	
+	function map() {
 		$this->display();
 	}
 }

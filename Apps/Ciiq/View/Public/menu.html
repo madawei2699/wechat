@@ -1,6 +1,7 @@
 <nav id="menu">
 	<ul class="sf-menu">
-		<li class="current"><a href="/dashboard">系统</a>
+		<if condition="$current eq 'dashboard'"><li class="current"><else/><li></if>
+		    <a href="/dashboard">系统</a>
 			<ul>
 				<li><a href="/dashboard/serv">云服务器</a>
 					<ul>
@@ -18,7 +19,7 @@
 				</li>
 			</ul>
 		</li>
-		<li>
+		<if condition="$current eq 'agent'"><li class="current"><else/><li></if>
 			<a href="/agent">渠道</a>
 			<ul>
 				<li><a href="/agent">全部渠道</a></li>
@@ -34,7 +35,8 @@
 				<li><a href="/agent/lbs">LBS地理围栏</a></li>
 			</ul>
 		</li>
-		<li><a href="/shop">微店</a>
+		<if condition="$current eq 'shop'"><li class="current"><else/><li></if>
+			<a href="/shop">微店</a>
 			<ul>
 				<li><a href="/shop/quick">一键开店</a></li>
 				<li><a href="/shop">全部微店</a></li>
@@ -62,7 +64,15 @@
 				<li><a href="/shop/wshop">微信小店*</a></li>
 			</ul>
 		</li>
-		<li><a href="/active">互动</a>
+		<if condition="$current eq 'site'"><li class="current"><else/><li></if>
+			<a href="/site">微站</a>
+			<ul>
+				<li><a href="/site/config">一键配置</a></li>
+				<li><a href="/site/map">站点地图</a></li>
+			</ul>
+		</li>
+		<if condition="$current eq 'active'"><li class="current"><else/><li></if>
+			<a href="/active">互动</a>
 			<ul>
 				<li><a href="/active/message">粉丝留言/回复</a></li>
 				<li><a href="/active/send?history">已发送消息</a></li>
@@ -71,17 +81,19 @@
 				<li><a href="/active/wservice">微信客服*</a></li>
 			</ul>
 		</li>
-		<li><a href="/order">订单</a>
+		<if condition="$current eq 'order' or $current eq 'card'"><li class="current"><else/><li></if>
+			<a href="/order">订单</a>
 			<ul>
 				<li><a href="/order">订单/交易</a></li>
 				<li><a href="/order/shipping">仓储/货运/快递</a></li>
 				<li><a href="/order/money">款项明细</a></li>
 				<li><a href="/card/score">会员卡</a></li>
 				<li><a href="/card/charge">预充值</a></li>
-				<li><a href="/wechat/feedback">维权</a></li>
+				<li><a href="/order/feedback">维权</a></li>
 			</ul>
 		</li>
-		<li><a href="/promotion">促销</a>
+		<if condition="$current eq 'promotion'"><li class="current"><else/><li></if>
+			<a href="/promotion">促销</a>
 			<ul>
 				<li><a href="/promotion/price">特价促销</a></li>
 				<li><a href="/promotion/time">限时特卖</a></li>
@@ -89,14 +101,16 @@
 				<li><a href="/promotion/moneypack">红包满天飞</a></li>
 			</ul>
 		</li>
-		<li><a href="/game">游戏</a>
+		<if condition="$current eq 'game'"><li class="current"><else/><li></if>
+			<a href="/game">游戏</a>
 			<ul>
 				<li><a href="/game/egg">砸金蛋</a></li>
 				<li><a href="/game/card">刮刮乐</a></li>
 				<li><a href="/game/wheel">幸运大转盘</a></li>
 			</ul>
 		</li>	
-		<li><a href="/statistics">统计</a>
+		<if condition="$current eq 'statistics'"><li class="current"><else/><li></if>
+			<a href="/statistics">统计</a>
 			<ul>
 				<li><a href="/statistics/a1">销售统计图表</a></li>
 				<li><a href="/statistics/a2">地区统计图表</a></li>
@@ -107,8 +121,7 @@
 				<li><a href="/statistics/a7">团购统计</a></li>
 			</ul>
 		</li>
-		<li><a href="/user">成员</a></li>
-		<li><a href="/log">日志</a></li>
-		<li><a href="/lib">扩展</a></li>
+		<if condition="$current eq 'user'"><li class="current"><else/><li></if><a href="/user">成员</a></li>
+		<if condition="$current eq 'log'"><li class="current"><else/><li></if><a href="/log">日志</a></li>
 	</ul>
 </nav>
