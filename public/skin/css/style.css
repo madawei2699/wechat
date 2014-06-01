@@ -295,6 +295,7 @@ table {
 /* html 5 specific */
 article,aside,header,hgroup,nav,section,footer {
 	float:left;
+	clear: both;
 	display:block;
 }
 figure {
@@ -740,23 +741,6 @@ header#top {
 	);
 }
 
-header#top1 {
-	background-color: black;
-	width:100%;
-	background-color:-webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.2, rgb(39,38,34)),
-		color-stop(0.8, rgb(50,50,50))
-	);
-	background-color: -moz-linear-gradient(
-		center bottom,
-		rgb(39,38,34) 20%,
-		rgb(50,50,50) 80%
-	);
-}
-
 header#top aside {
 	float:right;
 	color:#999;
@@ -969,11 +953,12 @@ a:focus>.sf-sub-indicator,a:hover>.sf-sub-indicator,a:active>.sf-sub-indicator,l
 	color:#FFF;
 	font:bold 1.2em 'Trebuchet MS',Trebuchet,Arial,sans-serif;
 	letter-spacing:-0.02em;
-	padding:15px 0;
+	padding: 15px 0;
 	/* text-shadow:1px 1px 3px #111; */
 }
 #title img {
 	float: left;
+	margin: 3px 0;
 }
 #title span {
 	color: #FFC806; 
