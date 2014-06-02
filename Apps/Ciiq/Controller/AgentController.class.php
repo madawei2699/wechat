@@ -24,6 +24,12 @@ class AgentController extends BaseController {
 	}
 	
 	function index() {
+		$l1 = region(array('level'=>1));
+		$l2 = region(array('level'=>2));
+		$l3 = region(array('level'=>3));
+		$this->assign('level1', json_encode($l1));
+		$this->assign('level2', json_encode($l2));
+		$this->assign('level3', json_encode($l3));
 		$this->display();
 	}
 	

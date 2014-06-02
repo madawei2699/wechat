@@ -97,6 +97,12 @@ class BaseController extends Controller {
 		);
 		$this->assign('WECHAT_EXT_CFG', C('WECHAT_EXT_CFG'));
 		$this->assign('WEB_EXT_CFG', C('WEB_EXT_CFG'));
+		if (session('?enterprise_id') && session('?enterprise_expire')) {
+			$this->assign('session_enterprise_id', session('enterprise_id'));
+			$this->assign('session_enterprise_name', session('enterprise_name'));
+			$this->assign('session_enterprise_role_id', session('enterprise_role_id'));
+			$this->assign('session_enterprise_group_id', session('enterprise_group_id'));
+		};
 	}
 	
 	/**
@@ -292,7 +298,7 @@ class BaseController extends Controller {
 		// success
 		session('enterprise_id',       $row['id']);
 		session('enterprise_name',     $row['name']);
-		session('enterprise_role_id',  $row['role_id']);
+		session('enterprise_role_id',  $row['role_id']); // 1=admin,2=agent,3=shop
 		session('enterprise_group_id', $row['group_id']);
 		session('enterprise_expire',   time()+C('APPLICATION_SESSION_EXPIRE'));
 		return true;

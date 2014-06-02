@@ -5,7 +5,7 @@ use Think\Controller;
 
 /**
  * Shop 类
- * 主要用于渠道
+ * 主要用于电商
  *
  * @category Ciiq
  * @package Ciiq

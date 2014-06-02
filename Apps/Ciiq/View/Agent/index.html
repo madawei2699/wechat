@@ -30,6 +30,32 @@ $(document).ready(function(){
 			};
 		});
 	})();
+	
+	// init select
+	var l1 = (new Function('return '+$('#level1').val()))();
+	var l2 = (new Function('return '+$('#level2').val()))();
+	var l3 = (new Function('return '+$('#level3').val()))();
+	var l1_html = '<option value="-1">请选择...</option>';
+	for(var i=0; i<l1.length; i++) {
+		l1_html += '<option value="'+l1[i]['id']+'">'+l1[i]['name']+'</option>';
+	};
+	$('#select1').html(l1_html).change(function () {
+		var parent = $(this).val();
+		var l2_html = '<option value="-1">请选择...</option>';
+		for(var i=0; i<l2.length; i++) {
+			if (l2[i]['parent'] != parent) continue;
+			l2_html += '<option value="'+l2[i]['id']+'">'+l2[i]['name']+'</option>';
+		};
+		$('#select2').html(l2_html).change(function () {
+			var parent = $(this).val();
+			var l3_html = '<option value="-1">请选择...</option>';
+			for(var i=0; i<l3.length; i++) {
+				if (l3[i]['parent'] != parent) continue;
+				l3_html += '<option value="'+l3[i]['id']+'">'+l3[i]['name']+'</option>';
+			};
+			$('#select3').html(l3_html);
+		});
+	});
 
 });
 </script>
@@ -43,10 +69,10 @@ $(document).ready(function(){
 			<!-- Top navigation -->
 			<div id="topnav">
 				<a href="#"><img class="avatar" src="/public/demo/img/user_32.png" alt="" /></a>
-				登录为 <b>Admin</b>
-				<span>|</span> <a href="/settings">设置</a>
-				<span>|</span> <a href="/logout">退出</a><br />
-				<small>您有 <a href="/message/unread" class="high"><b>1</b> 新消息!</a></small>
+				登录为 <b>{$session_enterprise_name}</b>
+				<span>|</span> <a href="/dashboard/settings">设置</a>
+				<span>|</span> <a href="/index/signout">退出</a><br />
+				<small>您有 <a href="/dashboard/message?unread" class="high"><b>1</b> 新消息!</a></small>
 			</div>
 			<!-- End of Top navigation -->
 			<!-- Main navigation -->
@@ -187,29 +213,34 @@ $(document).ready(function(){
 							<legend>渠道设置</legend>
 							
 							<p>
-								<label class="required" for="lastname">企业全称:</label><br/>
-								<input type="text" id="lastname" class="half" value="" name="lastname"/>
+								<label class="required" for="enterprise">企业全称:</label><br/>
+								<input type="text" id="enterprise" class="half" value="" name="enterprise"/>
 							</p>
 							
 							<p>
-								<label class="required" for="lastname">详细地址:</label><br/>
-								<select id="select1" class="qtr" name="select1">
-									<option value="1">北京</option>
-									<option value="2">上海</option>
-									<option value="3">天津</option>
-									<option value="4">南京</option>
-									<option value="5">黑龙江</option>
-								</select>
-								<select id="select1" class="qtr" name="select1">
-									<option value="1">北京市</option>
-									<option value="2">郊县</option>
-								</select><br/>
-								<input type="text" id="lastname" class="half" value="" name="lastname"/>
+								<label class="required" for="addr">详细地址:</label><br/>
+								<select id="select1" class="sma" name="select1"></select>
+								<select id="select2" class="sma" name="select2"></select>
+								<select id="select3" class="sma" name="select3"></select><br/>
+								<input type="text" id="addr" class="half" value="" name="addr"/>
 							</p>
 							
 							<p>
-								<label class="required" for="lastname">邮政编码:</label><br/>
-								<input type="text" id="lastname" class="qtr" value="" name="lastname"/>
+								<label class="required" for="post">邮政编码:</label><br/>
+								<input type="text" id="post" class="sma" value="" name="post"/>
+							</p>
+							
+							<p>
+								<label class="required" for="type">代理类别:</label><br/>
+								<select id="type" class="qtr" name="type"></select>
+							</p>
+							
+							<p>
+								<label class="required" for="main">主营品类:</label><br/>
+								<label class="choice" for="main0"><input type="checkbox" id="main0" class="" value="0" name="main"/>已有实体店</label>
+								<label class="choice" for="main1"><input type="checkbox" id="main1" class="" value="1" name="main"/>已有实体店</label>
+								<label class="choice" for="main2"><input type="checkbox" id="main2" class="" value="2" name="main"/>已有实体店</label>
+								<label class="choice" for="main3"><input type="checkbox" id="main3" class="" value="3" name="main"/>已有实体店</label>
 							</p>
 
 							<p>
@@ -287,6 +318,8 @@ $(document).ready(function(){
 	
 	<!-- Scroll to top link -->
 	<include file="Public:go"/>
-
+<textarea name="level1" id="level1">{$level1}</textarea>
+<textarea name="level2" id="level2">{$level2}</textarea>
+<textarea name="level3" id="level3">{$level3}</textarea>
 </body>
 </html>

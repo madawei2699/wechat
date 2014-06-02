@@ -19,3 +19,29 @@
 	$sql .= implode(',', $values).') ';
 	return $model->execute($sql);
 };
+
+/**
+ * 给定查询条件获取地区信息
+ * 如果预期返回的数据只有一条，则请求方需要使用下标0定位
+ * $data = region(array('level'=>1));
+ * @param array $where 查询条件，键名=>键值
+ * @param string $order 排序条件，字串
+ */
+function region(array $where, $order='id ASC') {
+	$order = trim($order) == '' ? 'id ASC' : $order;
+	$region = D('CommonRegion');
+	return $region->where($where)->order($order)->select();
+}
+
+/**
+ * 给定查询条件返回手机归属地信息
+ * 如果预期返回的数据只有一条，则请求方需要使用下标0定位
+ * $data = mobile(array('code'=>'021'));
+ * @param array $where 查询条件，键名=>键值
+ * @param string $order 排序条件，字串
+ */
+function mobile(array $where, $order='id ASC') {
+	$order = trim($order) == '' ? 'id ASC' : $order;
+	$mobile = D('CommonMobile');
+	return $mobile->where($where)->order($order)->select();
+}

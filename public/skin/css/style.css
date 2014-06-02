@@ -399,6 +399,9 @@ textarea.medium {
 textarea.large {
 	height:20em;
 }
+input.sma,select.sma,textarea.sma {
+	width:16%;
+}
 input.qtr,select.qtr,textarea.qtr {
 	width:25%;
 }

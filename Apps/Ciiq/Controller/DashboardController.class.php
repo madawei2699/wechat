@@ -26,4 +26,14 @@ class DashboardController extends BaseController {
 	function index() {
 		$this->display();
 	}
+	
+	function settings() {
+		$this->display();
+	}
+	
+	function message() {
+		$readed = I('get.readed');
+		$unread = I('get.unread');
+		$this->display();
+	}
 }

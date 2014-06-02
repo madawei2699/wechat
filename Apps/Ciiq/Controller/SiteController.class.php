@@ -5,7 +5,7 @@ use Think\Controller;
 
 /**
  * Site 类
- * 主要用于渠道
+ * 主要用于微站
  *
  * @category Ciiq
  * @package Ciiq

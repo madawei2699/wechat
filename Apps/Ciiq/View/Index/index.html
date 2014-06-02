@@ -49,11 +49,13 @@ $(document).ready(function(){
 	var validator = $("#loginform").validate({
 		rules: {
 			username: "required",
-			password: "required"
+			password: "required",
+			verify: "required"
 		},
 		messages: {
 			username: "请输入您的账号",
-			password: "请输入您的密码"
+			password: "请输入您的密码",
+			password: "请填写验证码"
 		},
 		// the errorPlacement has to take the layout into account
 		errorPlacement: function(error, element) {
@@ -67,6 +69,9 @@ $(document).ready(function(){
 	});
 
 });
+function refeshCode() {
+	$('#verifyImg').attr('src', '/public/verify/?t='+(new Date()).valueOf().toString());
+}
 </script>
 </head>
 <body>
@@ -111,13 +116,18 @@ $(document).ready(function(){
 					<form id="loginform" method="post" action="/index/signin">
 
 						<p>
-							<label class="required" for="username">账号:</label><br/>
+							<label class="required" for="username">账号</label><br/>
 							<input type="text" id="username" class="half" value="ciiq" name="username"/>
 						</p>
 						
 						<p>
-							<label class="required" for="password">密码:</label><br/>
+							<label class="required" for="password">密码</label><br/>
 							<input type="password" id="password" class="half" value="ciiq" name="password"/>
+						</p>
+						
+						<p>
+							<label class="required" for="verify">验证码</label><br/>
+							<input type="text" id="verify" class="qtr" value="" name="verify"/><img id="verifyImg" src="/public/verify" border="0" style="vertical-align:middle;" onclick="refeshCode()" />&nbsp;&nbsp;<a class="aaa" href="javascript:refeshCode();">换一张</a>
 						</p>
 						
 						<p>

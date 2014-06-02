@@ -30,6 +30,16 @@ class IndexController extends BaseController {
     	
     	$userName = I('post.username');
     	$userPass = I('post.password');
+    	$verify   = I('post.verify');
+    	if ($verify == '') {
+    		$this->error('请填写验证码！', '/');
+    		return;
+    	};
+    	$verify = md5($verify);
+    	if (strcmp($verify, session('CIIQ_VRERIFY')) != 0) {
+    		$this->error('验证码错误！', '/');
+    		return;
+    	};
     	$result = $this->varifyPassword($userName, $userPass);
     	if (!$result) {
     		$this->error('用户名或密码错误！', '/');
@@ -44,7 +54,7 @@ class IndexController extends BaseController {
     function signout() {
     	session('enterprise_id',       null);
     	session('enterprise_name',     null);
-    	session('enterprise_role_id',  null);
+    	session('enterprise_role_id',  null); // 1=admin,2=agent,3=shop
     	session('enterprise_group_id', null);
     	session('enterprise_expire',   null);
     	$this->success('退出登录', '/');
