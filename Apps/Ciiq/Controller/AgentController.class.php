@@ -2,6 +2,7 @@
 namespace Ciiq\Controller;
 
 use Think\Controller;
+use Org\Util\Page;
 
 /**
  * Agent 类
@@ -24,20 +25,27 @@ class AgentController extends BaseController {
 	}
 	
 	function index() {
-		$agent = $this->getModel('Agent');
-		$rs = $agent->order('id DESC')->select();
-		foreach ($rs as $key=>$value) {
-			$rs[$key]['type'] = $this->USER_AGENT_TYPE[$rs[$key]['type']];
-			unset($rs[$key]['comment']);
-		};
-		$this->assign('count', count($rs));
-		$this->assign('list', $rs);
 		$l1 = region(array('level'=>1));
 		$l2 = region(array('level'=>2));
 		$l3 = region(array('level'=>3));
 		$this->assign('level1', json_encode($l1));
 		$this->assign('level2', json_encode($l2));
 		$this->assign('level3', json_encode($l3));
+		$params = '';
+		$agent = $this->getModel('Agent');
+		$count = $agent->count();
+		$page = new Page($count, C('APPLICATION_LIST_PAGE_SIZE'), $params);
+		$rs = $agent->order('id DESC')->limit($page->firstRow, $page->listRows)->select();
+		foreach ($rs as $key=>$value) {
+			$rs[$key]['type'] = $this->USER_AGENT_TYPE[$rs[$key]['type']];
+			foreach ($l1 as $row) if ($row['id'] == $rs[$key]['province']) $rs[$key]['province'] = $row['short'];
+			foreach ($l2 as $row) if ($row['id'] == $rs[$key]['city']) $rs[$key]['city'] = $row['short'];
+			foreach ($l3 as $row) if ($row['id'] == $rs[$key]['district']) $rs[$key]['district'] = $row['short'];
+			unset($rs[$key]['comment']);
+		};
+		$this->assign('count', $count);
+		$this->assign('list', $rs);
+		$this->assign('page', $page->show());
 		$this->assign('agent_type', $this->USER_AGENT_TYPE);
 		$id = I('get.id');
 		if (preg_match("/^[0-9]+$/", $id)) {
@@ -145,15 +153,19 @@ class AgentController extends BaseController {
 	 * 和修改删除方法
 	 */
 	function user() {
+		$params = '';
 		$user = $this->getModel('User');
-		$rs = $user->order('id DESC')->select();
+		$count = $user->where(array('role_id'=>2, 'agent_id'=>array('gt',0)))->count();
+		$page = new Page($count, C('APPLICATION_LIST_PAGE_SIZE'), $params);
+		$rs = $user->where(array('role_id'=>2, 'agent_id'=>array('gt',0)))->order('id DESC')->limit($page->firstRow, $page->listRows)->select();
 		foreach ($rs as $key=>$value) {
 			$rs[$key]['role'] = $this->USER_ROLE[$rs[$key]['role_id']];
 			$rs[$key]['status'] = $this->USER_STATUS[$rs[$key]['status']];
 			unset($rs[$key]['password']);
 		};
-		$this->assign('count', count($rs));
+		$this->assign('count', $count);
 		$this->assign('list', $rs);
+		$this->assign('page', $page->show());
 		$this->assign('salt', md5(time()));
 		$id = I('get.id');
 		if (preg_match("/^[0-9]+$/", $id)) {

@@ -5,12 +5,12 @@ return array(
 	'LOAD_EXT_CONFIG' => 'db',
 	'WEB_EXT_CFG' => array(
 		'MENU_SITE' => array(
-			array('NAME'=>'Home', 'URL'=>'/'),
-			array('NAME'=>'关于熔意', 'URL'=>'/about'),
-			array('NAME'=>'品牌进化论®', 'URL'=>'/evolution'),
-			array('NAME'=>'熔意服务', 'URL'=>'/service'),
-			array('NAME'=>'熔意案例', 'URL'=>'/'),
-			array('NAME'=>'联系我们', 'URL'=>'/contact'),
+			array('NAME'=>'Home', 'URL'=>'http://www.f-fusion.com/'),
+			array('NAME'=>'关于熔意', 'URL'=>'http://www.f-fusion.com/about'),
+			array('NAME'=>'品牌进化论®', 'URL'=>'http://www.f-fusion.com/evolution'),
+			array('NAME'=>'熔意服务', 'URL'=>'http://www.f-fusion.com/service'),
+			array('NAME'=>'熔意案例', 'URL'=>'http://www.f-fusion.com/'),
+			array('NAME'=>'联系我们', 'URL'=>'http://www.f-fusion.com/contact'),
 		),
 		'MENU_CATEGORY' => array(
 			array('NAME'=>'整合营销', 'URL'=>'/marketing'),

@@ -2,6 +2,7 @@
 namespace Control\Controller;
 
 use Think\Controller;
+use Org\Util\Page;
 
 /**
  * Web 类
@@ -136,9 +137,13 @@ class WebController extends BaseController {
     			return;
     		};
     	};
-    	$rs = $project->order('id DESC')->select();
-    	$this->assign('count', count($rs));
+    	$params = '';
+    	$count = $project->count();
+    	$page = new Page($count, C('APPLICATION_LIST_PAGE_SIZE'), $params);
+    	$rs = $project->order('id DESC')->limit($page->firstRow, $page->listRows)->select();
+    	$this->assign('count', $count);
     	$this->assign('list', $rs);
+    	$this->assign('page', $page->show());
     	$id = I('get.id', 0, 'int');
     	if ($id > 0) {
     		// 提取信息准备修改

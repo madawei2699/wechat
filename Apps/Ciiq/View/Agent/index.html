@@ -30,6 +30,12 @@ $(document).ready(function(){
 			};
 		});
 	})();
+	$(window).trigger('scroll');
+	
+	$('#cascade_option').click(function () {
+		var cls = $('#cascade_content').css('display') == 'none' ? 'block' : 'none';
+		$('#cascade_content').css({"display":cls});
+	});
 	
 	// init select
 	var l1 = (new Function('return '+$('#level1').val()))();
@@ -56,6 +62,10 @@ $(document).ready(function(){
 			$('#select3').html(l3_html);
 		});
 	});
+
+	if ($('#_select1').length == 1) $('#select1').val($('#_select1').val()).trigger('change');
+	if ($('#_select2').length == 1) $('#select2').val($('#_select2').val()).trigger('change');
+	if ($('#_select3').length == 1) $('#select3').val($('#_select3').val());
 
 });
 </script>
@@ -124,17 +134,22 @@ $(document).ready(function(){
 							</tr>
 							<tr>
 								<td class="ta-right" colspan="6">
-								<a href="#">添加管理员</a>&nbsp;|&nbsp;<a href="#">添加微店</a>&nbsp;|&nbsp;<a href="#">LBS设置</a></td>
+								<a href="#">添加管理员</a>&nbsp;|&nbsp;<a href="/shop/quick">一键开店</a>&nbsp;|&nbsp;<a href="#">LBS设置</a></td>
 							</tr>
 							</volist>
 						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="6" class="ta-right">{$page}</td>
+							</tr>
+						</tfoot>
 					</table>
 					<a name="f1"></a>
 					<form id="agentForm" name="agentForm" method="post" action="/agent/save">
 					<input type="hidden" name="id" id="id" value="{$info.id}"/>
 						<fieldset>
-							<legend>渠道设置</legend>
-							
+							<legend id="cascade_option">渠道设置</legend>
+							<div id="cascade_content">
 							<p>
 								<label class="required" for="enterprise">企业全称:</label><br/>
 								<input type="text" id="enterprise" class="half" value="{$info.enterprise}" name="enterprise"/>
@@ -146,6 +161,9 @@ $(document).ready(function(){
 								<select id="select2" class="sma" name="select2"></select>
 								<select id="select3" class="sma" name="select3"></select><br/>
 								<input type="text" id="addr" class="half" value="{$info.addr}" name="addr"/>
+								<if condition="$info.province neq 0"><input type="hidden" name="_select1" id="_select1" value="{$info.province}"></if>
+								<if condition="$info.city neq 0"><input type="hidden" name="_select2" id="_select2" value="{$info.city}"></if>
+								<if condition="$info.district neq 0"><input type="hidden" name="_select3" id="_select3" value="{$info.district}"></if>
 							</p>
 							
 							<p>
@@ -167,7 +185,6 @@ $(document).ready(function(){
 								<label class="required" for="type">代理类别:</label><br/>
 								<volist name="agent_type" id="item" index="key">
 								<label class="choice" for="type{$key}"><input type="radio" id="type{$key}" value="{$key}" name="type" <if condition="$info.type eq $key">checked="checked"</if>/>{$item}</label><br/>
-								<option value="{$key}">{$item}</option>
 								</volist>
 							</p>
 
@@ -194,7 +211,7 @@ $(document).ready(function(){
 							</p>
 							
 							<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
-
+							</div>
 						</fieldset>
 
 					</form>

@@ -18,4 +18,5 @@ return array(
 	),
 	'APPLICATION_USER_SALT' => '539eaa732d6a25fa2f6e6c38674074ec', // 系统级别扰码，作用在模块扰码前
 	'APPLICATION_SESSION_EXPIRE' => 900,
+	'APPLICATION_LIST_PAGE_SIZE' => 10,
 );

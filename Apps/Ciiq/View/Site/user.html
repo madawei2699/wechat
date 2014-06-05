@@ -67,7 +67,7 @@ $(document).ready(function(){
 	<!-- Page title -->
 	<div id="pagetitle" style="position:fixed;z-index:20;">
 		<div class="wrapper">
-			<h1>成员&nbsp;&nbsp;&bull;&nbsp;&nbsp;管理全部企业、渠道、微店、微站管理员</h1>
+			<h1>微站管理员&nbsp;&nbsp;&bull;&nbsp;&nbsp;管理全部微站管理员</h1>
 		</div>
 	</div>
 	<!-- End of Page title -->
@@ -79,7 +79,7 @@ $(document).ready(function(){
 				<!-- Left column/section -->
 				<section class="column width6 first">
 					
-					<h4>成员清单:&nbsp;&nbsp;<a href="#">{$count}个</a></h4>
+					<h4>微站管理员清单:&nbsp;&nbsp;<a href="#">{$count}个</a></h4>
 					
 					<table id="report" class="stylized full" style="">
 						<thead>
@@ -100,7 +100,7 @@ $(document).ready(function(){
 								<td>{$row.status}</td>
 								<td>{$row.last_ip}</td>
 								<td class="ta-right">创建: {$row.create_time}<br/>登录: {$row.last_time}</td>
-								<td class="ta-right"><a href="?id={$row.id}#f1">修改</a>&nbsp;|&nbsp;<a href="?id={$row.id}">删除</a>&nbsp;|&nbsp;<a href="/user/pswd?id={$row.id}">改密</a></td>
+								<td class="ta-right"><a href="?id={$row.id}#f1">修改</a>&nbsp;|&nbsp;<a href="?id={$row.id}">删除</a>&nbsp;|&nbsp;<a href="/user/pswd?id={$row.id}&from=/site/user">改密</a></td>
 							</tr>
 							<tr id="row_b_{$row.id}">
 								<td colspan="6" style="background:url(/public/skin/img/information.png) no-repeat left center;text-indent:10px;">
@@ -153,30 +153,16 @@ $(document).ready(function(){
 							
 							<p>
 								<label class="required" for="role">隶属角色:</label><br/>
-								<label class="choice" for="role0"><input type="radio" id="role0" class="" value="0" name="role" <if condition="$info.role_id eq 0">checked="checked"</if>/>无角色</label><br/>
-								<label class="choice" for="role1"><input type="radio" id="role1" class="" value="1" name="role" <if condition="$info.role_id eq 1">checked="checked"</if>/>企业管理员</label><br/>
-								<label class="choice" for="role2"><input type="radio" id="role2" class="" value="2" name="role" <if condition="$info.role_id eq 2">checked="checked"</if>/>渠道管理员</label><br/>
-								<label class="choice" for="role3"><input type="radio" id="role3" class="" value="3" name="role" <if condition="$info.role_id eq 3">checked="checked"</if>/>微店管理员</label><br/>
-								<label class="choice" for="role4"><input type="radio" id="role4" class="" value="4" name="role" <if condition="$info.role_id eq 4">checked="checked"</if>/>微站管理员</label>
+								<label class="choice" for="role4"><input type="radio" id="role4" class="" value="4" name="role" checked="checked"/>微站管理员</label>
 								<small>角色优先于权限组，在分配权限时，系统按照角色提取功能清单</small>
 							</p>
 							
 							<p>
 								<label class="required" for="enterprise">隶属企业:</label><br/>
 								<select id="enterprise" class="half" name="enterprise"></select>
+								<input type="hidden" id="agent" value="0" name="agent"/>
+								<input type="hidden" id="shop" value="0" name="shop"/>
 								<small>仅指定隶属企业的，表示新增企业管理员</small>
-							</p>
-							
-							<p>
-								<label for="agent">隶属渠道:</label><br/>
-								<select id="agent" class="half" name="agent"></select>
-								<small>指定了隶属渠道的，表示新增渠道管理员</small>
-							</p>
-							
-							<p>
-								<label for="shop">隶属微店:</label><br/>
-								<select id="shop" class="half" name="shop"></select>
-								<small>指定了隶属微店的，表示新增微店管理员</small>
 							</p>
 							
 							<p>
@@ -205,7 +191,7 @@ $(document).ready(function(){
 								<label for="comment">备注:</label><br/>
 								<textarea id="comment" class="half" name="comment" rows="6">{$info.comment}</textarea>
 							</p>
-							
+							<input type="hidden" name="from" id="from" value="/site/user" />
 							<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
 							</div>
 						</fieldset>

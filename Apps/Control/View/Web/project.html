@@ -40,6 +40,7 @@ $(document).ready(function(){
 			};
 		});
 	})();
+	$(window).trigger('scroll');
 
 });
 </script>
@@ -106,6 +107,11 @@ $(document).ready(function(){
 							</tr>
 							</volist>
 						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="6" class="ta-right">{$page}</td>
+							</tr>
+						</tfoot>
 					</table>
 					<a name="f1"></a>
 					<form id="userForm" name="userForm" method="post" action="/web/project/?save" enctype="multipart/form-data">

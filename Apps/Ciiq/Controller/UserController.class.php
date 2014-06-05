@@ -2,6 +2,7 @@
 namespace Ciiq\Controller;
 
 use Think\Controller;
+use Org\Util\Page;
 
 /**
  * User 类
@@ -25,15 +26,19 @@ class UserController extends BaseController {
 	}
 	
 	function index() {
+		$params = '';
 		$user = $this->getModel('User');
-		$rs = $user->order('id DESC')->select();
+		$count = $user->count();
+		$page = new Page($count, C('APPLICATION_LIST_PAGE_SIZE'), $params);
+		$rs = $user->order('id DESC')->limit($page->firstRow, $page->listRows)->select();
 		foreach ($rs as $key=>$value) {
 			$rs[$key]['role'] = $this->USER_ROLE[$rs[$key]['role_id']];
 			$rs[$key]['status'] = $this->USER_STATUS[$rs[$key]['status']];
 			unset($rs[$key]['password']);
 		};
-		$this->assign('count', count($rs));
+		$this->assign('count', $count);
 		$this->assign('list', $rs);
+		$this->assign('page', $page->show());
 		$this->assign('salt', md5(time()));
 		$id = I('get.id', 0, 'int');
 		if ($id > 0) {
@@ -55,6 +60,7 @@ class UserController extends BaseController {
 			$this->error('请指定用户！');
 			return;
 		};
+		$from = I('get.from');
 		$user = $this->getModel('User');
 		$rs = $user->find($id);
 		if ($rs == null) {
@@ -75,12 +81,12 @@ class UserController extends BaseController {
 				return;
 			};
 			// process password
-			$params = array(C('APPLICATION_USER_SALT'), $password, $salt);
+			$params = array(C('APPLICATION_USER_SALT'), $password, $rs['salt']);
 			sort($params, SORT_STRING);
 			$password = sha1( implode('', $params) );
 			$update = $user->save(array('password' => $password), array('where'=>'id='.$id));
 			if ($update) {
-				$this->success('改密成功！', '/user');
+				$this->success('改密成功！', (isset($_POST['from']) ? $_POST['from'] : '/user'));
 				return;
 			};
 			$this->error('改密失败！'.$user->getDbError());
@@ -92,6 +98,7 @@ class UserController extends BaseController {
 			};
 		};
 		$this->assign('info', $rs);
+		$this->assign('from', $from);
 		$this->display();
 	}
 	
@@ -148,7 +155,7 @@ class UserController extends BaseController {
 				'comment' => $comment,
 			), array('where'=>'id='.$id));
 			if ($update) {
-				$this->success('更新成功！', '/user');
+				$this->success('更新成功！', (isset($_POST['from']) ? $_POST['from'] : '/user'));
 				return;
 			};
 			$this->error('更新失败！'.$user->getDbError());
@@ -194,7 +201,7 @@ class UserController extends BaseController {
 				'create_time' => $this->date,
 			));
 			if ($create) {
-				$this->success('添加成功！', '/user');
+				$this->success('添加成功！', (isset($_POST['from']) ? $_POST['from'] : '/user'));
 				return;
 			};
 			$this->error('添加失败！'.$user->getDbError());
