@@ -14,9 +14,19 @@ class ProjectController extends BaseController {
 	}
 	
     function index(){
+    	$id = I('get.id', 0, 'int');
     	$this->assign('WEB_EXT_CFG', C('WEB_EXT_CFG'));
-    	$this->assign('id', $_GET['id']);
-		$this->display('Index/project'.$_GET['id']);
+    	if ($id < 100) {
+	    	$this->assign('id', $_GET['id']);
+			$this->display('Index/project'.$_GET['id']);
+    	} else {
+    		$proj = D('ControlProject');
+    		$rs = $proj->find($id);
+    		if ($rs == null) {} else {
+	    		$this->assign('info', $rs);
+	    		$this->display('Index/project0');
+    		};
+    	}
     }
     
     /**

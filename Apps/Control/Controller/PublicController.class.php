@@ -18,6 +18,6 @@ class PublicController extends BaseController {
 	 * 显示登录页面的验证码图片
 	 */
 	function verify(){
-		Image::buildImageVerify(6, 1, 'png', 48, 22, 'CONTROL_VRERIFY');
+		Image::buildImageVerify(4, 1, 'png', 48, 22, 'CONTROL_VRERIFY');
 	}
 }

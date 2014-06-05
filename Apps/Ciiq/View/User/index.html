@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>{$WEB_EXT_CFG.PAGE_TITLE} v0.1a</title>
+<include file="Public:scripts"/>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	/* setup navigation, content boxes, etc... */
+	Administry.setup();
+	
+	// 固定浮动条 //////////////////////////////////////
+	(function () {
+		var el= $('#pagetitle');
+		var ec= $('#page');
+		var w = el.next().width();
+		var c = ec.offset().top;
+		el.css({'top':c, 'width':w});
+		$(window).scroll(function () {
+			var e = document.body.scrollTop || document.documentElement.scrollTop;
+			if (e <= 0) {
+				el.css({'top':c.toString()+'px'});
+			} else {
+				if (e <= c) {
+					el.css({'top':(c-e).toString()+'px'});
+				} else {
+					el.css({'top':0});
+				};
+			};
+		});
+	})();
+
+});
+</script>
+</head>
+<body>
+	<!-- Header -->
+	<header id="top">
+		<div class="wrapper">
+			<!-- Title/Logo - can use text instead of image -->
+			<include file="Public:title"/>
+			<!-- Top navigation -->
+			<div id="topnav">
+				<a href="#"><img class="avatar" src="/public/demo/img/user_32.png" alt="" /></a>
+				登录为 <b>{$session_enterprise_name}</b>
+				<span>|</span> <a href="/dashboard/settings">设置</a>
+				<span>|</span> <a href="/index/signout">退出</a><br />
+				<small>您有 <a href="/dashboard/message?unread" class="high"><b>1</b> 新消息!</a></small>
+			</div>
+			<!-- End of Top navigation -->
+			<!-- Main navigation -->
+			<include file="Public:menu"/>
+			<!-- End of Main navigation -->
+			<!-- Aside links -->
+			<!-- aside><b>English</b> &middot; <a href="#">Spanish</a> &middot; <a href="#">German</a></aside -->
+			<!-- End of Aside links -->
+		</div>
+	</header>
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle" style="position:fixed;z-index:20;">
+		<div class="wrapper">
+			<h1>成员&nbsp;&nbsp;&bull;&nbsp;&nbsp;管理全部企业、渠道、微店、微站管理员</h1>
+		</div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper" style="margin-top:52px;">
+				<!-- Left column/section -->
+				<section class="column width6 first">
+					
+					<h4>成员清单:&nbsp;&nbsp;<a href="#">{$count}个</a></h4>
+					
+					<table id="report" class="stylized full" style="">
+						<thead>
+							<tr>
+								<th>账号/昵称/工号</th>
+								<th>属性</th>
+								<th>状态</th>
+								<th>登录IP</th>
+								<th class="ta-right">时间</th>
+								<th class="ta-right">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<volist name="list" id="row">
+							<tr id="row_t_{$row.id}">
+								<td class="title" nowrap="nowrap">账号: <a href="#"><b>{$row.name}</b></a><br/>昵称: {$row.nickname}<br/>工号: {$row.number}</td>
+								<td>角色: {$row.role}<br/>企业: {$row.enterprise_id}<br/>渠道: {$row.agent_id}<br/>网店: {$row.shop_id}</td>
+								<td>{$row.status}</td>
+								<td>{$row.last_ip}</td>
+								<td class="ta-right">创建: {$row.create_time}<br/>登录: {$row.last_time}</td>
+								<td class="ta-right"><a href="?id={$row.id}#f1">修改</a>&nbsp;|&nbsp;<a href="?id={$row.id}">删除</a>&nbsp;|&nbsp;<a href="/user/pswd?id={$row.id}">改密</a></td>
+							</tr>
+							<tr id="row_b_{$row.id}">
+								<td colspan="6" style="background:url(/public/skin/img/information.png) no-repeat left center;text-indent:10px;">
+								<a href="#"><b>{$row.name}</b></a>的密码扰码: {$row.salt}</td>
+							</tr>
+							</volist>
+						</tbody>
+					</table>
+					<a name="f1"></a>
+					<form id="userForm" name="userForm" method="post" action="/user/save">
+					<input type="hidden" name="id" id="id" value="{$info.id}"/>
+						<fieldset>
+							<legend>成员设置</legend>
+							
+							<p>
+								<label class="required" for="name">登录账号:</label><br/>
+								<input type="text" id="name" class="qtr" value="{$info.name}" name="name" <if condition="$info.id gt 0">disabled="disabled"</if>/>
+								<small>登录账号只能是英文字母(A-Z)和数字(0-9)的组合，长度在6位和64位之间</small>
+							</p>
+							
+							<p>
+								<label class="required" for="nickname">昵称:</label><br/>
+								<input type="text" id="nickname" class="qtr" value="{$info.nickname}" name="nickname"/>
+							</p>
+							
+							<p>
+								<label class="required" for="number">工号:</label><br/>
+								<input type="text" id="number" class="qtr" value="{$info.number}" name="number"/>
+							</p>
+							
+							<if condition="$info.id eq 0">
+							<p>
+								<label class="required" for="password">登录密码:</label><br/>
+								<input type="password" id="password" class="qtr" value="" name="password"/>
+								<label for="salt">密码扰码:</label>
+								<input type="text" id="salt" class="half" value="{$salt}" style="border-color:#fff;background-color:#feffed;" name="salt" readonly="readonly" />
+								<small>密码扰码默认自动生成，用于密码加密</small>
+							</p>
+							
+							<p>
+								<label class="required" for="password1">重复密码:</label><br/>
+								<input type="password" id="password1" class="qtr" value="" name="password1"/>
+							</p>
+							</if>
+							
+							<p>
+								<label class="required" for="role">隶属角色:</label><br/>
+								<label class="choice" for="role0"><input type="radio" id="role0" class="" value="0" name="role" <if condition="$info.role_id eq 0">checked="checked"</if>/>无角色</label><br/>
+								<label class="choice" for="role1"><input type="radio" id="role1" class="" value="1" name="role" <if condition="$info.role_id eq 1">checked="checked"</if>/>企业管理员</label><br/>
+								<label class="choice" for="role2"><input type="radio" id="role2" class="" value="2" name="role" <if condition="$info.role_id eq 2">checked="checked"</if>/>渠道管理员</label><br/>
+								<label class="choice" for="role3"><input type="radio" id="role3" class="" value="3" name="role" <if condition="$info.role_id eq 3">checked="checked"</if>/>微店管理员</label><br/>
+								<label class="choice" for="role4"><input type="radio" id="role4" class="" value="4" name="role" <if condition="$info.role_id eq 4">checked="checked"</if>/>微站管理员</label>
+								<small>角色优先于权限组，在分配权限时，系统按照角色提取功能清单</small>
+							</p>
+							
+							<p>
+								<label class="required" for="enterprise">隶属企业:</label><br/>
+								<select id="enterprise" class="half" name="enterprise"></select>
+								<small>仅指定隶属企业的，表示新增企业管理员</small>
+							</p>
+							
+							<p>
+								<label for="agent">隶属渠道:</label><br/>
+								<select id="agent" class="half" name="agent"></select>
+								<small>指定了隶属渠道的，表示新增渠道管理员</small>
+							</p>
+							
+							<p>
+								<label for="shop">隶属微店:</label><br/>
+								<select id="shop" class="half" name="shop"></select>
+								<small>指定了隶属微店的，表示新增微店管理员</small>
+							</p>
+							
+							<p>
+								<label class="required" for="status">账户状态:</label><br/>
+								<label class="choice" for="status1"><input type="radio" id="status1" class="" value="1" name="status"  <if condition="$info.status eq 1">checked="checked"</if>/>有效</label><br/>
+								<label class="choice" for="status2"><input type="radio" id="status2" class="" value="2" name="status"  <if condition="$info.status eq 2">checked="checked"</if>/>暂停(用户可以登录系统，但是无法进行任何操作)</label><br/>
+								<label class="choice" for="status0"><input type="radio" id="status0" class="" value="0" name="status"  <if condition="$info.status eq 0">checked="checked"</if>/>失效(用户将无法登录系统)</label><br/>
+							</p>
+
+							<p>
+								<label for="email">Email:</label><br/>
+								<input type="text" id="email" class="half" value="{$info.email}" name="email"/>
+							</p>
+
+							<p>
+								<label for="qq">QQ:</label><br/>
+								<input type="text" id="qq" class="qtr" value="{$info.qq}" name="qq"/>
+							</p>
+
+							<p>
+								<label for="mobile">手机:</label><br/>
+								<input type="text" id="mobile" class="qtr" value="{$info.mobile}" name="mobile"/>
+							</p>
+
+							<p>
+								<label for="comment">备注:</label><br/>
+								<textarea id="comment" class="half" name="comment" rows="6">{$info.comment}</textarea>
+							</p>
+							
+							<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+
+						</fieldset>
+
+					</form>
+				
+					<div class="clear">&nbsp;</div>
+				
+				</section>
+				<!-- End of Left column/section -->
+				
+				<!-- Right column/section -->
+				<aside class="column width2">
+					<div id="rightmenu">
+						<header>
+							<h3>账户信息</h3>
+						</header>
+						<dl class="first">
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/key.png"></dt>
+							<dd><a href="#">企业账户 (admin)</a></dd>
+							<dd class="last">30d体验版.</dd>
+							
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/help.png"></dt>
+							<dd><a href="#">技术支持</a></dd>
+							<dd class="last">相关技术支持请查看 http://doc.f-fusion.com</dd>
+						</dl>
+					</div>
+				</aside>
+				<!-- End of Right column/section -->
+				
+		</div>
+		<!-- End of Wrapper -->
+	</div>
+	<!-- End of Page content -->
+	
+	<!-- Page footer -->
+	<include file="Public:footer"/>
+	<!-- End of Page footer -->
+	
+	<!-- Animated footer -->
+	<include file="Public:footer-float"/>
+	<!-- End of Animated footer -->
+	
+	<!-- Scroll to top link -->
+	<include file="Public:go"/>
+</body>
+</html>

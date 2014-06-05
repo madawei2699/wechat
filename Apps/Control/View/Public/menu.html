@@ -1,0 +1,32 @@
+<nav id="menu">
+	<ul class="sf-menu">
+		<if condition="$current eq 'dashboard'"><li class="current"><else/><li></if>
+		    <a href="/dashboard">系统</a>
+			<ul>
+				<li><a href="/dashboard/serv">云服务器</a>
+					<ul>
+						<li><a href="#">阿里云杭州节点</a>
+							<ul>
+								<li><a href="#">Server-1</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="/dashboard/db">云数据库</a>
+					<ul>
+						<li><a href="#">MySQL</a></li>
+					</ul>
+				</li>
+				<li><a href="/dashboard/settings">设置...</a></li>
+			</ul>
+		</li>
+		<if condition="$current eq 'web'"><li class="current"><else/><li></if>
+			<a href="/web">网站</a>
+			<ul>
+				<li><a href="/web/project">案例管理</a></li>
+			</ul>
+		</li>
+		<if condition="$current eq 'user'"><li class="current"><else/><li></if><a href="/user">成员</a></li>
+		<if condition="$current eq 'log'"><li class="current"><else/><li></if><a href="/log">日志</a></li>
+	</ul>
+</nav>

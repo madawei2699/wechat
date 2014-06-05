@@ -47,6 +47,15 @@ $(document).ready(function () {
 	</ul>
 	<div class="clear">&nbsp;</div>
 	<div id="masonry">
+		<volist name="list" id="item">
+		<div class="box">
+			<h1><a href="/project?id={$item.id}">{$item.name}</a></h1>
+			<if condition="$item.subname neq ''"><h3>{$item.subname}</h3></if>
+			<div><a href="/project?id={$item.id}"><img src="{$item.main}" border="0" /></a></div>
+			<if condition="$item.summary neq ''">{$item.summary}<else/>&nbsp;</if>
+			<div class="detail"><span>进入阅读</span><a href="/project?id={$item.id}">&gt;</a></div>
+		</div>
+		</volist>
 		<volist name="projects" id="item">
 		<div class="box">
 			<h1><a href="/project?id={$item.id}">{$item.title}</a></h1>

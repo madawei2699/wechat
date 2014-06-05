@@ -38,6 +38,9 @@ class IndexController extends BaseController {
     		array('id'=>9,'img'=>'images/project/lidelang/logo1.png','href'=>'#', 'title'=>'朝阳产业里的朝阳品牌建设！','summary'=>'<p>挑战：如何摆脱同质化的竞争格局？如何打造有价值观的LED？</p>', 'title2'=>'LED发展的品牌化运营！'),
     	);
     	$this->assign('projects', $projects);
+    	$proj = D('ControlProject');
+    	$rs = $proj->order('id DESC')->select();
+    	$this->assign('list', $rs);
     	$this->assign('WEB_EXT_CFG', C('WEB_EXT_CFG'));
 		$this->display();
     }

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>{$WEB_EXT_CFG.PAGE_TITLE} v0.1a</title>
+<include file="Public:scripts"/>
+<script charset="utf-8" src="/public/kindeditor4110/kindeditor-min.js"></script>
+<script charset="utf-8" src="/public/kindeditor4110/lang/zh_CN.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	/* setup navigation, content boxes, etc... */
+	Administry.setup();
+	
+	var KE = KindEditor.create('#content',{
+        width : '98%',
+        height: '400px',
+        themeType : 'simple',
+        uploadJson : '/public/kindeditor4110/php/upload_json.php',
+        allowFileManager : false
+	});
+	
+	// 固定浮动条 //////////////////////////////////////
+	(function () {
+		var el= $('#pagetitle');
+		var ec= $('#page');
+		var w = el.next().width();
+		var c = ec.offset().top;
+		el.css({'top':c, 'width':w});
+		$(window).scroll(function () {
+			var e = document.body.scrollTop || document.documentElement.scrollTop;
+			if (e <= 0) {
+				el.css({'top':c.toString()+'px'});
+			} else {
+				if (e <= c) {
+					el.css({'top':(c-e).toString()+'px'});
+				} else {
+					el.css({'top':0});
+				};
+			};
+		});
+	})();
+
+});
+</script>
+</head>
+<body>
+	<!-- Header -->
+	<header id="top">
+		<div class="wrapper">
+			<!-- Title/Logo - can use text instead of image -->
+			<include file="Public:title"/>
+			<!-- Top navigation -->
+			<div id="topnav">
+				<a href="#"><img class="avatar" src="/public/demo/img/user_32.png" alt="" /></a>
+				登录为 <b>{$session_admin_name}</b>
+				<span>|</span> <a href="/dashboard/settings">设置</a>
+				<span>|</span> <a href="/index/signout">退出</a><br />
+				<small>您有 <a href="/dashboard/message?unread" class="high"><b>1</b> 新消息!</a></small>
+			</div>
+			<!-- End of Top navigation -->
+			<!-- Main navigation -->
+			<include file="Public:menu"/>
+			<!-- End of Main navigation -->
+			<!-- Aside links -->
+			<!-- aside><b>English</b> &middot; <a href="#">Spanish</a> &middot; <a href="#">German</a></aside -->
+			<!-- End of Aside links -->
+		</div>
+	</header>
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle" style="position:fixed;z-index:20;">
+		<div class="wrapper">
+			<h1>网站&nbsp;&nbsp;&gt;&nbsp;&nbsp;案例管理&nbsp;&nbsp;&bull;&nbsp;&nbsp;管理全部案例信息</h1>
+		</div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper" style="margin-top:52px;">
+				<!-- Left column/section -->
+				<section class="column width6 first">
+					
+					<h4>案例清单:&nbsp;&nbsp;<a href="#">{$count}个案例</a></h4>
+					
+					<table id="report" class="stylized full" style="">
+						<thead>
+							<tr>
+								<th>案例标题</th>
+								<th>首页题图</th>
+								<th>详情页Logo</th>
+								<th class="ta-right">时间</th>
+								<th class="ta-right">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<volist name="list" id="row">
+							<tr id="row_t_{$row.id}">
+								<td class="title" style="vertical-align:top;"><a href="#"><b>{$row.name}</b></a><br/>{$row.subname}</td>
+								<td style="vertical-align:top;"><img src="{$row.main}" width="100" height="100" border="0" /></td>
+								<td style="vertical-align:top;"><img src="{$row.logo}" width="205" height="82.5" border="0" /></td>
+								<td class="ta-right" nowrap="nowrap" style="vertical-align:top;">{$row.create_time}</td>
+								<td class="ta-right" nowrap="nowrap" style="vertical-align:top;"><a href="?id={$row.id}#f1">修改</a>&nbsp;|&nbsp;<a href="?id={$row.id}">删除</a></td>
+							</tr>
+							</volist>
+						</tbody>
+					</table>
+					<a name="f1"></a>
+					<form id="userForm" name="userForm" method="post" action="/web/project/?save" enctype="multipart/form-data">
+					<input type="hidden" name="id" id="id" value="{$info.id}"/>
+						<fieldset>
+							<legend>案例设置</legend>
+							
+							<p>
+								<label class="required" for="name">案例标题:</label><br/>
+								<input type="text" id="name" class="half" value="{$info.name}" name="name" />
+								<small>登录账号只能是英文字母(A-Z)和数字(0-9)的组合，长度在6位和64位之间</small>
+							</p>
+							
+							<p>
+								<label class="required" for="subname">案例副标题:</label><br/>
+								<input type="text" id="subname" class="half" value="{$info.subname}" name="subname"/>
+							</p>
+							
+							<p>
+								<label class="required" for="main">首页用题图(宽度300px):</label><br/>
+								<input type="file" id="main" class="half" name="main"/>
+								<if condition="$info.main neq ''"><br/><img src="{$info.main}" width="100" height="100" border="0" /></if>
+							</p>
+
+							<p>
+								<label class="required" for="logo">详情页Logo(宽度410px高度165px):</label><br/>
+								<input type="file" id="logo" class="half" name="logo"/>
+								<if condition="$info.logo neq ''"><br/><img src="{$info.logo}" width="205" height="82.5" border="0" /></if>
+							</p>
+
+							<p>
+								<label class="required" for="content">案例详情(正文内图片宽度不要超过730px):</label><br/>
+								<textarea id="content" class="half" name="content" rows="6">{$info.content}</textarea>
+							</p>
+							
+							<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+
+						</fieldset>
+
+					</form>
+				
+					<div class="clear">&nbsp;</div>
+				
+				</section>
+				<!-- End of Left column/section -->
+				
+				<!-- Right column/section -->
+				<aside class="column width2">
+					<div id="rightmenu">
+						<header>
+							<h3>账户信息</h3>
+						</header>
+						<dl class="first">
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/key.png"></dt>
+							<dd><a href="#">企业账户 (admin)</a></dd>
+							<dd class="last">30d体验版.</dd>
+							
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/help.png"></dt>
+							<dd><a href="#">技术支持</a></dd>
+							<dd class="last">相关技术支持请查看 http://doc.f-fusion.com</dd>
+						</dl>
+					</div>
+				</aside>
+				<!-- End of Right column/section -->
+				
+		</div>
+		<!-- End of Wrapper -->
+	</div>
+	<!-- End of Page content -->
+	
+	<!-- Page footer -->
+	<include file="Public:footer"/>
+	<!-- End of Page footer -->
+	
+	<!-- Animated footer -->
+	<include file="Public:footer-float"/>
+	<!-- End of Animated footer -->
+	
+	<!-- Scroll to top link -->
+	<include file="Public:go"/>
+</body>
+</html>

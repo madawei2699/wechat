@@ -99,7 +99,7 @@ $(document).ready(function(){
 				<!-- Left column/section -->
 				<section class="column width6 first">
 					
-					<h4>渠道清单: <a href="#">108家</a></h4>
+					<h4>渠道清单:&nbsp;&nbsp;<a href="#">{$count}家</a></h4>
 					
 					<table id="report" class="stylized full" style="">
 						<thead>
@@ -107,114 +107,37 @@ $(document).ready(function(){
 								<th>名称</th>
 								<th>地区</th>
 								<th>类别</th>
-								<th>品类</th>
-								<th class="ta-right">申请时间</th>
+								<th>联系人</th>
 								<th class="ta-right">创建时间</th>
 								<th class="ta-right">操作</th>
 							</tr>
 						</thead>
 						<tbody>
+							<volist name="list" id="item">
 							<tr>
-								<td class="title"><a href="#"><b>莲花服饰有限公司</b></a></td>
-								<td>上海,上海</td>
-								<td>服装,服饰,箱包</td>
-								<td>服装</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right">2014-01-21 09:25</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+								<td class="title"><a href="#"><b>{$item.enterprise}</b></a></td>
+								<td>{$item.province},{$item.city},{$item.district}</td>
+								<td>{$item.type}</td>
+								<td>{$item.contact_name}</td>
+								<td class="ta-right">{$item.create_time}</td>
+								<td class="ta-right"><a href="?id={$item.id}#f1">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
 							</tr>
 							<tr>
-								<td class="title"><a href="#"><b>金易服饰公司</b></a></td>
-								<td>江苏,南通</td>
-								<td>服装,服饰</td>
-								<td>服装</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right">2014-01-21 09:25</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
+								<td class="ta-right" colspan="6">
+								<a href="#">添加管理员</a>&nbsp;|&nbsp;<a href="#">添加微店</a>&nbsp;|&nbsp;<a href="#">LBS设置</a></td>
 							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>沪之梦商贸有限公司</b></a></td>
-								<td>安徽,合肥</td>
-								<td>服装,服饰</td>
-								<td>服装</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right">2014-01-21 09:25</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>威锋商贸有限公司</b></a></td>
-								<td>安徽,太和</td>
-								<td>服装,服饰</td>
-								<td>服装</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right">2014-01-21 09:25</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>凯凯进出口贸易有限公司</b></a></td>
-								<td>浙江,宁波</td>
-								<td>服装,服饰,箱包,鞋帽</td>
-								<td>服装</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right">2014-01-21 09:25</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>霸王服饰</b></a></td>
-								<td>浙江,宁波</td>
-								<td>服装,服饰,箱包,鞋帽</td>
-								<td>服装</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right">2014-01-21 09:25</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>海之天兰</b></a></td>
-								<td>浙江,宁波</td>
-								<td>服装,服饰,鞋帽</td>
-								<td>服装</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right">2014-01-21 09:25</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>初语女装</b></a></td>
-								<td>浙江,宁波</td>
-								<td>服装,服饰,箱包,鞋帽</td>
-								<td>服装</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right">2014-01-21 09:25</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>爱恋服装</b></a></td>
-								<td>江苏,昆山</td>
-								<td>服装,服饰,皮具</td>
-								<td>服装</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right">2014-01-21 09:25</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>梦里人服装世界</b></a></td>
-								<td>江苏,昆山</td>
-								<td>服装,服饰,皮具</td>
-								<td>服装</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right">2014-01-21 09:25</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
+							</volist>
 						</tbody>
 					</table>
-					
-					<form id="sampleform" method="post" action="#">
-
+					<a name="f1"></a>
+					<form id="agentForm" name="agentForm" method="post" action="/agent/save">
+					<input type="hidden" name="id" id="id" value="{$info.id}"/>
 						<fieldset>
 							<legend>渠道设置</legend>
 							
 							<p>
 								<label class="required" for="enterprise">企业全称:</label><br/>
-								<input type="text" id="enterprise" class="half" value="" name="enterprise"/>
+								<input type="text" id="enterprise" class="half" value="{$info.enterprise}" name="enterprise"/>
 							</p>
 							
 							<p>
@@ -222,55 +145,52 @@ $(document).ready(function(){
 								<select id="select1" class="sma" name="select1"></select>
 								<select id="select2" class="sma" name="select2"></select>
 								<select id="select3" class="sma" name="select3"></select><br/>
-								<input type="text" id="addr" class="half" value="" name="addr"/>
+								<input type="text" id="addr" class="half" value="{$info.addr}" name="addr"/>
 							</p>
 							
 							<p>
-								<label class="required" for="post">邮政编码:</label><br/>
-								<input type="text" id="post" class="sma" value="" name="post"/>
+								<label for="post">邮政编码:</label><br/>
+								<input type="text" id="post" class="sma" value="{$info.post}" name="post"/>
+							</p>
+
+							<p>
+								<label class="required" for="tel">电话(请填写区号):</label><br/>
+								<input type="text" id="tel" class="qtr" value="{$info.tel}" name="tel"/>
+							</p>
+
+							<p>
+								<label class="required" for="fax">传真(请填写区号):</label><br/>
+								<input type="text" id="fax" class="qtr" value="{$info.fax}" name="fax"/>
 							</p>
 							
 							<p>
 								<label class="required" for="type">代理类别:</label><br/>
-								<select id="type" class="qtr" name="type"></select>
-							</p>
-							
-							<p>
-								<label class="required" for="main">主营品类:</label><br/>
-								<label class="choice" for="main0"><input type="checkbox" id="main0" class="" value="0" name="main"/>已有实体店</label>
-								<label class="choice" for="main1"><input type="checkbox" id="main1" class="" value="1" name="main"/>已有实体店</label>
-								<label class="choice" for="main2"><input type="checkbox" id="main2" class="" value="2" name="main"/>已有实体店</label>
-								<label class="choice" for="main3"><input type="checkbox" id="main3" class="" value="3" name="main"/>已有实体店</label>
+								<volist name="agent_type" id="item" index="key">
+								<label class="choice" for="type{$key}"><input type="radio" id="type{$key}" value="{$key}" name="type" <if condition="$info.type eq $key">checked="checked"</if>/>{$item}</label><br/>
+								<option value="{$key}">{$item}</option>
+								</volist>
 							</p>
 
 							<p>
-								<label class="required" for="email">电话(请填写区号):</label><br/>
-								<input type="text" id="email" class="half" value="" name="email"/>
+								<label class="required" for="contact_name">联系人:</label><br/>
+								<input type="text" id="contact_name" class="qtr" value="{$info.contact_name}" name="contact_name"/>
+								<label class="choice" for="contact_gender1"><input type="radio" id="contact_gender1" value="1" name="contact_gender" <if condition="$info.contact_gender eq 1">checked="checked"</if>/>先生</label>
+								<label class="choice" for="contact_gender2"><input type="radio" id="contact_gender2" value="2" name="contact_gender" <if condition="$info.contact_gender eq 2">checked="checked"</if>/>女士</label>
 							</p>
 
 							<p>
-								<label class="required" for="email">传真(请填写区号):</label><br/>
-								<input type="text" id="email" class="half" value="" name="email"/>
+								<label for="contact_title">联系人职务:</label><br/>
+								<input type="text" id="contact_title" class="qtr" value="{$info.contact_title}" name="contact_title"/>
 							</p>
 
 							<p>
-								<label class="required" for="email">手机:</label><br/>
-								<input type="text" id="email" class="half" value="" name="email"/>
+								<label class="required" for="contact_mobile">联系人手机:</label><br/>
+								<input type="text" id="contact_mobile" class="qtr" value="{$info.contact_mobile}" name="contact_mobile"/>
 							</p>
 
 							<p>
-								<label class="required" for="email">备注:</label><br/>
-								<textarea id="area3" class="half" name="area3" rows="6"></textarea>
-							</p>
-							
-							<p>
-								<input type="checkbox" id="terms" class="" value="1" name="terms"/>
-								<label class="choice" for="terms">已有实体店</label>
-							</p>
-							
-							<p>
-								<input type="checkbox" id="terms" class="" value="1" name="terms"/>
-								<label class="choice" for="terms">兼营其他品类</label>
+								<label for="comment">备注:</label><br/>
+								<textarea id="comment" class="half" name="comment" rows="6">{$info.comment}</textarea>
 							</p>
 							
 							<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
@@ -318,8 +238,9 @@ $(document).ready(function(){
 	
 	<!-- Scroll to top link -->
 	<include file="Public:go"/>
+<div style="display:none;">
 <textarea name="level1" id="level1">{$level1}</textarea>
 <textarea name="level2" id="level2">{$level2}</textarea>
-<textarea name="level3" id="level3">{$level3}</textarea>
+<textarea name="level3" id="level3">{$level3}</textarea></div>
 </body>
 </html>

@@ -152,6 +152,28 @@ END:VCARD';
     
     /**
      * OK QRCode
+     * http://127.0.0.1:114/wechat/yaolu
+     * http://m.f-fusion.com/wechat/yaolu
+     */
+    function yaolu(){
+    	$text = 'BEGIN:VCARD
+VERSION:3.0
+FN:姚璐
+ORG:上海熔意网络科技有限公司
+TITLE:客户经理 Account Manager
+ADR;WORK:上海市闵行区梅陇西路413号310-313室(200237)
+URL:http://it.f-fusion.com
+TEL;CELL:18051526198
+TEL;WORK;VOICE:021-34096793
+TEL;WORK;FAX:021-34096792
+EMAIL:yaolu@f-fusion.com
+NOTE:微信开发,行业电商,在线支付,CRM,MIS,ERP
+END:VCARD';
+    	QRcode::png($text, false, 2, 8);
+    }
+    
+    /**
+     * OK QRCode
      * http://127.0.0.1:114/wechat/zhangzhenyu
      * http://m.f-fusion.com/wechat/zhangzhenyu
      */

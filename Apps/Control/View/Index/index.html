@@ -1,23 +1,159 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Control Signin</title>
-<include file="Public:scripts"/>
+<meta charset="utf-8" />
+<title>{$WEB_EXT_CFG.PAGE_TITLE} v0.1a</title>
+<meta name="description" content="Administry - Admin Template by www.865171.cn" />
+<meta name="keywords" content="Admin,Template" />
+<!-- Favicons --> 
+<link rel="shortcut icon" type="image/png" href="/public/skin/img/favicons/favicon.png"/>
+<link rel="icon" type="image/png" href="/public/skin/img/favicons/favicon.png"/>
+<link rel="apple-touch-icon" href="/public/skin/img/favicons/apple.png" />
+<!-- Main Stylesheet --> 
+<link rel="stylesheet" href="/public/skin/css/style.css" type="text/css" />
+<!-- Your Custom Stylesheet --> 
+<link rel="stylesheet" href="/public/skin/css/custom.css" type="text/css" />
+<!--swfobject - needed only if you require <video> tag support for older browsers -->
+<script type="text/javascript" src="/public/skin/js/swfobject.js"></script>
+<!-- jQuery with plugins -->
+<script type="text/javascript" src="/public/skin/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/public/skin/js/jquery.ui.core.min.js"></script>
+<script type="text/javascript" src="/public/skin/js/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="/public/skin/js/jquery.ui.tabs.min.js"></script>
+<!-- jQuery tooltips -->
+<script type="text/javascript" src="/public/skin/js/jquery.tipTip.min.js"></script>
+<!-- Superfish navigation -->
+<script type="text/javascript" src="/public/skin/js/jquery.superfish.min.js"></script>
+<script type="text/javascript" src="/public/skin/js/jquery.supersubs.min.js"></script>
+<!-- jQuery form validation -->
+<script type="text/javascript" src="/public/skin/js/jquery.validate_pack.js"></script>
+<!-- jQuery popup box -->
+<script type="text/javascript" src="/public/skin/js/jquery.nyroModal.pack.js"></script>
+<!-- Internet Explorer Fixes --> 
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" media="all" href="/public/skin/css/ie.css"/>
+<script src="/public/skin/js/html5.js"></script>
+<![endif]-->
+<!--Upgrade MSIE5.5-7 to be compatible with MSIE8: http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE8.js -->
+<!--[if lt IE 8]>
+<script src="/public/skin/js/IE8.js"></script>
+<![endif]-->
 <script type="text/javascript">
+
+$(document).ready(function(){
+	
+	/* setup navigation, content boxes, etc... */
+	Administry.setup();
+	
+	// validate signup form on keyup and submit
+	var validator = $("#loginform").validate({
+		rules: {
+			username: "required",
+			password: "required",
+			verify: "required"
+		},
+		messages: {
+			username: "请输入您的账号",
+			password: "请输入您的密码",
+			password: "请填写验证码"
+		},
+		// the errorPlacement has to take the layout into account
+		errorPlacement: function(error, element) {
+			error.insertAfter(element.parent().find('label:first'));
+		},
+		// set new class to error-labels to indicate valid fields
+		success: function(label) {
+			// set &nbsp; as text for IE
+			label.html("&nbsp;").addClass("ok");
+		}
+	});
+
+});
 function refeshCode() {
 	$('#verifyImg').attr('src', '/public/verify/?t='+(new Date()).valueOf().toString());
 }
 </script>
 </head>
 <body>
-<form name="signinForm" id="signinForm" method="post" action="/index/signin">
-<h1>熔意</h1>
-管理账号：<input type="text" name="user" id="user" value="admin" /><br/>
-管理密码：<input type="password" name="password" id="password" value="123456" /><br/>
-扰码校验：<input type="text" name="verify" id="verify" /><img id="verifyImg" src="/public/verify" border="0" style="vertical-align:middle;" onclick="refeshCode()" />&nbsp;&nbsp;<a class="aaa" href="javascript:refeshCode();">看不清，换一张</a><br/>
-<input type="submit" value="SignIn" />
-</form>
+	<!-- Header -->
+	<header id="top">
+		<div class="wrapper-login">
+			<!-- Title/Logo - can use text instead of image -->
+			<div id="title"><img src="/public/demo/img/logo.png" alt="{$WEB_EXT_CFG.PAGE_TITLE}" /></div>
+			<!-- Main navigation -->
+			<nav id="menu">
+				<ul class="sf-menu">
+					<li class="current"><a href="/">控制面板</a></li>
+					<li><a href="#">微店群</a></li>
+					<li><a href="#">移动分销系统</a></li>
+					<li><a href="#">客户关系</a></li>
+					<li><a href="#">进销存</a></li>
+					<li><a href="#">统计报表</a></li>
+				</ul>
+			</nav>
+			<!-- End of Main navigation -->
+			<!-- Aside links -->
+			<!-- aside><b>微信版</b> &middot; <a href="#">PC版</a> &middot; <a href="#">MIS</a></aside -->
+			<!-- End of Aside links -->
+		</div>
+	</header>
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle">
+		<div class="wrapper-login"></div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper-login">
+				<!-- Login form -->
+				<section class="full">					
+					
+					<div class="box box-info">请输入账号和密码登录系统。</div>
+
+					<form id="loginform" method="post" action="/index/signin">
+
+						<p>
+							<label class="required" for="username">账号</label><br/>
+							<input type="text" id="user" class="half" value="admin" name="user"/>
+						</p>
+						
+						<p>
+							<label class="required" for="password">密码</label><br/>
+							<input type="password" id="password" class="half" value="a4de13" name="password"/>
+						</p>
+						
+						<p>
+							<label class="required" for="verify">验证码</label><br/>
+							<input type="text" id="verify" class="qtr" value="" name="verify"/><img id="verifyImg" src="/public/verify" border="0" style="vertical-align:middle;" onclick="refeshCode()" />&nbsp;&nbsp;<a class="aaa" href="javascript:refeshCode();">换一张</a>
+						</p>
+						
+						<p>
+							<input type="submit" class="btn btn-green big" value="登录系统"/>
+						</p>
+						<div class="clear">&nbsp;</div>
+
+					</form>
+					
+				</section>
+				<!-- End of login form -->
+				
+		</div>
+		<!-- End of Wrapper -->
+	</div>
+	<!-- End of Page content -->
+	
+	<!-- Page footer -->
+	<footer id="bottom">
+		<div class="wrapper-login">
+			<p>Copyright &copy; 2014 {$WEB_EXT_CFG.PAGE_TITLE} <b></p>
+		</div>
+	</footer>
+	<!-- End of Page footer -->
+
+<!-- User interface javascript load -->
+<script type="text/javascript" src="/public/skin/js/administry.js"></script>
 </body>
 </html>

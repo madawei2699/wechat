@@ -47,13 +47,16 @@ class BaseController extends Controller {
 	protected $_amap_api_url = 'http://restapi.amap.com';
 	protected $WECHATCONFIG = array();
 	protected $FFCONFIG = array();
+	protected $USER_ROLE = array('无角色', '企业管理员', '渠道管理员', '微店管理员', '微站管理员');
+	protected $USER_STATUS = array('<span style="color:red;">失效</span>', '<span style="color:green;">有效</span>', '<span style="color:silver;">暂停</span>');
+	protected $USER_AGENT_TYPE = array('跨区代理', '省级代理', '地市级代理', '城区代理');
 	
 	function __construct() {
 		parent::__construct();
 		$this->time = time();
 		$this->date = date('Y-m-d H:i:s');
 		header('Content-Type:text/html;charset=utf-8');
-		$this->_app_os = $this->checkAppOS(); // 确定请求方是iOS还是Android
+		//$this->_app_os = $this->checkAppOS(); // 确定请求方是iOS还是Android
 		// load local config
 		$this->WECHATCONFIG = C('WECHAT_EXT_CFG');
 		// load my config
@@ -224,38 +227,6 @@ class BaseController extends Controller {
 	}
 	
 	/**
-	 * 校验接口代理商的优惠权限
-	 * 目前只有两项优惠参数
-	 * @param integer $agentID
-	 * @param array $params
-	 */
-	protected function verifyPermissions($agentID, array $params) {
-		if (preg_match("/^[0-9]+$/", $agentID) == false) return false;
-		if (count($params) == 0) return false;
-		if (!array_key_exists('coupon_amount', $params)) return false;
-		if (!array_key_exists('coupon_distance', $params)) return false;
-		if (preg_match("/^[0-9]+$/", $params['coupon_amount']) == false) return false;
-		if (preg_match("/^[0-9]+$/", $params['coupon_distance']) == false) return false;
-		if ((int)$params['coupon_amount'] == 0 && (int)$params['coupon_distance'] == 0) return true;
-		$agent = D('Agent');
-		$rs = $agent->find($agentID);
-		if ($rs == null) return false;
-		$pmsCouponAmount   = $rs['pms_coupon_amount'];
-		$pmsCouponDistance = $rs['pms_coupon_distance'];
-		if (strlen($pmsCouponAmount) > 0 && (int)$params['coupon_amount'] > 0 && (int)$params['coupon_distance'] == 0) {
-			$amount = (int)$params['coupon_amount'];
-			$pmsCouponAmount = explode(',', $pmsCouponAmount);
-			foreach ($pmsCouponAmount as $item) if ($item == $amount) return true;
-		};
-		if (strlen($pmsCouponDistance) > 0 && (int)$params['coupon_amount'] == 0 && (int)$params['coupon_distance'] > 0) {
-			$distance = (int)$params['coupon_distance'];
-			$pmsCouponDistance = explode(',', $pmsCouponDistance);
-			foreach ($pmsCouponDistance as $item) if ($item == $distance) return true;
-		};
-		return false;
-	}
-	
-	/**
 	 * 记录和检测每日访问限额
 	 * 超出限额和创建记录失败返回 false
 	 * @param string $cacheName 缓存名称
@@ -283,7 +254,7 @@ class BaseController extends Controller {
 		$params = array(C('APPLICATION_USER_SALT'), $originPassword);
 		// 取出指定用户的 salt
 		$user = $this->getModel('User');
-		$row = $user->field('id,name,group_id,role_id,salt,password')->where(array('name'=>$userName,'status'=>1))->find();
+		$row = $user->field('id,name,group_id,role_id,salt,password,enterprise_id')->where(array('name'=>$userName,'status'=>1))->find();
 		// echo $user->_sql();
 		// echo $user->getDbError();
 		if ($row == null) return false;
@@ -296,7 +267,7 @@ class BaseController extends Controller {
 		$user->last_ip = get_client_ip(0, true);
 		$user->save();
 		// success
-		session('enterprise_id',       $row['id']);
+		session('enterprise_id',       $row['enterprise_id']);
 		session('enterprise_name',     $row['name']);
 		session('enterprise_role_id',  $row['role_id']); // 1=admin,2=agent,3=shop
 		session('enterprise_group_id', $row['group_id']);

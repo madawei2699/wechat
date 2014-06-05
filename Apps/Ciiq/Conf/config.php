@@ -1,4 +1,7 @@
 <?php
+/**
+ * 配置文件
+ */
 defined('DEV_MODE') or exit();
 return array(
 	'URL_CASE_INSENSITIVE' => true,
