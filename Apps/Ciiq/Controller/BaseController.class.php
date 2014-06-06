@@ -47,7 +47,7 @@ class BaseController extends Controller {
 	protected $_amap_api_url = 'http://restapi.amap.com';
 	protected $WECHATCONFIG = array();
 	protected $FFCONFIG = array();
-	protected $USER_ROLE = array('超级管理员', '企业管理员', '渠道管理员', '微店管理员', '微站管理员');
+	protected $USER_ROLE = array('超级管理员', '企业级管理员', '渠道管理员', '微店管理员', '微站管理员');
 	protected $USER_STATUS = array('<span style="color:red;">失效</span>', '<span style="color:green;">有效</span>', '<span style="color:silver;">暂停</span>');
 	protected $USER_AGENT_TYPE = array('跨区代理', '省级代理', '地市级代理', '城区代理');
 	

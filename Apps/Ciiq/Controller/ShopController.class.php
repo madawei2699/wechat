@@ -59,6 +59,7 @@ class ShopController extends BaseController {
 				$this->assign('info', $rs);
 			};
 		};
+		$this->assign('roles', $this->USER_ROLE);
 		$this->display();
 	}
 	
