@@ -52,9 +52,10 @@ class IndexController extends BaseController {
      * 注销动作
      */
     function signout() {
+    	session('enterprise_admin',    null);
     	session('enterprise_id',       null);
     	session('enterprise_name',     null);
-    	session('enterprise_role_id',  null); // 1=admin,2=agent,3=shop
+    	session('enterprise_role_id',  null); // 0=admin,1=enterprise,2=agent,3=shop,4=site
     	session('enterprise_group_id', null);
     	session('enterprise_expire',   null);
     	$this->success('退出登录', '/');

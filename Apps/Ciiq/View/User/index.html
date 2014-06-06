@@ -153,11 +153,11 @@ $(document).ready(function(){
 							
 							<p>
 								<label class="required" for="role">隶属角色:</label><br/>
-								<label class="choice" for="role0"><input type="radio" id="role0" class="" value="0" name="role" <if condition="$info.role_id eq 0">checked="checked"</if>/>无角色</label><br/>
-								<label class="choice" for="role1"><input type="radio" id="role1" class="" value="1" name="role" <if condition="$info.role_id eq 1">checked="checked"</if>/>企业管理员</label><br/>
-								<label class="choice" for="role2"><input type="radio" id="role2" class="" value="2" name="role" <if condition="$info.role_id eq 2">checked="checked"</if>/>渠道管理员</label><br/>
-								<label class="choice" for="role3"><input type="radio" id="role3" class="" value="3" name="role" <if condition="$info.role_id eq 3">checked="checked"</if>/>微店管理员</label><br/>
-								<label class="choice" for="role4"><input type="radio" id="role4" class="" value="4" name="role" <if condition="$info.role_id eq 4">checked="checked"</if>/>微站管理员</label>
+								<volist name="roles" id="item" index="key">
+								<if condition="$key gt 0">
+								<label class="choice" for="role{$key}"><input type="radio" id="role{$key}" value="{$key}" name="role" <if condition="$info.role_id eq $key">checked="checked"</if>/>{$item}</label><br/>
+								</if>
+								</volist>
 								<small>角色优先于权限组，在分配权限时，系统按照角色提取功能清单</small>
 							</p>
 							

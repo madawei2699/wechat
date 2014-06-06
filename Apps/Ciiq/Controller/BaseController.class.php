@@ -47,7 +47,7 @@ class BaseController extends Controller {
 	protected $_amap_api_url = 'http://restapi.amap.com';
 	protected $WECHATCONFIG = array();
 	protected $FFCONFIG = array();
-	protected $USER_ROLE = array('无角色', '企业管理员', '渠道管理员', '微店管理员', '微站管理员');
+	protected $USER_ROLE = array('超级管理员', '企业管理员', '渠道管理员', '微店管理员', '微站管理员');
 	protected $USER_STATUS = array('<span style="color:red;">失效</span>', '<span style="color:green;">有效</span>', '<span style="color:silver;">暂停</span>');
 	protected $USER_AGENT_TYPE = array('跨区代理', '省级代理', '地市级代理', '城区代理');
 	
@@ -140,7 +140,7 @@ class BaseController extends Controller {
 	 * @return boolean
 	 */
 	protected function checkSession() {
-		if (!session('?enterprise_id') || !session('?enterprise_expire')) return false;
+		if (!session('?enterprise_admin') || !session('?enterprise_id') || !session('?enterprise_expire')) return false;
 		$expire = session('enterprise_expire');
 		if ($this->time > (int)$expire) return false;
 		session('enterprise_expire', $this->time+C('APPLICATION_SESSION_EXPIRE'));
@@ -267,9 +267,10 @@ class BaseController extends Controller {
 		$user->last_ip = get_client_ip(0, true);
 		$user->save();
 		// success
+		session('enterprise_admin',    $row['id']);
 		session('enterprise_id',       $row['enterprise_id']);
 		session('enterprise_name',     $row['name']);
-		session('enterprise_role_id',  $row['role_id']); // 1=admin,2=agent,3=shop
+		session('enterprise_role_id',  $row['role_id']); // 0=admin,1=enterprise,2=agent,3=shop,4=site
 		session('enterprise_group_id', $row['group_id']);
 		session('enterprise_expire',   time()+C('APPLICATION_SESSION_EXPIRE'));
 		return true;
