@@ -112,8 +112,8 @@ class AgentController extends BaseController {
 				'contact_title' => $contactTitle,
 				'contact_gender' => $contactGender,
 				'create_time' => $this->date,
-				'oprator_id' => session('enterprise_id'),
-				'oprator_name' => session('enterprise_name'),
+				'oprator_id' => session('admin_id'),
+				'oprator_name' => session('admin_name'),
 			), array('where'=>'id='.$id));
 			if ($update) {
 				$this->success('更新成功！', '/agent');
@@ -137,8 +137,8 @@ class AgentController extends BaseController {
 				'contact_title' => $contactTitle,
 				'contact_gender' => $contactGender,
 				'create_time' => $this->date,
-				'oprator_id' => session('enterprise_id'),
-				'oprator_name' => session('enterprise_name'),
+				'oprator_id' => session('admin_id'),
+				'oprator_name' => session('admin_name'),
 			));
 			if ($create) {
 				$this->success('添加成功！', '/agent');

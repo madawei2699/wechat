@@ -435,6 +435,7 @@ fieldset {
 legend {
 	background:#fff;
 	color:#93BB3A;
+	font-size:14px;
 	font-weight:bold;
 	padding:0 6px 0 0;
 }

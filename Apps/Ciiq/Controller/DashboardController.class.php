@@ -28,6 +28,48 @@ class DashboardController extends BaseController {
 	}
 	
 	function settings() {
+		if (IS_POST) {
+			$type = I('get.t', 0, 'int');
+			if ($type == 0) {
+				$this->error('请提交！', '/');
+				exit;
+			};
+			$systemParams = array('agent_permission_limit', 'shop_permission_limit'); // 仅在系统设置下提交的参数可更新
+			$config = $this->getModel('Config');
+			foreach ($_POST as $key=>$item) {
+				$rs = $config->where(array('key'=>$key, 'type'=>2))->find();
+				if ($rs == null) {
+					$config->add(array(
+						'type' 			=> 2,
+						'key' 			=> $key,
+						'value' 		=> $item,
+						'enable' 		=> 1,
+						'comment' 		=> $key,
+						'admin_name' 	=> session('admin_name'),
+						'update_time' 	=> $this->date,
+					));
+				} else {
+					if ($type == 9 && in_array($key, $systemParams)) {
+						$config->save(array(
+							'key' 			=> $key,
+							'value' 		=> $item,
+							'admin_name' 	=> session('admin_name'),
+							'update_time' 	=> $this->date,
+						), array('where'=>'id='.$rs['id']));
+					} else {
+						$config->save(array(
+							'key' 			=> $key,
+							'value' 		=> $item,
+							'admin_name' 	=> session('admin_name'),
+							'update_time' 	=> $this->date,
+						), array('where'=>'id='.$rs['id']));
+					};
+				};
+			};
+			F('FFCONFIG', null);
+			redirect('/dashboard/settings');
+			return;
+		};
 		$this->display();
 	}
 	

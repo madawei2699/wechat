@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>{$WEB_EXT_CFG.PAGE_TITLE} v0.1a</title>
+<include file="Public:scripts"/>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	/* setup navigation, content boxes, etc... */
+	Administry.setup();
+	
+	/* tabs */
+	$("#tabs").tabs();
+	
+	// 固定浮动条 //////////////////////////////////////
+	(function () {
+		var el= $('#pagetitle');
+		var ec= $('#page');
+		var w = el.next().width();
+		var c = ec.offset().top;
+		el.css({'top':c, 'width':w});
+		$(window).scroll(function () {
+			var e = document.body.scrollTop || document.documentElement.scrollTop;
+			if (e <= 0) {
+				el.css({'top':c.toString()+'px'});
+			} else {
+				if (e <= c) {
+					el.css({'top':(c-e).toString()+'px'});
+				} else {
+					el.css({'top':0});
+				};
+			};
+		});
+	})();
+	$(window).trigger('scroll');
+	
+	$('#cascade_option').click(function () {
+		var cls = $('#cascade_content').css('display') == 'none' ? 'block' : 'none';
+		$('#cascade_content').css({"display":cls});
+	});
+
+});
+</script>
+</head>
+<body>
+	<!-- Header -->
+	<header id="top">
+		<div class="wrapper">
+			<!-- Title/Logo - can use text instead of image -->
+			<include file="Public:title"/>
+			<!-- Top navigation -->
+			<div id="topnav">
+				<a href="#"><img class="avatar" src="/public/demo/img/user_32.png" alt="" /></a>
+				登录为 <b>{$session_admin_name}</b>
+				<span>|</span> <a href="/dashboard/settings">设置</a>
+				<span>|</span> <a href="/index/signout">退出</a><br />
+				<small>您有 <a href="/dashboard/message?unread" class="high"><b>1</b> 新消息!</a></small>
+			</div>
+			<!-- End of Top navigation -->
+			<!-- Main navigation -->
+			<include file="Public:menu"/>
+			<!-- End of Main navigation -->
+			<!-- Aside links -->
+			<!-- aside><b>English</b> &middot; <a href="#">Spanish</a> &middot; <a href="#">German</a></aside -->
+			<!-- End of Aside links -->
+		</div>
+	</header>
+	<!-- End of Header -->
+	<!-- Page title -->
+	<div id="pagetitle" style="position:fixed;z-index:20;">
+		<div class="wrapper">
+			<h1>系统&nbsp;&nbsp;&bull;&nbsp;&nbsp;设置&nbsp;&nbsp;&bull;&nbsp;&nbsp;基本设置项目</h1>
+		</div>
+	</div>
+	<!-- End of Page title -->
+	
+	<!-- Page content -->
+	<div id="page">
+		<!-- Wrapper -->
+		<div class="wrapper" style="margin-top:52px;">
+				<!-- Left column/section -->
+				<section class="column width6 first">
+					
+					<h3>系统设置</h3>
+					<span class="subtitle">您可以在这里设置系统相关的配置、参数和默认值。</span>
+					<div id="tabs">
+						<ul>
+							<li><a class="corner-tl" href="#tabs-1">企业信息</a></li>
+							<li><a class="" href="#tabs-2">微站设置</a></li>
+							<li><a class="" href="#tabs-4">渠道设置</a></li>
+							<li><a class="" href="#tabs-3">微店设置</a></li>
+							<li><a class="" href="#tabs-5">订单设置</a></li>
+							<li><a class="" href="#tabs-6">促销设置</a></li>
+							<li><a class="" href="#tabs-7">游戏设置</a></li>
+							<li><a class="" href="#tabs-8">微信设置</a></li>
+							<li><a class="corner-tr" href="#tabs-9">系统设置</a></li>
+						</ul>
+						<div id="tabs-1">
+							<form id="settingsForm1" name="settingsForm1" method="post" action="/dashboard/settings?t=1">
+								
+								<p>
+									<label class="required" for="enterprise_cnname">企业中文名称:</label><br/>
+									<input type="text" id="enterprise_cnname" class="qtr" value="{$FFCONFIG.enterprise_cnname}" name="enterprise_cnname" /><br/>
+									<small>用于微站、微店的页标题、页头位置的显示</small>
+								</p>
+								
+								<p>
+									<label for="enterprise_enname">企业英文名称:</label><br/>
+									<input type="text" id="enterprise_enname" class="half" value="{$FFCONFIG.enterprise_enname}" name="enterprise_enname" /><br/>
+								</p>
+								
+								<p>
+									<label for="keywords">关键字词(使用半角分隔多个关键字词):</label><br/>
+									<input type="text" id="keywords" class="half" value="{$FFCONFIG.keywords}" name="keywords" /><br/>
+									<small>用于搜索引擎的收录</small>
+								</p>
+								
+								<p>
+									<label for="enterprise_website">企业PC网站网址:</label><br/>
+									<input type="text" id="enterprise_website" class="half" value="{$FFCONFIG.enterprise_website}" name="enterprise_website" /><br/>
+								</p>
+								
+								<p>
+									<label for="enterprise_service_tel">服务热线电话:</label><br/>
+									<input type="text" id="enterprise_service_tel" class="sma" value="{$FFCONFIG.enterprise_service_tel}" name="enterprise_service_tel" /><br/>
+								</p>
+								
+								<p>
+									<label for="enterprise_service_email">服务电子邮箱:</label><br/>
+									<input type="text" id="enterprise_service_email" class="qtr" value="{$FFCONFIG.enterprise_service_email}" name="enterprise_service_email" /><br/>
+								</p>
+		
+								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+		
+							</form>
+						</div>
+						<div id="tabs-2">
+							<form id="settingsForm2" name="settingsForm2" method="post" action="/dashboard/settings?t=2">
+								
+								<p>
+									<label class="required" for="site_status">开启/关闭微站:</label><br/>
+									<if condition="$info.site_status eq 1">
+									<label class="choice" for="site_status1"><input type="radio" id="site_status1" value="1" name="site_status" checked="checked" />微站开通</label><br/>
+									<label class="choice" for="site_status0"><input type="radio" id="site_status0" value="0" name="site_status" />微站关闭(将使用微信自动回复功能)</label><br/>
+									<else/>
+									<label class="choice" for="site_status1"><input type="radio" id="site_status1" value="1" name="site_status" />微站开通</label><br/>
+									<label class="choice" for="site_status0"><input type="radio" id="site_status0" value="0" name="site_status" checked="checked" />微站关闭(将使用微信自动回复功能)</label><br/>
+									</if>
+								</p>
+								
+								<p>
+									<label class="required" for="server_url">URL:</label><br/>
+									<input type="text" id="server_url" class="half" value="http://www.weidays.net/index.php/api/nbvwfp1401006243" name="server_url" /><br/>
+									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+								</p>
+		
+								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+		
+							</form>
+						</div>
+						<div id="tabs-3">
+							<form id="settingsForm3" name="settingsForm3" method="post" action="/dashboard/settings?t=3">
+								
+								<p>
+									<label class="required" for="shop_status">开启/关闭微店:</label><br/>
+									<if condition="$info.shop_status eq 1">
+									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" checked="checked" />微店开通</label><br/>
+									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" />微店关闭(将无法使用在线商城功能，所有渠道微店全部关闭)</label><br/>
+									<else/>
+									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" />微店开通</label><br/>
+									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" checked="checked" />微店关闭(将无法使用在线商城功能，所有渠道微店全部关闭)</label><br/>
+									</if>
+								</p>
+								
+								<p>
+									<label class="required" for="shop_permission_limit">微店授权上限:</label><br/>
+									<input type="text" id="shop_permission_limit" class="sma" value="{$FFCONFIG.shop_permission_limit}" name="shop_permission_limit" disabled="disabled" /><br/>
+									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+								</p>
+								
+								<p>
+									<label class="required" for="server_url">URL:</label><br/>
+									<input type="text" id="server_url" class="half" value="http://www.weidays.net/index.php/api/nbvwfp1401006243" name="server_url" /><br/>
+									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+								</p>
+		
+								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+		
+							</form>
+						</div>
+						<div id="tabs-4">
+							<form id="settingsForm4" name="settingsForm4" method="post" action="/dashboard/settings?t=4">
+								
+								<p>
+									<label class="required" for="agent_permission_limit">渠道授权上限:</label><br/>
+									<input type="text" id="agent_permission_limit" class="sma" value="{$FFCONFIG.agent_permission_limit}" name="agent_permission_limit" disabled="disabled" /><br/>
+									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+								</p>
+		
+								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+		
+							</form>
+						</div>
+						<div id="tabs-5">
+							<form id="settingsForm5" name="settingsForm5" method="post" action="/dashboard/settings?t=5">
+								
+								<p>
+									<label class="required" for="server_url">订单开放城市:</label><br/>
+									<input type="text" id="server_url" class="sma" value="100" name="server_url" /><br/>
+									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+								</p>
+		
+								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+		
+							</form>
+						</div>
+						<div id="tabs-6">
+							<form id="settingsForm6" name="settingsForm6" method="post" action="/dashboard/settings?t=6">
+								
+								<p>
+									<label class="required" for="shop_status">开启/关闭特价促销:</label><br/>
+									<if condition="$info.shop_status eq 1">
+									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" checked="checked" />开启促销开通</label><br/>
+									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" />关闭促销关闭</label><br/>
+									<else/>
+									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" />开启促销开通</label><br/>
+									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" checked="checked" />关闭促销关闭</label><br/>
+									</if>
+								</p>
+								
+								<p>
+									<label class="required" for="server_url">URL:</label><br/>
+									<input type="text" id="server_url" class="half" value="http://www.weidays.net/index.php/api/nbvwfp1401006243" name="server_url" /><br/>
+									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+								</p>
+		
+								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+		
+							</form>
+						</div>
+						<div id="tabs-7">
+							<form id="settingsForm7" name="settingsForm7" method="post" action="/dashboard/settings?t=7">
+								
+								<p>
+									<label class="required" for="shop_status">开启/关闭砸金蛋:</label><br/>
+									<if condition="$info.shop_status eq 1">
+									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" checked="checked" />开启砸金蛋</label><br/>
+									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" />关闭砸金蛋</label><br/>
+									<else/>
+									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" />开启砸金蛋</label><br/>
+									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" checked="checked" />关闭砸金蛋</label><br/>
+									</if>
+								</p>
+								
+								<p>
+									<label class="required" for="server_url">URL:</label><br/>
+									<input type="text" id="server_url" class="half" value="http://www.weidays.net/index.php/api/nbvwfp1401006243" name="server_url" /><br/>
+									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+								</p>
+		
+								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置" /> &nbsp; <input type="reset" class="btn" value="重置" /></p>
+		
+							</form>
+						</div>
+						<div id="tabs-8">
+							<div class="box box-warning">以下信息请从<a href="https://mp.weixin.qq.com" target="_blank">微信公众平台</a>获取，公众号需要开通开发模式，详见<a href="http://mp.weixin.qq.com/wiki/index.php?title=接入指南" target="_blank">微信开发文档</a>，不要随意变更。</div>
+							<form id="settingsForm8" name="settingsForm8" method="post" action="/dashboard/settings?t=8">
+								
+								<p>
+									<label class="required" for="wechat_type">公众号类型:</label><br/>
+									<if condition="$FFCONFIG.wechat_type eq 1">
+									<label class="choice" for="wechat_type1"><input type="radio" id="wechat_type1" value="1" name="wechat_type" checked="checked" />服务号</label><br/>
+									<label class="choice" for="wechat_type2"><input type="radio" id="wechat_type2" value="2" name="wechat_type" />订阅号(无法使用微信高级接口功能)</label><br/>
+									<else/>
+									<label class="choice" for="wechat_type1"><input type="radio" id="wechat_type1" value="1" name="wechat_type" />服务号</label><br/>
+									<label class="choice" for="wechat_type2"><input type="radio" id="wechat_type2" value="2" name="wechat_type" checked="checked" />订阅号(无法使用微信高级接口功能)</label><br/>
+									</if>
+								</p>
+								<p>
+									<label class="required" for="wechat_verify">公众号认证:</label><br/>
+									<if condition="$FFCONFIG.wechat_verify eq 1">
+									<label class="choice" for="wechat_verify1"><input type="radio" id="wechat_verify1" value="1" name="wechat_verify" checked="checked" />公众号已认证</label><br/>
+									<label class="choice" for="wechat_verify0"><input type="radio" id="wechat_verify0" value="0" name="wechat_verify" />公众号未认证(服务号无法使用微信高级接口功能)</label><br/>
+									<else/>
+									<label class="choice" for="wechat_verify1"><input type="radio" id="wechat_verify1" value="1" name="wechat_verify" />公众号已认证</label><br/>
+									<label class="choice" for="wechat_verify0"><input type="radio" id="wechat_verify0" value="0" name="wechat_verify" checked="checked" />公众号未认证(服务号无法使用微信高级接口功能)</label><br/>
+									</if>
+								</p>
+								
+								<p>
+									<label class="required" for="my_server_url">URL:</label><br/>
+									<input type="text" id="my_server_url" class="half" value="{$FFCONFIG.my_server_url}" name="my_server_url" /><br/>
+									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+								</p>
+								
+								<p>
+									<label class="required" for="my_server_token">Token:</label><br/>
+									<input type="text" id="my_server_token" class="qtr" value="{$FFCONFIG.my_server_token}" name="my_server_token" /><br/>
+									<small>Token是自行定义的字符串，用来向微信服务器表明身份，请勿外传</small>
+								</p>
+								
+								<p>
+									<label class="required" for="wechat_appid">AppId:</label><br/>
+									<input type="text" id="wechat_appid" class="qtr" value="{$FFCONFIG.wechat_appid}" name="wechat_appid"/><br/>
+									<small>是微信服务器颁发的公众号唯一ID，请勿外传</small>
+								</p>
+								
+								<p>
+									<label class="required" for="wechat_appsecret">AppSecret:</label><br/>
+									<input type="text" id="wechat_appsecret" class="half" value="{$FFCONFIG.wechat_appsecret}" name="wechat_appsecret"/><br/>
+									<small>微信服务器颁发的公众号密钥验证字串，请勿外传</small>
+								</p>
+								
+								<p>
+									<label class="required" for="wechat_server_url">微信服务器URL:</label><br/>
+									<input type="text" id="wechat_server_url" class="half" value="{$FFCONFIG.wechat_server_url}" name="wechat_server_url"/><br/>
+									<small>微信服务器的通信URL，请勿修改</small>
+								</p>
+								
+								<p>
+									<label class="required" for="wechat_token_life">微信令牌生命周期(秒):</label><br/>
+									<input type="text" id="wechat_token_life" class="sma" value="{$FFCONFIG.wechat_token_life}" name="wechat_token_life"/><br/>
+									<small>微信令牌的有效期，请勿修改</small>
+								</p>
+								<p></p>
+								<div class="box box-info">未申请支付接口的公众号可以忽略以下信息</div>
+								<p>
+									<label for="wechat_partnerid">PartnerID:</label><br/>
+									<input type="text" id="wechat_partnerid" class="sma" value="{$FFCONFIG.wechat_partnerid}" name="wechat_partnerid"/><br/>
+									<small>微信服务器颁发的公众号用于支付验证的财付通商户唯一ID，请勿外传</small>
+								</p>
+								
+								<p>
+									<label for="wechat_partnerkey">PartnerKey:</label><br/>
+									<input type="text" id="wechat_partnerkey" class="half" value="{$FFCONFIG.wechat_partnerkey}" name="wechat_partnerkey"/><br/>
+									<small>微信服务器颁发的公众号用于支付验证的财付通商户密钥字串，请勿外传</small>
+								</p>
+								
+								<p>
+									<label for="wechat_paysignkey">PaySignKey:</label><br/>
+									<input type="text" id="wechat_paysignkey" class="full" value="IJW7KMc4Yuyuiu4pam2vhAHu6jYVa2XN3BBoH66EteXeCEXAOimAlpiSm5yDoMKMRfTIzAGfg6V2IcqXN8gWPFMoTTcVn2Os42faUW5IR1yEEo00OXYVThydoXLrrMd9" name="wechat_paysignkey"/><br/>
+									<small>微信服务器颁发的公众号用于支付验证的财付通商户支付密钥验证字串，请勿外传</small>
+								</p>
+		
+								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+		
+							</form>
+						</div>
+						<div id="tabs-9">
+							<form id="settingsForm9" name="settingsForm9" method="post" action="/dashboard/settings?t=9">
+								<p>
+									<label class="required" for="agent_permission_limit">渠道授权上限:</label><br/>
+									<input type="text" id="agent_permission_limit" class="sma" value="{$FFCONFIG.agent_permission_limit}" name="agent_permission_limit" /><br/>
+									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+								</p>
+								<p>
+									<label class="required" for="shop_permission_limit">微店授权上限:</label><br/>
+									<input type="text" id="shop_permission_limit" class="sma" value="{$FFCONFIG.shop_permission_limit}" name="shop_permission_limit" /><br/>
+									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+								</p>
+								<p>
+									<label class="required" for="system_lists_pagesize">列表页每页显示数据条数:</label><br/>
+									<input type="text" id="system_lists_pagesize" class="sma" value="{$FFCONFIG.system_lists_pagesize}" name="system_lists_pagesize" /><br/>
+								</p>
+		
+								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
+		
+							</form>
+						</div>
+					</div> 
+					
+					<div class="clear">&nbsp;</div>
+				
+				</section>
+				<!-- End of Left column/section -->
+				
+				<!-- Right column/section -->
+				<aside class="column width2">
+					<div id="rightmenu">
+						<header>
+							<h3>账户信息</h3>
+						</header>
+						<dl class="first">
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/key.png"></dt>
+							<dd><a href="#">企业账户 (admin)</a></dd>
+							<dd class="last">30d体验版.</dd>
+							
+							<dt><img width="16" height="16" alt="" src="/public/demo/img/help.png"></dt>
+							<dd><a href="#">技术支持</a></dd>
+							<dd class="last">相关技术支持请查看 http://doc.f-fusion.com</dd>
+						</dl>
+					</div>
+				</aside>
+				<!-- End of Right column/section -->
+				
+		</div>
+		<!-- End of Wrapper -->
+	</div>
+	<!-- End of Page content -->
+	
+	<!-- Page footer -->
+	<include file="Public:footer"/>
+	<!-- End of Page footer -->
+	
+	<!-- Animated footer -->
+	<include file="Public:footer-float"/>
+	<!-- End of Animated footer -->
+	
+	<!-- Scroll to top link -->
+	<include file="Public:go"/>
+</body>
+</html>

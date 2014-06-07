@@ -62,8 +62,8 @@ class BaseController extends Controller {
 		// load my config
 		$this->FFCONFIG = F('FFCONFIG');
 		if ($this->FFCONFIG === false) {
-			$config = D('Config');
-			$cfg = $config->where(array('enable'=>0))->order('`key` ASC')->select();
+			$config = $this->getModel('Config');
+			$cfg = $config->where(array('enable'=>1))->order('`key` ASC')->select();
 			foreach ($cfg as $item) {
 				// 0=整型1=浮点2=字符串3=json字串4=序列化字串
 				switch ((int)$item['type']) {
@@ -86,6 +86,7 @@ class BaseController extends Controller {
 			};
 			F('FFCONFIG', $this->FFCONFIG);
 		};
+		$this->assign('FFCONFIG', $this->FFCONFIG['config']);
 		$this->HASH_STRING_SUFFIX = $this->FFCONFIG['config']['HASH_STRING_SUFFIX'];
 		$this->_err = array(
 			0 => array('result'=>0, 'message'=>'操作成功'),
@@ -100,11 +101,15 @@ class BaseController extends Controller {
 		);
 		$this->assign('WECHAT_EXT_CFG', C('WECHAT_EXT_CFG'));
 		$this->assign('WEB_EXT_CFG', C('WEB_EXT_CFG'));
-		if (session('?enterprise_id') && session('?enterprise_expire')) {
-			$this->assign('session_enterprise_id', session('enterprise_id'));
-			$this->assign('session_enterprise_name', session('enterprise_name'));
-			$this->assign('session_enterprise_role_id', session('enterprise_role_id'));
-			$this->assign('session_enterprise_group_id', session('enterprise_group_id'));
+		if (session('?admin_id') && session('?admin_expire')) {
+			$this->assign('session_admin_id', session('admin_id'));
+			$this->assign('session_admin_name', session('admin_name'));
+			$this->assign('session_admin_nickname', session('admin_nickname'));
+			$this->assign('session_admin_role_id', session('admin_role_id')); // 0=admin,1=enterprise,2=agent,3=shop,4=site
+			$this->assign('session_admin_group_id', session('admin_group_id'));
+			$this->assign('session_admin_enterprise_id', session('admin_enterprise_id'));
+			$this->assign('session_admin_agent_id', session('admin_agent_id'));
+			$this->assign('session_admin_shop_id', session('admin_shop_id'));
 		};
 	}
 	
@@ -140,10 +145,10 @@ class BaseController extends Controller {
 	 * @return boolean
 	 */
 	protected function checkSession() {
-		if (!session('?enterprise_admin') || !session('?enterprise_id') || !session('?enterprise_expire')) return false;
-		$expire = session('enterprise_expire');
+		if (!session('?admin_id') || !session('?admin_expire')) return false;
+		$expire = session('admin_expire');
 		if ($this->time > (int)$expire) return false;
-		session('enterprise_expire', $this->time+C('APPLICATION_SESSION_EXPIRE'));
+		session('admin_expire', $this->time+C('APPLICATION_SESSION_EXPIRE'));
 		return true;
 	}
 	
@@ -267,12 +272,15 @@ class BaseController extends Controller {
 		$user->last_ip = get_client_ip(0, true);
 		$user->save();
 		// success
-		session('enterprise_admin',    $row['id']);
-		session('enterprise_id',       $row['enterprise_id']);
-		session('enterprise_name',     $row['name']);
-		session('enterprise_role_id',  $row['role_id']); // 0=admin,1=enterprise,2=agent,3=shop,4=site
-		session('enterprise_group_id', $row['group_id']);
-		session('enterprise_expire',   time()+C('APPLICATION_SESSION_EXPIRE'));
+		session('admin_id',    			$row['id']);
+		session('admin_name',     		$row['name']);
+		session('admin_nickname',     	$row['nickname']);
+		session('admin_role_id',  		$row['role_id']); // 0=admin,1=enterprise,2=agent,3=shop,4=site
+		session('admin_group_id', 		$row['group_id']);
+		session('admin_enterprise_id', 	$row['enterprise_id']);
+		session('admin_agent_id', 		$row['agent_id']);
+		session('admin_shop_id', 		$row['shop_id']);
+		session('admin_expire',   		time()+C('APPLICATION_SESSION_EXPIRE'));
 		return true;
 	}
 };
