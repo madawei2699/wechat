@@ -162,14 +162,13 @@ $(document).ready(function(){
 							</p>
 							
 							<p>
-								<label class="required" for="enterprise">隶属企业:</label><br/>
-								<select id="enterprise" class="half" name="enterprise"></select>
-								<small>仅指定隶属企业的，表示新增企业管理员</small>
-							</p>
-							
-							<p>
 								<label for="agent">隶属渠道:</label><br/>
-								<select id="agent" class="half" name="agent"></select>
+								<select id="agent" class="half" name="agent">
+								<option value="-1">请选择...</option>
+								<volist name="agents" id="row">
+								<option value="{$row.id}">{$row.enterprise}</option>
+								</volist>
+								</select>
 								<small>指定了隶属渠道的，表示新增渠道管理员</small>
 							</p>
 							
@@ -205,7 +204,7 @@ $(document).ready(function(){
 								<label for="comment">备注:</label><br/>
 								<textarea id="comment" class="half" name="comment" rows="6">{$info.comment}</textarea>
 							</p>
-							
+							<input type="hidden" id="enterprise" value="0" name="enterprise"/>
 							<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
 							</div>
 						</fieldset>

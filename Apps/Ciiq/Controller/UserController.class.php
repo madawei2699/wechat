@@ -40,6 +40,10 @@ class UserController extends BaseController {
 		$this->assign('list', $rs);
 		$this->assign('page', $page->show());
 		$this->assign('salt', md5(time()));
+		// agent
+		$agent = $this->getModel('Agent');
+		$agents = $agent->field('id,enterprise')->order('enterprise ASC')->select();
+		$this->assign('agents', $agents);
 		$id = I('get.id', 0, 'int');
 		if ($id > 0) {
 			// 提取信息准备修改
@@ -146,9 +150,9 @@ class UserController extends BaseController {
 				'nickname' => $nickName,
 				'number' => $number,
 				'role_id' => $role,
-				'enterprise' => $enterprise,
-				'agent' => $agent,
-				'shop' => $shop,
+				'enterprise_id' => $enterprise,
+				'agent_id' => $agent,
+				'shop_id' => $shop,
 				'status' => $status,
 				'email' => $email,
 				'qq' => $qq,
@@ -191,9 +195,9 @@ class UserController extends BaseController {
 				'password' => $password,
 				'salt' => $salt,
 				'role_id' => $role,
-				'enterprise' => $enterprise,
-				'agent' => $agent,
-				'shop' => $shop,
+				'enterprise_id' => $enterprise,
+				'agent_id' => $agent,
+				'shop_id' => $shop,
 				'status' => $status,
 				'email' => $email,
 				'qq' => $qq,

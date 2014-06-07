@@ -167,6 +167,9 @@ class AgentController extends BaseController {
 		$this->assign('list', $rs);
 		$this->assign('page', $page->show());
 		$this->assign('salt', md5(time()));
+		$agent = $this->getModel('Agent');
+		$agents = $agent->field('id,enterprise')->order('enterprise ASC')->select();
+		$this->assign('agents', $agents);
 		$id = I('get.id');
 		if (preg_match("/^[0-9]+$/", $id)) {
 			// 提取信息准备修改
@@ -174,6 +177,9 @@ class AgentController extends BaseController {
 			if ($rs == null) {} else {
 				$this->assign('info', $rs);
 			};
+		} else {
+			$agentID = I('get.agent_id');
+			$this->assign('info', array('agent_id'=>$agentID));
 		};
 		$this->assign('roles', $this->USER_ROLE);
 		$this->display();

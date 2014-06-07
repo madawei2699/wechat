@@ -36,6 +36,8 @@ $(document).ready(function(){
 		var cls = $('#cascade_content').css('display') == 'none' ? 'block' : 'none';
 		$('#cascade_content').css({"display":cls});
 	});
+	
+	$('#agent').val($('#_agent').val());
 
 });
 </script>
@@ -155,18 +157,30 @@ $(document).ready(function(){
 								<label class="required" for="role">隶属角色:</label><br/>
 								<volist name="roles" id="item" index="key">
 								<if condition="$key eq 2">
-								<label class="choice" for="role{$key}"><input type="radio" id="role{$key}" value="{$key}" name="role" <if condition="$info.role_id eq $key">checked="checked"</if>/>{$item}</label><br/>
+									<label class="choice" for="role{$key}">
+									<if condition="$info.role_id eq $key">
+									<input type="radio" id="role{$key}" value="{$key}" name="role" checked="checked" />{$item}
+									<else/>
+									<input type="radio" id="role{$key}" value="{$key}" name="role" />{$item}
+									</if>
+									</label><br/>
 								</if>
 								</volist>
 								<small>角色优先于权限组，在分配权限时，系统按照角色提取功能清单</small>
 							</p>
 							
 							<p>
-								<label class="required" for="enterprise">隶属渠道:</label><br/>
-								<select id="enterprise" class="half" name="enterprise"></select>
-								<input type="hidden" id="agent" value="0" name="agent"/>
+								<label class="required" for="agent">隶属渠道:</label><br/>
+								<select id="agent" class="half" name="agent">
+								<option value="-1">请选择...</option>
+								<volist name="agents" id="row">
+									<option value="{$row.id}">{$row.enterprise}</option>
+								</volist>
+								</select>
 								<input type="hidden" id="shop" value="0" name="shop"/>
+								<input type="hidden" id="enterprise" value="0" name="enterprise"/>
 								<small>仅指定隶属企业的，表示新增企业管理员</small>
+								<input type="hidden" name="_agent" id="_agent" value="{$info.agent_id}" />
 							</p>
 							
 							<p>
