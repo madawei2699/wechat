@@ -37,6 +37,7 @@ class DashboardController extends BaseController {
 			$systemParams = array('agent_permission_limit', 'shop_permission_limit'); // 仅在系统设置下提交的参数可更新
 			$config = $this->getModel('Config');
 			foreach ($_POST as $key=>$item) {
+				if (substr($key, 0, 1) == '_') continue; // 忽略隐藏项目
 				$rs = $config->where(array('key'=>$key, 'type'=>2))->find();
 				if ($rs == null) {
 					$config->add(array(

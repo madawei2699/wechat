@@ -29,6 +29,9 @@ class ShopController extends BaseController {
 	}
 	
 	function quick() {
+		$agent = $this->getModel('Agent');
+		$agents = $agent->field('id,enterprise')->order('enterprise ASC')->select();
+		$this->assign('agents', $agents);
 		$this->display();
 	}
 	

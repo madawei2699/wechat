@@ -39,6 +39,38 @@ $(document).ready(function(){
 		var cls = $('#cascade_content').css('display') == 'none' ? 'block' : 'none';
 		$('#cascade_content').css({"display":cls});
 	});
+	
+	if ($('#_site_status').val() == '1') {
+		$('#site_status1').attr('checked', true);
+		$('#site_status0').attr('checked', false);
+	} else {
+		$('#site_status1').attr('checked', false);
+		$('#site_status0').attr('checked', true);
+	};
+	
+	if ($('#_shop_status').val() == '1') {
+		$('#shop_status1').attr('checked', true);
+		$('#shop_status0').attr('checked', false);
+	} else {
+		$('#shop_status1').attr('checked', false);
+		$('#shop_status0').attr('checked', true);
+	};
+	
+	if ($('#_promotion_status').val() == '1') {
+		$('#promotion_status1').attr('checked', true);
+		$('#promotion_status0').attr('checked', false);
+	} else {
+		$('#promotion_status1').attr('checked', false);
+		$('#promotion_status0').attr('checked', true);
+	};
+	
+	if ($('#_game_status').val() == '1') {
+		$('#game_status1').attr('checked', true);
+		$('#game_status0').attr('checked', false);
+	} else {
+		$('#game_status1').attr('checked', false);
+		$('#game_status0').attr('checked', true);
+	};
 
 });
 </script>
@@ -87,14 +119,14 @@ $(document).ready(function(){
 					<div id="tabs">
 						<ul>
 							<li><a class="corner-tl" href="#tabs-1">企业信息</a></li>
-							<li><a class="" href="#tabs-2">微站设置</a></li>
-							<li><a class="" href="#tabs-4">渠道设置</a></li>
-							<li><a class="" href="#tabs-3">微店设置</a></li>
-							<li><a class="" href="#tabs-5">订单设置</a></li>
-							<li><a class="" href="#tabs-6">促销设置</a></li>
-							<li><a class="" href="#tabs-7">游戏设置</a></li>
-							<li><a class="" href="#tabs-8">微信设置</a></li>
-							<li><a class="corner-tr" href="#tabs-9">系统设置</a></li>
+							<li><a class="" href="#tabs-2">微站</a></li>
+							<li><a class="" href="#tabs-4">渠道</a></li>
+							<li><a class="" href="#tabs-3">微店</a></li>
+							<li><a class="" href="#tabs-5">订单</a></li>
+							<li><a class="" href="#tabs-6">促销</a></li>
+							<li><a class="" href="#tabs-7">游戏</a></li>
+							<li><a class="" href="#tabs-8">微信</a></li>
+							<li><a class="corner-tr" href="#tabs-9">系统</a></li>
 						</ul>
 						<div id="tabs-1">
 							<form id="settingsForm1" name="settingsForm1" method="post" action="/dashboard/settings?t=1">
@@ -111,9 +143,23 @@ $(document).ready(function(){
 								</p>
 								
 								<p>
-									<label for="keywords">关键字词(使用半角分隔多个关键字词):</label><br/>
-									<input type="text" id="keywords" class="half" value="{$FFCONFIG.keywords}" name="keywords" /><br/>
-									<small>用于搜索引擎的收录</small>
+									<label class="required" for="enterprise_addr">详细地址:</label><br/>
+									<input type="text" id="enterprise_addr" class="half" value="{$FFCONFIG.enterprise_addr}" name="enterprise_addr"/>
+								</p>
+								
+								<p>
+									<label for="enterprise_post">邮政编码:</label><br/>
+									<input type="text" id="enterprise_post" class="sma" value="{$FFCONFIG.enterprise_post}" name="enterprise_post"/>
+								</p>
+	
+								<p>
+									<label class="required" for="enterprise_tel">电话(请填写区号):</label><br/>
+									<input type="text" id="enterprise_tel" class="qtr" value="{$FFCONFIG.enterprise_tel}" name="enterprise_tel"/>
+								</p>
+	
+								<p>
+									<label class="required" for="enterprise_fax">传真(请填写区号):</label><br/>
+									<input type="text" id="enterprise_fax" class="qtr" value="{$FFCONFIG.enterprise_fax}" name="enterprise_fax"/>
 								</p>
 								
 								<p>
@@ -122,13 +168,13 @@ $(document).ready(function(){
 								</p>
 								
 								<p>
-									<label for="enterprise_service_tel">服务热线电话:</label><br/>
-									<input type="text" id="enterprise_service_tel" class="sma" value="{$FFCONFIG.enterprise_service_tel}" name="enterprise_service_tel" /><br/>
+									<label for="enterprise_hotline">服务热线电话:</label><br/>
+									<input type="text" id="enterprise_hotline" class="sma" value="{$FFCONFIG.enterprise_hotline}" name="enterprise_hotline" /><br/>
 								</p>
 								
 								<p>
-									<label for="enterprise_service_email">服务电子邮箱:</label><br/>
-									<input type="text" id="enterprise_service_email" class="qtr" value="{$FFCONFIG.enterprise_service_email}" name="enterprise_service_email" /><br/>
+									<label for="enterprise_email">服务电子邮件:</label><br/>
+									<input type="text" id="enterprise_email" class="qtr" value="{$FFCONFIG.enterprise_email}" name="enterprise_email" /><br/>
 								</p>
 		
 								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
@@ -140,19 +186,20 @@ $(document).ready(function(){
 								
 								<p>
 									<label class="required" for="site_status">开启/关闭微站:</label><br/>
-									<if condition="$info.site_status eq 1">
 									<label class="choice" for="site_status1"><input type="radio" id="site_status1" value="1" name="site_status" checked="checked" />微站开通</label><br/>
 									<label class="choice" for="site_status0"><input type="radio" id="site_status0" value="0" name="site_status" />微站关闭(将使用微信自动回复功能)</label><br/>
-									<else/>
-									<label class="choice" for="site_status1"><input type="radio" id="site_status1" value="1" name="site_status" />微站开通</label><br/>
-									<label class="choice" for="site_status0"><input type="radio" id="site_status0" value="0" name="site_status" checked="checked" />微站关闭(将使用微信自动回复功能)</label><br/>
-									</if>
+									<input type="hidden" name="_site_status" id="_site_status" value="{$FFCONFIG.site_status}" />
 								</p>
 								
 								<p>
-									<label class="required" for="server_url">URL:</label><br/>
-									<input type="text" id="server_url" class="half" value="http://www.weidays.net/index.php/api/nbvwfp1401006243" name="server_url" /><br/>
-									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+									<label class="required" for="site_url">微站URL:</label><br/>
+									<input type="text" id="site_url" class="half" value="{$FFCONFIG.site_url}" name="site_url" /><br/>
+								</p>
+								
+								<p>
+									<label for="site_keywords">关键字词(使用半角分隔多个关键字词):</label><br/>
+									<input type="text" id="site_keywords" class="half" value="{$FFCONFIG.site_keywords}" name="site_keywords" /><br/>
+									<small>用于搜索引擎的收录</small>
 								</p>
 		
 								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
@@ -164,13 +211,9 @@ $(document).ready(function(){
 								
 								<p>
 									<label class="required" for="shop_status">开启/关闭微店:</label><br/>
-									<if condition="$info.shop_status eq 1">
-									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" checked="checked" />微店开通</label><br/>
-									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" />微店关闭(将无法使用在线商城功能，所有渠道微店全部关闭)</label><br/>
-									<else/>
-									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" />微店开通</label><br/>
-									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" checked="checked" />微店关闭(将无法使用在线商城功能，所有渠道微店全部关闭)</label><br/>
-									</if>
+									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" checked="checked" />微店全部开通(单独设置为关闭的微店不受此设置影响)</label><br/>
+									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" />微店全部关闭(将无法使用在线商城功能，所有渠道微店全部关闭)</label><br/>
+									<input type="hidden" name="_shop_status" id="_shop_status" value="{$FFCONFIG.shop_status}" />
 								</p>
 								
 								<p>
@@ -180,9 +223,8 @@ $(document).ready(function(){
 								</p>
 								
 								<p>
-									<label class="required" for="server_url">URL:</label><br/>
-									<input type="text" id="server_url" class="half" value="http://www.weidays.net/index.php/api/nbvwfp1401006243" name="server_url" /><br/>
-									<small>URL是指熔意服务器的地址，该地址用来接收微信服务器推送的数据</small>
+									<label class="required" for="shop_url_root">微店根URL:</label><br/>
+									<input type="text" id="shop_url_root" class="half" value="{$FFCONFIG.shop_url_root}" name="shop_url_root" /><br/>
 								</p>
 		
 								<p class="box"><input type="submit" class="btn btn-green big" value="保存设置"/> &nbsp; <input type="reset" class="btn" value="重置"/></p>
@@ -219,14 +261,10 @@ $(document).ready(function(){
 							<form id="settingsForm6" name="settingsForm6" method="post" action="/dashboard/settings?t=6">
 								
 								<p>
-									<label class="required" for="shop_status">开启/关闭特价促销:</label><br/>
-									<if condition="$info.shop_status eq 1">
-									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" checked="checked" />开启促销开通</label><br/>
-									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" />关闭促销关闭</label><br/>
-									<else/>
-									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" />开启促销开通</label><br/>
-									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" checked="checked" />关闭促销关闭</label><br/>
-									</if>
+									<label class="required" for="promotion_status">开启/关闭特价促销:</label><br/>
+									<label class="choice" for="promotion_status1"><input type="radio" id="promotion_status1" value="1" name="promotion_status" checked="checked" />开启促销开通</label><br/>
+									<label class="choice" for="promotion_status0"><input type="radio" id="promotion_status0" value="0" name="promotion_status" />关闭促销关闭</label><br/>
+									<input type="hidden" name="_promotion_status" id="_promotion_status" value="{$FFCONFIG.promotion_status}" />
 								</p>
 								
 								<p>
@@ -243,14 +281,10 @@ $(document).ready(function(){
 							<form id="settingsForm7" name="settingsForm7" method="post" action="/dashboard/settings?t=7">
 								
 								<p>
-									<label class="required" for="shop_status">开启/关闭砸金蛋:</label><br/>
-									<if condition="$info.shop_status eq 1">
-									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" checked="checked" />开启砸金蛋</label><br/>
-									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" />关闭砸金蛋</label><br/>
-									<else/>
-									<label class="choice" for="shop_status1"><input type="radio" id="shop_status1" value="1" name="shop_status" />开启砸金蛋</label><br/>
-									<label class="choice" for="shop_status0"><input type="radio" id="shop_status0" value="0" name="shop_status" checked="checked" />关闭砸金蛋</label><br/>
-									</if>
+									<label class="required" for="game_status">开启/关闭砸金蛋:</label><br/>
+									<label class="choice" for="game_status1"><input type="radio" id="game_status1" value="1" name="game_status" checked="checked" />开启砸金蛋</label><br/>
+									<label class="choice" for="game_status0"><input type="radio" id="game_status0" value="0" name="game_status" />关闭砸金蛋</label><br/>
+									<input type="hidden" name="_game_status" id="_game_status" value="{$FFCONFIG.game_status}" />
 								</p>
 								
 								<p>

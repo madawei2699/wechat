@@ -31,6 +31,8 @@ $(document).ready(function(){
 		});
 	})();
 	$(window).trigger('scroll');
+	
+	$('#agent').val($('#_agent').val());
 
 });
 </script>
@@ -62,7 +64,7 @@ $(document).ready(function(){
 	<!-- Page title -->
 	<div id="pagetitle" style="position:fixed;z-index:20;">
 		<div class="wrapper" >
-			<h1>微店&nbsp;&nbsp;&bull;&nbsp;&nbsp;管理全部微店</h1>
+			<h1>微店&nbsp;&nbsp;&bull;&nbsp;&nbsp;一键开店&nbsp;&nbsp;&bull;&nbsp;&nbsp;快速新增一个微店</h1>
 		</div>
 	</div>
 	<!-- End of Page title -->
@@ -74,68 +76,30 @@ $(document).ready(function(){
 				
 				<!-- Left column/section -->
 				<section class="column width6 first">
-					
-					<h4>分销/代理/直营店: <a href="#">4个</a></h4>
-					
-					<table id="report" class="stylized full">
-						<thead>
-							<tr>
-								<th>编号</th>
-								<th>渠道</th>
-								<th>类别</th>
-								<th class="ta-right">创建时间</th>
-								<th class="ta-right">操作</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="title"><a href="#"><b>A0001</b></a></td>
-								<td>LINcTEX</td>
-								<td>上海省代</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>A0002</b></a></td>
-								<td>LINcTEX</td>
-								<td>浙江省代</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>JL0001</b></a></td>
-								<td>菊赖服饰</td>
-								<td>上海代理商</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-							<tr>
-								<td class="title"><a href="#"><b>JL0002</b></a></td>
-								<td>菊赖服饰</td>
-								<td>上海直营店</td>
-								<td class="ta-right">2014-01-23 12:55</td>
-								<td class="ta-right"><a href="#">修改</a>&nbsp;|&nbsp;<a href="#">删除</a></td>
-							</tr>
-						</tbody>
-					</table>
-					
+
 					<form id="sampleform" method="post" action="#">
 
 						<fieldset>
 							<legend>分销/代理/直营店设置</legend>
 
 							<p>
-								<label class="required" for="firstname">所属渠道:</label><br/>
-								<select id="select1" class="qtr" name="select1">
-									<option value="1">LINcTEX</option>
-									<option value="2">菊赖服饰</option>
-									<option value="3">三只松鼠</option>
+								<label class="required" for="agent">隶属渠道:</label><br/>
+								<select id="agent" class="half" name="agent">
+								<option value="-1">请选择...</option>
+								<volist name="agents" id="row">
+									<option value="{$row.id}">{$row.enterprise}</option>
+								</volist>
 								</select>
+								<input type="hidden" id="shop" value="0" name="shop"/>
+								<input type="hidden" id="enterprise" value="0" name="enterprise"/>
+								<small>仅指定隶属企业的，表示新增企业管理员</small>
+								<input type="hidden" name="_agent" id="_agent" value="{$info.agent_id}" />
 							</p>
 
 							<p>
-								<label class="required" for="firstname">编号:</label><br/>
-								<input type="text" id="firstname" class="qtr" value="" name="firstname"/>
+								<label class="required" for="firstname">店铺编号(自动):</label><br/>
+								<input type="text" id="firstname" class="sma" value="" name="firstname" readonly="readonly" />
+								<small>编号自动生成，用以区别店铺</small>
 							</p>
 
 							<p>
