@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>APP定制开发 - 熔意电商 - {$WEB_EXT_CFG.STRING_SITE_TITLE}</title>
+<link rel="stylesheet" rev="stylesheet" type="text/css" media="all" href="/public/style/main.css" />
+<include file="Public:scripts"/>
+<script type="text/javascript">
+$(document).ready(function () {
+	var imgpos = $('img[rel="sliders"]:first').position();
+	$('#float-wechat').css({
+		'left': imgpos.left+885,
+		'top': imgpos.top+55
+	}).fadeIn();
+	$(window).resize(function () {
+		$('#float-wechat').css({
+			'left': imgpos.left+885,
+			'top': imgpos.top+55
+		}).fadeIn();
+	});
+});
+</script>
+</head>
+<body class="body-bg-color-gray">
+<include file="Public:expit"/>
+<div class="wrap height-12 tri-it3"></div>
+<div class="wrap height-170"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img rel="sliders" src="/public/images/it-banner3.jpg" border="0" width="1000" height="170" /></a></div>
+<div class="wrap color-bg-white">
+	<div class="wrap height-12"></div>
+	<table width="940" align="center" border="0">
+	<tr>
+		<td colspan="3">
+		<div class="cts">
+
+<p class="it-big-text">互联网时代的好处就是，没有人可以垄断一切！无论是传播平台还是销售平台，</p>
+<p class="it-big-text">在传统几个阵营越来越难玩的形势下，社会化营销、自媒体在悄然崛起，</p>
+<p class="it-big-text">App（自主开发的软件平台）具有点对点推送和主动营销的天然优势，无论是</p>
+<p class="it-big-text">制造B2B企业，还是B2C企业都能找到属于自己的客户群体，利用app建立连接，</p>
+<p class="it-big-text">实现订阅甚至交易。</p>
+<p class="it-big-text">未来的移动终端（手机、平板电脑、可穿戴设备）将成为日常生活的</p>
+<p class="it-big-text">互联网入口，app便成为满足人们订阅、购物、社交、娱乐、搜索等需求的应用程序。</p>
+
+<div style="padding:20px;border:1px solid #CCCCCC;">
+<p class="it-big-text">1、App占领手机与平板桌面，便于使用，不必分多部进入微信等社交软件。</p>
+<p class="it-big-text">2、app订阅：不只是电子画册，图片、文字、视频都针对性的广告，</p>
+<p class="it-big-text">更重要的是实时更新推送的功能开发，企业可以结合</p>
+<p class="it-big-text">各类活动，新品发布、节假日促销等发布各类图文视频。</p>
+<p class="it-big-text">3、app应用程序：超强个性化定制，结合不同行业特征，可定制开发具备</p>
+<p class="it-big-text">不同功能的app软件，与企业品牌需求无缝对接。</p>
+<p class="it-big-text">如电商，开发app订货交易平台；旅游企业开发景点导航功能；化妆品开发</p>
+<p class="it-big-text">互动养颜课程；等等，没有做不到，只有想不到！</p>
+</div>
+
+<p class="it-big-text">熔意的app有何不同？</p>
+<p class="it-big-text">一切源于市场营销的需求，一切开始于独一无二的创意！App的开发不是技术员</p>
+<p class="it-big-text">的源代码堆砌，更重要的是对市场的洞察，品牌的传播，游戏规则的设计。</p>
+
+		</div>
+		</td>
+	</tr>
+	</table>
+	<div class="clear">&nbsp;</div>
+</div>
+<include file="Public:bottom"/>
+</body>
+</html>

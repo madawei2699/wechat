@@ -412,6 +412,21 @@ body {
 	background-repeat: no-repeat;
 	background-position: 420px center;
 }
+.tri-it2 {
+	background-image: url(/public/images/tri1.jpg);
+	background-repeat: no-repeat;
+	background-position: 620px center;
+}
+.tri-it3 {
+	background-image: url(/public/images/tri1.jpg);
+	background-repeat: no-repeat;
+	background-position: 775px center;
+}
+.tri-it4 {
+	background-image: url(/public/images/tri1.jpg);
+	background-repeat: no-repeat;
+	background-position: 905px center;
+}
 #pagetitle {
 	border-bottom: 1px solid #ffffff;
 }

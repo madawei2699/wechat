@@ -21,9 +21,9 @@ return array(
 		),
 		'MENU_IT' => array(
 			array('NAME'=>'微店&移动电商分销系统', 'URL'=>'/it'),
-			array('NAME'=>'店铺策划&开发', 'URL'=>'/it'),
-			array('NAME'=>'APP定制开发', 'URL'=>'/it'),
-			array('NAME'=>'电商托管', 'URL'=>'/it'),
+			array('NAME'=>'店铺策划&开发', 'URL'=>'/shop'),
+			array('NAME'=>'APP定制开发', 'URL'=>'/app'),
+			array('NAME'=>'电商托管', 'URL'=>'/operate'),
 		),
 		'STRING_SITE_TITLE' => 'FlickerFusion 熔意',
 		'STRING_FLAG1' => array('做明白生意，创科学品牌','品牌价值创造者','品牌进化论创立者'),

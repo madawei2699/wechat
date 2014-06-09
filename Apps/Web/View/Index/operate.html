@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>电商托管 - 熔意电商 - {$WEB_EXT_CFG.STRING_SITE_TITLE}</title>
+<link rel="stylesheet" rev="stylesheet" type="text/css" media="all" href="/public/style/main.css" />
+<include file="Public:scripts"/>
+<script type="text/javascript">
+$(document).ready(function () {
+	var imgpos = $('img[rel="sliders"]:first').position();
+	$('#float-wechat').css({
+		'left': imgpos.left+885,
+		'top': imgpos.top+55
+	}).fadeIn();
+	$(window).resize(function () {
+		$('#float-wechat').css({
+			'left': imgpos.left+885,
+			'top': imgpos.top+55
+		}).fadeIn();
+	});
+});
+</script>
+</head>
+<body class="body-bg-color-gray">
+<include file="Public:expit"/>
+<div class="wrap height-12 tri-it4"></div>
+<div class="wrap height-170"><a href="{$WEB_EXT_CFG.MENU_SITE.0.URL}" title="{$WEB_EXT_CFG.STRING_SITE_TITLE}"><img rel="sliders" src="/public/images/it-banner4.jpg" border="0" width="1000" height="170" /></a></div>
+<div class="wrap color-bg-white">
+	<div class="wrap height-12"></div>
+	<table width="940" align="center" border="0">
+	<tr>
+		<td colspan="3">
+		<div class="cts">
+<p class="it-big-text">网店不是有好产品就可以好卖！店铺托管，不是客服托管！更不是靠关系上活动</p>
+<p class="it-big-text">一切都源于品牌营销的系统化运营！</p>
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" valign="top">
+		<img src="/public/images/it-1-02.png" border="0" />
+		</td>
+	</tr>
+	<tr>
+		<td align="center" valign="top">
+		<img src="/public/images/it-1-03.png" border="0" />
+		</td>
+	</tr>
+	</table>
+	<div class="clear">&nbsp;</div>
+</div>
+<include file="Public:bottom"/>
+</body>
+</html>
